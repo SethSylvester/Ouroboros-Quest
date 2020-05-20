@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovementBehavior : MonoBehaviour
+public class SlimeBehavior : MonoBehaviour
 {
     public Transform target;
     private NavMeshAgent agent;
@@ -74,6 +74,6 @@ public class EnemyMovementBehavior : MonoBehaviour
 
     public void TakeDamage(int enemyattack)
     {
-
+        health -= enemyattack;
     }
 }

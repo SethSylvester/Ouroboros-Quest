@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  health: 2
+  damage: 2
   Timer: 2
   JumpSpeed: 20
   Green: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}

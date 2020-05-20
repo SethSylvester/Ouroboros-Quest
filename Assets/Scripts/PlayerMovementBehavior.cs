@@ -189,7 +189,7 @@ public class PlayerMovementBehavior : MonoBehaviour
     private void GoRight() { _movement += new Vector3(1, 0, 0); }
 
     //Boolean to raycast to the ground and determine if the player is touching it
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, _groundDistance);
     }

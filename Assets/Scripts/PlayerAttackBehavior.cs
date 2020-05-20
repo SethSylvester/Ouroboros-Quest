@@ -47,7 +47,9 @@ public class PlayerAttackBehavior : MonoBehaviour
     {
         //Makes the hitbox a gameobject rather then a nullpointer
         _hitBox = new GameObject();
+        _hitBox.transform.SetParent(gameObject.transform);
         //Adds the attack collider script
+        _hitBox.AddComponent<BoxCollider>();
         _hitBox.AddComponent<AttackColliderBehavior>();
     }
 

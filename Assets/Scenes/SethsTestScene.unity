@@ -384,7 +384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.74, y: 13.672185, z: -1.1}
+  m_LocalPosition: {x: 0.74, y: 9.57, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 1048125010}
   - component: {fileID: 1048125015}
   - component: {fileID: 1048125016}
+  - component: {fileID: 1048125017}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -424,8 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef69c92633850d4ea2a25be1849b465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  gravityDefault: 1
 --- !u!135 &1048125011
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -531,8 +530,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990367f79b6ef8f469313ea4e233e013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  attackDelay: 1
+--- !u!114 &1048125017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048125009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a879729e706b041999110d00c9b0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1185338856
 GameObject:
   m_ObjectHideFlags: 0

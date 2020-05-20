@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerScriptBehavior : MonoBehaviour
 {
-    public int hp = 3;
+    static public int hp = 3;
+    static public float damage = 1.0f;
+    static public float attackDelay = 1.0f;
+    static public float speed = 5.0f;
+    static public float gravityDefault = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {

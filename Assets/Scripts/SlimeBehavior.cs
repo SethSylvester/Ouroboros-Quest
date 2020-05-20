@@ -11,12 +11,18 @@ public class SlimeBehavior : MonoBehaviour
     public int health;
     public int damage;
 
+    public bool testdying;
+
     public int Timer;
+    public int StopJumpAttacktime;
     public float JumpSpeed;
+
     private float _oldspeed;
     private float _timer;
-    [System.NonSerialized]public bool _isstoped;
-    Random rand;
+    private float _stopJumpAttackTime;
+
+    private bool jumpattack = false;
+
     public Material Green;
     public Material Red;
     private MeshRenderer mesh;
@@ -28,7 +34,7 @@ public class SlimeBehavior : MonoBehaviour
         mesh.material = Green;
         _oldspeed = agent.speed;
         _timer = Timer;
-        _isstoped = false;
+        _stopJumpAttackTime = StopJumpAttacktime;
     }
 
     // Update is called once per frame
@@ -37,14 +43,21 @@ public class SlimeBehavior : MonoBehaviour
         //sets the enemies destination to the target
         agent.destination = target.position;
 
-        jumpattack();
+        if (jumpattack)
+        {
+            JumpAttack();
+        }
+
+        if(testdying)
+        {
+            Die();
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         agent.isStopped = true;
-        _isstoped = true;
-        
+        jumpattack = true;
     }
 
     void OnTriggerExit(Collider other)
@@ -52,9 +65,10 @@ public class SlimeBehavior : MonoBehaviour
         agent.isStopped = false;
         _timer = Timer;
         agent.speed = _oldspeed;
+        jumpattack = false;
     }
 
-    public void jumpattack()
+    public void JumpAttack()
     {
         if (agent.isStopped == true)
         {
@@ -66,14 +80,28 @@ public class SlimeBehavior : MonoBehaviour
                 {
                     agent.speed = JumpSpeed;
                     agent.isStopped = false;
+                    _stopJumpAttackTime = StopJumpAttacktime;
                     _timer = Timer;
+                    
                 }
+            }
+        }
+        if (agent.isStopped == false)
+        {
+            _stopJumpAttackTime -= Time.deltaTime;
+            if (_stopJumpAttackTime <= 0)
+            {
+                agent.isStopped = true;
+                _stopJumpAttackTime = StopJumpAttacktime;
+                _timer = Timer;
             }
         }
     }
 
-    public void TakeDamage(int enemyattack)
+    public void Die()
     {
-        health -= enemyattack;
+        agent.isStopped = true;
+        Object.Destroy(gameObject, 3);
     }
+
 }

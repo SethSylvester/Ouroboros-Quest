@@ -561,7 +561,12 @@ PrefabInstance:
     - target: {fileID: 7479967970693603068, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: m_StoppingDistance
-      value: 0
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479967970693603068, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
@@ -571,7 +576,7 @@ PrefabInstance:
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: Timer
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603070, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}

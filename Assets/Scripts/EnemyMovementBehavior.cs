@@ -8,6 +8,9 @@ public class EnemyMovementBehavior : MonoBehaviour
     public Transform target;
     private NavMeshAgent agent;
 
+    public int health;
+    public int damage;
+
     public int Timer;
     public float JumpSpeed;
     private float _oldspeed;
@@ -31,26 +34,17 @@ public class EnemyMovementBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //sets the enemies destination to the target
         agent.destination = target.position;
 
-        if (_isstoped == true)
-        {
-            _timer -= Time.deltaTime;
-
-            if (_timer <= 0.0f)
-            {
-                agent.speed = JumpSpeed;
-                agent.isStopped = false;
-                _timer = Timer;
-            }
-        }
+        jumpattack();
     }
 
     void OnTriggerEnter(Collider other)
     {
         agent.isStopped = true;
         _isstoped = true;
-        Debug.LogWarning("Hi");
+        
     }
 
     void OnTriggerExit(Collider other)
@@ -58,5 +52,28 @@ public class EnemyMovementBehavior : MonoBehaviour
         agent.isStopped = false;
         _timer = Timer;
         agent.speed = _oldspeed;
+    }
+
+    public void jumpattack()
+    {
+        if (agent.isStopped == true)
+        {
+            _timer -= Time.deltaTime;
+
+            if (agent.isStopped == true)
+            {
+                if (_timer <= 0.0f)
+                {
+                    agent.speed = JumpSpeed;
+                    agent.isStopped = false;
+                    _timer = Timer;
+                }
+            }
+        }
+    }
+
+    public void TakeDamage(int enemyattack)
+    {
+
     }
 }

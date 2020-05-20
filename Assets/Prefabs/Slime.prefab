@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  Timer: 10
+  Timer: 2
   JumpSpeed: 20
   Green: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}
   Red: {fileID: 0}
@@ -123,10 +123,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2.5
-  m_Acceleration: 8
+  m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 1.75
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

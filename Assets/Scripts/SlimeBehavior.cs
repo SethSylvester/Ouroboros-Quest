@@ -41,7 +41,10 @@ public class SlimeBehavior : MonoBehaviour
     void Update()
     {
         //sets the enemies destination to the target
-        agent.destination = target.position;
+        if (!jumpattack)
+        {
+            agent.destination = target.position;
+        }
 
         if (jumpattack)
         {
@@ -58,14 +61,17 @@ public class SlimeBehavior : MonoBehaviour
     {
         agent.isStopped = true;
         jumpattack = true;
+        agent.autoRepath = false;
+        agent.destination = agent.destination;
     }
 
     void OnTriggerExit(Collider other)
     {
+        jumpattack = false;
         agent.isStopped = false;
         _timer = Timer;
         agent.speed = _oldspeed;
-        jumpattack = false;
+        _stopJumpAttackTime = StopJumpAttacktime;
     }
 
     public void JumpAttack()
@@ -94,6 +100,7 @@ public class SlimeBehavior : MonoBehaviour
                 agent.isStopped = true;
                 _stopJumpAttackTime = StopJumpAttacktime;
                 _timer = Timer;
+                agent.destination = target.position;
             }
         }
     }

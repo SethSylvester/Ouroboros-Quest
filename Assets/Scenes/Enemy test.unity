@@ -535,8 +535,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!143 &1894441245
 CharacterController:
@@ -769,11 +769,6 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 1.6
       objectReference: {fileID: 0}
-    - target: {fileID: 7479967970693603068, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: target
@@ -782,7 +777,7 @@ PrefabInstance:
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: Timer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
@@ -797,7 +792,7 @@ PrefabInstance:
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: StopJumpAttacktime
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603070, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}

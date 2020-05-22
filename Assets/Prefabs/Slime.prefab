@@ -110,7 +110,9 @@ MonoBehaviour:
   target: {fileID: 0}
   health: 2
   damage: 2
-  Timer: 2
+  testdying: 0
+  Timer: 0.3
+  StopJumpAttacktime: 1
   JumpSpeed: 20
   Green: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}
   Red: {fileID: 0}
@@ -128,7 +130,7 @@ NavMeshAgent:
   m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 1.6
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

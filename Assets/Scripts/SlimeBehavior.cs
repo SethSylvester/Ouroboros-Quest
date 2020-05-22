@@ -13,8 +13,8 @@ public class SlimeBehavior : MonoBehaviour
 
     public bool testdying;
 
-    public int Timer;
-    public int StopJumpAttacktime;
+    public float Timer;
+    public float StopJumpAttacktime;
     public float JumpSpeed;
 
     private float _oldspeed;

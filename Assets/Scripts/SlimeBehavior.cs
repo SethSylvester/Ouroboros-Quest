@@ -59,10 +59,13 @@ public class SlimeBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        agent.isStopped = true;
-        jumpattack = true;
-        agent.autoRepath = false;
-        agent.destination = agent.destination;
+        if(other.gameObject.CompareTag("Player"))
+        {
+            agent.isStopped = true;
+            jumpattack = true;
+            agent.autoRepath = false;
+            agent.destination = agent.destination;
+        }
     }
 
     void OnTriggerExit(Collider other)

@@ -65,6 +65,10 @@ public class SlimeBehavior : MonoBehaviour
             jumpattack = true;
             agent.autoRepath = false;
             agent.destination = agent.destination;
+
+            //Make the slimes hurt the player
+            PlayerScriptBehavior p = other.gameObject.GetComponent<PlayerScriptBehavior>();
+            p.TakeDamage(1);
         }
     }
 

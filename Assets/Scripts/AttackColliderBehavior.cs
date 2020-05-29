@@ -7,6 +7,8 @@ public class AttackColliderBehavior : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        //Give it a rigidbody so it can collide
+        gameObject.AddComponent<Rigidbody>();
         //Destroy the hitbox in the time below
         Destroy(gameObject, 0.8f);
     }
@@ -14,6 +16,10 @@ public class AttackColliderBehavior : MonoBehaviour
     //Todo: Collide with enemies once I get them
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.collider.gameObject.GetComponent<GoblinMovementBehavior>() != null ||
+        collision.collider.gameObject.GetComponent<SlimeBehavior>() != null)
+        {
+            Destroy(collision.collider.gameObject);
+        }
     }
 }

@@ -63,7 +63,7 @@ public class PlayerMovementBehavior : MonoBehaviour
         _verticalGravity = new Vector3(0, 0, 0);
 
         //If the player is falling increase gravity for a more weighty feeling
-        if (!IsGrounded() && !_jumping && _gravity <= 30) { _gravity += 0.2f; }
+        if (!IsGrounded() && !_jumping && _gravity <= 30) { _gravity += 0.1f; }
         else if (IsGrounded()) { _gravity = gravityDefault; }
 
         //Add gravity if not jumping

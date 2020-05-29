@@ -40,6 +40,7 @@ public class PlayerScriptBehavior : MonoBehaviour
         {
             //Destroys the player movement so that they can't move while dead.
             Destroy(p);
+            //Todo: Add player death animation
         }
     }
 }

@@ -3,10 +3,11 @@
 public class PlayerMovementBehavior : MonoBehaviour
 {
     //public variables
-    public float speed = 5.0f;
-    public float gravityDefault = 1.0f;
 
     //private variables
+    private float gravityDefault;
+    private float speed;
+
     private float _jumpTimer = 0.5f;
     private float _gravity;
     private float _diagonalSpeed;
@@ -24,6 +25,11 @@ public class PlayerMovementBehavior : MonoBehaviour
 
     private void Start()
     {
+        //Get the Speed
+        speed = PlayerScriptBehavior.speed;
+        //Get the gravity
+        gravityDefault = PlayerScriptBehavior.gravityDefault;
+
         //Grab the character controller
         _controller = GetComponent<CharacterController>();
 
@@ -57,7 +63,7 @@ public class PlayerMovementBehavior : MonoBehaviour
         _verticalGravity = new Vector3(0, 0, 0);
 
         //If the player is falling increase gravity for a more weighty feeling
-        if (!IsGrounded() && !_jumping && _gravity <= 30) { _gravity += 0.2f; }
+        if (!IsGrounded() && !_jumping && _gravity <= 30) { _gravity += 0.1f; }
         else if (IsGrounded()) { _gravity = gravityDefault; }
 
         //Add gravity if not jumping
@@ -189,7 +195,7 @@ public class PlayerMovementBehavior : MonoBehaviour
     private void GoRight() { _movement += new Vector3(1, 0, 0); }
 
     //Boolean to raycast to the ground and determine if the player is touching it
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, _groundDistance);
     }

@@ -25,6 +25,11 @@ public class PlayerScriptBehavior : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+
+        if (hp <= 0)
+        {
+            die();
+        }
     }
 
     public void Heal(int heal)
@@ -32,15 +37,19 @@ public class PlayerScriptBehavior : MonoBehaviour
         hp += heal;
     }
 
-    void die()
+    public void die()
     {
         PlayerMovementBehavior p = gameObject.GetComponent<PlayerMovementBehavior>();
+        PlayerAttackBehavior a = gameObject.GetComponent<PlayerAttackBehavior>();
         //If the player is grounded (So they don't die mid air and get stuck)
         if (p.IsGrounded())
         {
             //Destroys the player movement so that they can't move while dead.
             Destroy(p);
+            //Also make them unable to attack
+            Destroy(a);
             //Todo: Add player death animation
         }
     }
+
 }

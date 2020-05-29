@@ -13,15 +13,15 @@ public class SlimeBehavior : MonoBehaviour
 
     public bool testdying;
 
-    public float Timer;
-    public float StopJumpAttacktime;
-    public float JumpSpeed;
+    public float Timer; // The timer before starting jumpattack
+    public float StopJumpAttacktime; //Timer until the slime stops its attack
+    public float JumpSpeed; //sped that slime moves when it jumps
 
-    private float _oldspeed;
-    private float _timer;
-    private float _stopJumpAttackTime;
+    private float _oldspeed; // speed that was set before the slime jumps
+    private float _timer; // The number that counts down
+    private float _stopJumpAttackTime; // the stop jump attack timer that counts down
 
-    private bool jumpattack = false;
+    private bool jumpattack = false; //bool so slime knows if it needs to jump attack
 
     public Material Green;
     public Material Red;
@@ -40,17 +40,18 @@ public class SlimeBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //sets the enemies destination to the target
         if (!jumpattack)
         {
+            //sets the enemies destination to the target
             agent.destination = target.position;
         }
-
+        //This is used to tell the slime what to do when jump attack is true
         if (jumpattack)
         {
             JumpAttack();
         }
 
+        //This is used to call the die function so dying can be tested without the player killing the slime
         if(testdying)
         {
             Die();
@@ -59,6 +60,7 @@ public class SlimeBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //This checks if the trigger is the trigger on the player
         if(other.gameObject.CompareTag("Player"))
         {
             agent.isStopped = true;
@@ -68,19 +70,12 @@ public class SlimeBehavior : MonoBehaviour
 
             
         }
+        //This checks if the trigger is the trigger for the hitbox
         if(other.gameObject.CompareTag("PlayerHitbox"))
         {
             //Make the slimes hurt the player
             PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
             p.TakeDamage(1);
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-           
         }
     }
 

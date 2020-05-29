@@ -66,9 +66,21 @@ public class SlimeBehavior : MonoBehaviour
             agent.autoRepath = false;
             agent.destination = agent.destination;
 
+            
+        }
+        if(other.gameObject.CompareTag("PlayerHitbox"))
+        {
             //Make the slimes hurt the player
-            PlayerScriptBehavior p = other.gameObject.GetComponent<PlayerScriptBehavior>();
+            PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
             p.TakeDamage(1);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+           
         }
     }
 

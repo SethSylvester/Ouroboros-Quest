@@ -25,7 +25,7 @@ public class PlayerScriptBehavior : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
-
+        Debug.Log("this worked");
         if (hp <= 0)
         {
             die();

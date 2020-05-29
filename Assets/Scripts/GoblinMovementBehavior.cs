@@ -25,11 +25,13 @@ public class GoblinMovementBehavior : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = gameObject.GetComponent<NavMeshAgent>();
+        _oldspeed = agent.speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        NavMeshHit hit;
         if (Charge)
         {
             
@@ -44,14 +46,20 @@ public class GoblinMovementBehavior : MonoBehaviour
         if (!Charge)
         {
             
-            NavMeshHit hit;
+            
             if (!agent.Raycast(target.position, out hit) && agent.remainingDistance <= 20)
             {
                 agent.isStopped = true;
                 _timer = Timer;
                 Charge = true;
-                agent.autoBraking = false;
+                //agent.autoBraking = false;
             }
+        }
+        if(!agent.Raycast(target.position, out hit) && agent.remainingDistance >= 20)
+        {
+            agent.isStopped = false;
+            Charge = false;
+            agent.speed = _oldspeed;
         }
         agent.destination = target.position;
     }

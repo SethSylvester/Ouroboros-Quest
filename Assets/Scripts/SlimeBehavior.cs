@@ -9,7 +9,7 @@ public class SlimeBehavior : EnemyBehavior
 
     public int damage;
 
-    //public bool testdying;
+    public bool testdying;
 
     public float WaitTimer; // The timer before starting jumpattack
     public float StopJumpAttacktime; //Timer until the slime stops its attack
@@ -52,10 +52,10 @@ public class SlimeBehavior : EnemyBehavior
         }
 
         //This is used to call the die function so dying can be tested without the player killing the slime
-        //if(testdying)
-        //{
-        //    Die();
-        //}
+        if(testdying)
+        {
+            Die();
+        }
     }
 
     void OnTriggerEnter(Collider other)

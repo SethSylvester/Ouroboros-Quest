@@ -5,21 +5,20 @@ using UnityEngine;
 public class PlayerScriptBehavior : MonoBehaviour
 {
     static public int hp = 3;
+    static public int shards = 0;
     static public float damage = 1.0f;
     static public float attackDelay = 1.0f;
     static public float speed = 5.0f;
     static public float gravityDefault = 1.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    static public Weapon weapon = Weapon.scythe;
 
-    // Update is called once per frame
-    void Update()
+    public enum Weapon
     {
-        
+        sword,
+        scythe,
+        axe,
+        bow
     }
 
     public void TakeDamage(int damage)
@@ -27,15 +26,11 @@ public class PlayerScriptBehavior : MonoBehaviour
         hp -= damage;
 
         if (hp <= 0)
-        {
-            die();
-        }
+        { die(); }
     }
 
     public void Heal(int heal)
-    {
-        hp += heal;
-    }
+    { hp += heal; }
 
     public void die()
     {
@@ -51,5 +46,4 @@ public class PlayerScriptBehavior : MonoBehaviour
             //Todo: Add player death animation
         }
     }
-
 }

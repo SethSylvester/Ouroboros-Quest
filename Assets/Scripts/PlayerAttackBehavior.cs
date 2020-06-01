@@ -10,17 +10,26 @@ public class PlayerAttackBehavior : MonoBehaviour
     private float damage;
     private float attackDelay;
 
+    private float hitboxSpawnTimeDefault = 0.5f;
+    private float hitboxSpawnTime;
+
     private float _attackDelayTimer;
     private bool _canAttack = true;
 
-    private GameObject _hitBox;
+    private bool weaponOut = false;
 
-    private Vector3 _attackPosition;
-
+    [SerializeField]
+    GameObject sword;
+    [SerializeField]
+    GameObject scythe;
+    [SerializeField]
+    GameObject axe;
 
     // Start is called before the first frame update
     void Start()
     {
+        hitboxSpawnTime = hitboxSpawnTimeDefault;
+
         damage = PlayerScriptBehavior.damage;
         attackDelay = PlayerScriptBehavior.attackDelay;
 
@@ -34,28 +43,54 @@ public class PlayerAttackBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && _canAttack) { Attack(); }
         //Make sure the player can attack
         CheckAttack();
+        WeaponTimer();
     }
 
     void Attack()
     {
-        //Creates the hitbox
-        CreateHitBox();
-        //Set the vector 3 to the gameobject position + the forward.
-        _attackPosition = (gameObject.transform.position) + gameObject.transform.forward;
-        //Spawn a hitbox at the Vector3
-        _hitBox.transform.position = _attackPosition;
-        //Set canAttack to false to start the timer
+        if (PlayerScriptBehavior.weapon != PlayerScriptBehavior.Weapon.bow)
+        {
+            //Switch statement depending on which weapon
+            switch (PlayerScriptBehavior.weapon)
+            {
+                case PlayerScriptBehavior.Weapon.sword:
+                    sword.SetActive(true);
+                    break;
+                case PlayerScriptBehavior.Weapon.scythe:
+                    scythe.SetActive(true);
+                    break;
+                case PlayerScriptBehavior.Weapon.axe:
+                    axe.SetActive(true);
+                    break;
+            }
+            weaponOut = true;
+        }
         _canAttack = false;
     }
 
-    void CreateHitBox()
+    void WeaponTimer()
     {
-        //Makes the hitbox a gameobject rather then a nullpointer
-        _hitBox = new GameObject();
-        _hitBox.transform.SetParent(gameObject.transform);
-        //Adds the attack collider script
-        _hitBox.AddComponent<BoxCollider>();
-        _hitBox.AddComponent<AttackColliderBehavior>();
+        //If the player is swinging the hitbox tick down the timer
+        if (weaponOut)
+        { hitboxSpawnTime -= Time.deltaTime; }
+
+        //When the hitbox timer is 0
+        if (hitboxSpawnTime <= 0)
+        {
+            //Sword
+            if (sword.activeSelf)
+            { sword.SetActive(false); }
+            //Scythe
+            else if (scythe.activeSelf)
+            { scythe.SetActive(false); }
+            //Axe
+            else if (axe.activeSelf)
+            { axe.SetActive(false); }
+
+            //Stop & reset the timer
+            weaponOut = false;
+            hitboxSpawnTime = hitboxSpawnTimeDefault;
+        }
     }
 
     void CheckAttack()

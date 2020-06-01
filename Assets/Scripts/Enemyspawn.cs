@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SlimeSpawn : MonoBehaviour
+public class Enemyspawn : MonoBehaviour
 {
     public GameObject SpawnedEnemy;
     public Transform target;
@@ -20,7 +20,7 @@ public class SlimeSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnamountlimit >= spawnedamount)
+        if (spawnamountlimit > spawnedamount)
         {
 
 

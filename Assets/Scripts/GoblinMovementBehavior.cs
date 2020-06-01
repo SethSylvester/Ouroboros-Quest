@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GoblinMovementBehavior : MonoBehaviour
+public class GoblinMovementBehavior : EnemyBehavior
 {
     private Transform target;
-    private NavMeshAgent agent;
     private float _oldspeed;
     private float _timer;
     private float _stopJumpAttackTime;

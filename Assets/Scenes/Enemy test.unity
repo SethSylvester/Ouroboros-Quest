@@ -415,7 +415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &685010999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -497,6 +497,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7772341181558469392, guid: 2b8e8b70a79a7a04fbc5ebdfd4ffe029,
+        type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8702884863917147573, guid: 2b8e8b70a79a7a04fbc5ebdfd4ffe029,
         type: 3}
       propertyPath: m_Name
@@ -669,7 +674,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084673086
 GameObject:
@@ -777,6 +782,7 @@ GameObject:
   - component: {fileID: 2127579759}
   - component: {fileID: 2127579763}
   - component: {fileID: 2127579764}
+  - component: {fileID: 2127579765}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -893,10 +899,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d610c2737b8bedc4e8160908345a341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
   Timer: 4
   ChargeSpeed: 8
   Charge: 0
   Damage: 0
+--- !u!114 &2127579765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127579758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e8a203e16c86142a2407b4a51f33f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
 --- !u!1001 &5049698692657093664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -908,6 +928,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049698691646439528, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
@@ -947,7 +972,7 @@ PrefabInstance:
     - target: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
@@ -978,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: spawnamountlimit
-      value: 10000
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6361d02286540e4dba52f881d743cc8, type: 3}

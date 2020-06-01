@@ -5,6 +5,7 @@ public class PlayerMovementBehavior : MonoBehaviour
     //public variables
     public float speed = 5.0f;
     public float gravityDefault = 1.0f;
+    public int testItemGain = 0;
 
     //private variables
     private float _jumpTimer = 0.5f;
@@ -215,4 +216,14 @@ public class PlayerMovementBehavior : MonoBehaviour
         //Set forward to the direction
         transform.forward = direction;
     }
- }
+
+    //Pick Up Item Function
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<TestPickUp>())
+        {
+            testItemGain++;
+            Destroy(other.gameObject);
+        }
+    }
+}

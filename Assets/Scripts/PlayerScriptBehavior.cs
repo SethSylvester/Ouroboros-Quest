@@ -45,9 +45,9 @@ public class PlayerScriptBehavior : MonoBehaviour
         if (p.IsGrounded())
         {
             //Destroys the player movement so that they can't move while dead.
-            Destroy(p);
+            p.enabled = false;
             //Also make them unable to attack
-            Destroy(a);
+            a.enabled = false;
             //Todo: Add player death animation
         }
     }

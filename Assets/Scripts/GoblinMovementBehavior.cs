@@ -10,12 +10,16 @@ public class GoblinMovementBehavior : EnemyBehavior
     private float _timer;
     private float _stopJumpAttackTime;
     private bool stop;
+    private float _restTimer;
+    private float _chargeTimer;
 
     public float Timer;
     public float ChargeSpeed;
     public bool Charge;
     public int Damage;
-
+    public float RestTimer;
+    public float ChargeTimer;
+    
 
 
     // Charges the player if there is line of sight.
@@ -29,6 +33,8 @@ public class GoblinMovementBehavior : EnemyBehavior
         agent = gameObject.GetComponent<NavMeshAgent>();
         _oldspeed = agent.speed;
         stop = false;
+        _restTimer = 0.0f;
+        _chargeTimer = 0.0f;
     }
 
     // Update is called once per frame
@@ -36,7 +42,15 @@ public class GoblinMovementBehavior : EnemyBehavior
     {
         if (!Charge)
         {
-            agent.destination = target.position;
+            
+            if(_restTimer <= 0)
+                {
+                agent.destination = target.position;
+            }
+            else
+            {
+                _restTimer -= Time.deltaTime;
+            }
         }
         if (Charge)
         {
@@ -45,11 +59,22 @@ public class GoblinMovementBehavior : EnemyBehavior
             if (!NavMesh.SamplePosition(sourcePosition, out point, 1, NavMesh.AllAreas))
             {
                 stop = true;
-                Charge = false;
+            }
+            _chargeTimer -= Time.deltaTime;
+            if (_chargeTimer <= 0)
+            {
+                stop = true;
             }
             if (!stop)
             {
                 agent.destination = transform.position + transform.forward;
+            }
+            if (stop)
+            {
+                agent.speed = _oldspeed;
+                _restTimer = RestTimer;
+                _chargeTimer = ChargeTimer;
+                Charge = false;
             }
         }
     }
@@ -65,11 +90,9 @@ public class GoblinMovementBehavior : EnemyBehavior
             {
                 Charge = true;
                 stop = false;
+                agent.speed = ChargeSpeed;
+                _chargeTimer = ChargeTimer;
             }
-        }
-        if (other.CompareTag("Wall"))
-        {
-
         }
     }
 }

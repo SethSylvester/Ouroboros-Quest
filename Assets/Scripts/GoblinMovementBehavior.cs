@@ -64,6 +64,7 @@ public class GoblinMovementBehavior : EnemyBehavior
             if (!agent.Raycast(target.position, out hit))
             {
                 Charge = true;
+                stop = false;
             }
         }
         if (other.CompareTag("Wall"))

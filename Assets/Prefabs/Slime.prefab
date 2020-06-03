@@ -112,6 +112,7 @@ MonoBehaviour:
   Health: 0
   target: {fileID: 0}
   damage: 2
+  testdying: 0
   WaitTimer: 0.7
   StopJumpAttacktime: 0.4
   JumpSpeed: 20
@@ -138,7 +139,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!54 &2782960343568054351
 Rigidbody:
   m_ObjectHideFlags: 0

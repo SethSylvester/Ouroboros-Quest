@@ -9,11 +9,14 @@ public class GoblinMovementBehavior : EnemyBehavior
     private float _oldspeed;
     private float _timer;
     private float _stopJumpAttackTime;
+    private bool stop;
 
     public float Timer;
     public float ChargeSpeed;
     public bool Charge;
     public int Damage;
+
+
 
     // Charges the player if there is line of sight.
     // has short cooldown after charging.
@@ -25,46 +28,47 @@ public class GoblinMovementBehavior : EnemyBehavior
         target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = gameObject.GetComponent<NavMeshAgent>();
         _oldspeed = agent.speed;
+        stop = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        NavMeshHit hit;
-        if (Charge)
-        {
-            
-            _timer -= Time.deltaTime;
-            if(_timer >= 0)
-            {
-                agent.isStopped = false;
-                _timer = 0;
-                ChargeAttack();
-            }
-        }
         if (!Charge)
         {
-            
-            
-            if (!agent.Raycast(target.position, out hit) && agent.remainingDistance <= 20)
+            agent.destination = target.position;
+        }
+        if (Charge)
+        {
+            NavMeshHit point;
+            Vector3 sourcePosition = transform.position + transform.forward;
+            if (!NavMesh.SamplePosition(sourcePosition, out point, 1, NavMesh.AllAreas))
             {
-                agent.isStopped = true;
-                _timer = Timer;
-                Charge = true;
-                //agent.autoBraking = false;
+                stop = true;
+                Charge = false;
+            }
+            if (!stop)
+            {
+                agent.destination = transform.position + transform.forward;
             }
         }
-        if(!agent.Raycast(target.position, out hit) && agent.remainingDistance >= 20)
-        {
-            agent.isStopped = false;
-            Charge = false;
-            agent.speed = _oldspeed;
-        }
-        agent.destination = target.position;
     }
 
-    void ChargeAttack()
+
+    private void OnTriggerEnter(Collider other)
     {
-        agent.speed = ChargeSpeed;
+        if (other.CompareTag("Player"))
+        {
+            NavMeshHit hit;
+
+            if (!agent.Raycast(target.position, out hit))
+            {
+                Charge = true;
+            }
+        }
+        if (other.CompareTag("Wall"))
+        {
+
+        }
     }
 }

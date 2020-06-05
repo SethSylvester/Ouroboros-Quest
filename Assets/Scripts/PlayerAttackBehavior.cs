@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerAttackBehavior : MonoBehaviour
 {
     //public variables
-    public float damage = 1.0f;
-    public float attackDelay = 1.0f;
 
     //private variables
+    private float damage;
+    private float attackDelay;
+
     private float _attackDelayTimer;
     private bool _canAttack = true;
 
@@ -16,9 +17,13 @@ public class PlayerAttackBehavior : MonoBehaviour
 
     private Vector3 _attackPosition;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        damage = PlayerScriptBehavior.damage;
+        attackDelay = PlayerScriptBehavior.attackDelay;
+
         _attackDelayTimer = attackDelay;
     }
 
@@ -47,7 +52,9 @@ public class PlayerAttackBehavior : MonoBehaviour
     {
         //Makes the hitbox a gameobject rather then a nullpointer
         _hitBox = new GameObject();
+        _hitBox.transform.SetParent(gameObject.transform);
         //Adds the attack collider script
+        _hitBox.AddComponent<BoxCollider>();
         _hitBox.AddComponent<AttackColliderBehavior>();
     }
 

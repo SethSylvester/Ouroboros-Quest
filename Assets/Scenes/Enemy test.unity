@@ -524,7 +524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &687855396
 PrefabInstance:
@@ -1060,7 +1060,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084673086
 GameObject:
@@ -1204,7 +1204,7 @@ PrefabInstance:
     - target: {fileID: 3574575745715432545, guid: c139917544ae09f47b9bbe163975988e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3574575745715432545, guid: c139917544ae09f47b9bbe163975988e,
         type: 3}
@@ -1229,7 +1229,7 @@ PrefabInstance:
     - target: {fileID: 3574575745715432573, guid: c139917544ae09f47b9bbe163975988e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c139917544ae09f47b9bbe163975988e, type: 3}
@@ -1408,7 +1408,7 @@ PrefabInstance:
     - target: {fileID: 7914565294549136570, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7914565294549136570, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
@@ -1433,12 +1433,22 @@ PrefabInstance:
     - target: {fileID: 7914565294549136574, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8108765228347135134, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: Health
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108765228347135134, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: JumpBackTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108765228347135134, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: JumpBackSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a43231be87d7c1041a75ef3720438cea, type: 3}

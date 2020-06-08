@@ -45,12 +45,10 @@ public class SalamanderMovement : EnemyBehavior
 
     public void JumpBack()
     {
-
-    if(hasTarget)
+        if (!hasTarget)
         {
-            
+            Vector3 JumpBack = transform.position + -transform.forward;
         }
-       
     }
 
     public override void Die()

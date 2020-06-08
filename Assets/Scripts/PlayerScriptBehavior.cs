@@ -6,19 +6,19 @@ public class PlayerScriptBehavior : MonoBehaviour
 {
     static public int hp = 3;
     static public int shards = 0;
-    static public float damage = 1.0f;
+    static public int damage = 1;
     static public float attackDelay = 1.0f;
     static public float speed = 5.0f;
     static public float gravityDefault = 1.0f;
 
-    static public Weapon weapon = Weapon.scythe;
+    static public Weapon weapon = Weapon.Scythe;
 
     public enum Weapon
     {
-        sword,
-        scythe,
-        axe,
-        bow
+        Sword,
+        Scythe,
+        Axe,
+        Bow
     }
 
     public void TakeDamage(int damage)

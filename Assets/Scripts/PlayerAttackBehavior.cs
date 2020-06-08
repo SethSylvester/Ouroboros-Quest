@@ -48,18 +48,18 @@ public class PlayerAttackBehavior : MonoBehaviour
 
     void Attack()
     {
-        if (PlayerScriptBehavior.weapon != PlayerScriptBehavior.Weapon.bow)
+        if (PlayerScriptBehavior.weapon != PlayerScriptBehavior.Weapon.Bow)
         {
             //Switch statement depending on which weapon
             switch (PlayerScriptBehavior.weapon)
             {
-                case PlayerScriptBehavior.Weapon.sword:
+                case PlayerScriptBehavior.Weapon.Sword:
                     sword.SetActive(true);
                     break;
-                case PlayerScriptBehavior.Weapon.scythe:
+                case PlayerScriptBehavior.Weapon.Scythe:
                     scythe.SetActive(true);
                     break;
-                case PlayerScriptBehavior.Weapon.axe:
+                case PlayerScriptBehavior.Weapon.Axe:
                     axe.SetActive(true);
                     break;
             }

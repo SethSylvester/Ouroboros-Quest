@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7479967970693603069}
   - component: {fileID: 7479967970693603068}
   - component: {fileID: 2782960343568054351}
-  - component: {fileID: -7630567845131208084}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -109,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bff4193f09785f4dba200fd0e34188b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 2
   target: {fileID: 0}
   damage: 2
   testdying: 0
@@ -156,16 +155,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-7630567845131208084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7479967970693603066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e8a203e16c86142a2407b4a51f33f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 1

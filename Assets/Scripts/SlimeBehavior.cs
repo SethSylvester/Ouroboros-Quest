@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SlimeBehavior : MonoBehaviour
+public class SlimeBehavior : EnemyBehavior
 {
     public Transform target;
-    private NavMeshAgent agent;
 
-    public int health;
     public int damage;
 
     public bool testdying;
 
-    public float Timer;
-    public float StopJumpAttacktime;
-    public float JumpSpeed;
+    public float WaitTimer; // The timer before starting jumpattack
+    public float StopJumpAttacktime; //Timer until the slime stops its attack
+    public float JumpSpeed; //sped that slime moves when it jumps
 
-    private float _oldspeed;
-    private float _timer;
-    private float _stopJumpAttackTime;
+    private float _oldspeed; // speed that was set before the slime jumps
+    private float _timer; // The number that counts down
+    private float _stopJumpAttackTime; // the stop jump attack timer that counts down
 
-    private bool jumpattack = false;
+    private bool HasJumpattackTarget;
+
+    private bool jumpattack = false; //bool so slime knows if it needs to jump attack
 
     public Material Green;
     public Material Red;
@@ -33,45 +33,63 @@ public class SlimeBehavior : MonoBehaviour
         mesh = gameObject.GetComponent<MeshRenderer>();
         mesh.material = Green;
         _oldspeed = agent.speed;
-        _timer = Timer;
+        _timer = WaitTimer;
         _stopJumpAttackTime = StopJumpAttacktime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //sets the enemies destination to the target
         if (!jumpattack)
         {
+            //sets the enemies destination to the target
             agent.destination = target.position;
         }
-
+        //This is used to tell the slime what to do when jump attack is true
         if (jumpattack)
         {
             JumpAttack();
         }
 
-        if(testdying)
+        //This is used to call the die function so dying can be tested without the player killing the slime
+        if (testdying)
         {
             Die();
         }
+        CheckIfDead();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        agent.isStopped = true;
-        jumpattack = true;
-        agent.autoRepath = false;
-        agent.destination = agent.destination;
+        //This checks if the trigger is the trigger on the player
+        if(other.gameObject.CompareTag("Player"))
+        {
+            agent.isStopped = true;
+            jumpattack = true;
+            agent.autoRepath = false;
+            agent.destination = agent.destination;
+
+            
+        }
+        //This checks if the trigger is the trigger for the hitbox
+        if(other.gameObject.CompareTag("PlayerHitbox"))
+        {
+            //Make the slimes hurt the player
+            PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
+            p.TakeDamage(1);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        jumpattack = false;
-        agent.isStopped = false;
-        _timer = Timer;
-        agent.speed = _oldspeed;
-        _stopJumpAttackTime = StopJumpAttacktime;
+        if (other.CompareTag("Player"))
+        {
+            jumpattack = false;
+            agent.isStopped = false;
+            _timer = WaitTimer;
+            agent.speed = _oldspeed;
+            _stopJumpAttackTime = StopJumpAttacktime;
+        }
     }
 
     public void JumpAttack()
@@ -84,12 +102,17 @@ public class SlimeBehavior : MonoBehaviour
             {
                 if (_timer <= 0.0f)
                 {
+                    if (!HasJumpattackTarget)
+                    {
+                        agent.destination = target.position;
+                        HasJumpattackTarget = true;
+                    }
                     agent.speed = JumpSpeed;
                     agent.isStopped = false;
                     _stopJumpAttackTime = StopJumpAttacktime;
-                    _timer = Timer;
-                    
+                    _timer = WaitTimer;
                 }
+                
             }
         }
         if (agent.isStopped == false)
@@ -97,18 +120,26 @@ public class SlimeBehavior : MonoBehaviour
             _stopJumpAttackTime -= Time.deltaTime;
             if (_stopJumpAttackTime <= 0)
             {
+                HasJumpattackTarget = false;
                 agent.isStopped = true;
                 _stopJumpAttackTime = StopJumpAttacktime;
-                _timer = Timer;
+                _timer = WaitTimer;
                 agent.destination = target.position;
             }
         }
     }
 
-    public void Die()
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+    }
+
+    public override void Die()
     {
         agent.isStopped = true;
         Object.Destroy(gameObject, 3);
     }
+
+
 
 }

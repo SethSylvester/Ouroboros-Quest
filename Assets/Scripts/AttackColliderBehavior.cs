@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class AttackColliderBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void Start()
+    //Todo: Collide with enemies once I get them
+    private void OnTriggerEnter(Collider other)
     {
-        //Destroy the hitbox in the time below
-        Destroy(gameObject, 0.8f);
+        if (other.gameObject.GetComponent<EnemyBehavior>() != null)
+        {
+            other.GetComponent<EnemyBehavior>().TakeDamage(PlayerScriptBehavior.damage);
+        }
+
     }
 
-    //Todo: Collide with enemies once I get them
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        
+        ////Set the vector 3 to the gameobject position + the forward.
+        //Vector3 pos = GetComponentInParent<GameObject>().transform.position + GetComponentInParent<GameObject>().transform.forward;
+        //transform.position = pos;
     }
 }

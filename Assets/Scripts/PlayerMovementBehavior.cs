@@ -8,9 +8,6 @@ public class PlayerMovementBehavior : MonoBehaviour
     public int testItemGain = 0;
 
     //private variables
-    private float gravityDefault;
-    private float speed;
-
     private float _jumpTimer = 0.5f;
     private float _gravity;
     private float _diagonalSpeed;

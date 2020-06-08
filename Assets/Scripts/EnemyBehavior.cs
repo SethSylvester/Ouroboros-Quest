@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField]
-    private int Health;
+    protected int Health;
 
     protected NavMeshAgent agent;
 
@@ -18,15 +18,20 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Health <= 0)
-        {
-            Die();
-        }
+        CheckIfDead();
     }
 
     public virtual void  TakeDamage(int damage)
     {
         Health -= damage;
+    }
+
+    protected virtual void CheckIfDead()
+    {
+        if (Health <= 0)
+        {
+            Die();
+        }
     }
 
     public virtual void Die()

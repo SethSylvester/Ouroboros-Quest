@@ -52,10 +52,11 @@ public class SlimeBehavior : EnemyBehavior
         }
 
         //This is used to call the die function so dying can be tested without the player killing the slime
-        if(testdying)
+        if (testdying)
         {
             Die();
         }
+        CheckIfDead();
     }
 
     void OnTriggerEnter(Collider other)

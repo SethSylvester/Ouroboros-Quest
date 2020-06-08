@@ -2,6 +2,11 @@
 
 public class PlayerMovementBehavior : MonoBehaviour
 {
+    //public variables
+    public float speed = 5.0f;
+    public float gravityDefault = 1.0f;
+    public int testItemGain = 0;
+
     //private variables
     private float gravityDefault;
     private float speed;
@@ -227,5 +232,15 @@ public class PlayerMovementBehavior : MonoBehaviour
         //Right
         else if (Input.GetKey(KeyCode.D))
             GoRight();
+    }
+
+    //Pick Up Item Function
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<TestPickUp>())
+        {
+            testItemGain++;
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy attack
+  - PlayerHitbox
+  - Wall
   layers:
   - Default
   - TransparentFX

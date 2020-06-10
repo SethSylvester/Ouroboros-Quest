@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerScriptBehavior : MonoBehaviour
 {
     static public int hp = 3;
-    static public int shards = 0;
+    static public int shards = 100;
     static public int damage = 1;
     static public float attackDelay = 1.0f;
     static public float speed = 5.0f;
     static public float gravityDefault = 1.0f;
 
-    static public Weapon weapon = Weapon.Scythe;
+    static public Weapon weapon = Weapon.Bow;
 
     public enum Weapon
     {

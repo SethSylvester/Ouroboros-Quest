@@ -18,12 +18,13 @@ public class GoblinWeaponBehavior : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
+        if (Goblin.Charge)
+        {
             if (other.CompareTag("Player"))
             {
                 PlayerScriptBehavior p = other.GetComponent<PlayerScriptBehavior>();
                 p.TakeDamage(Goblin.Damage);
             }
-        
+        }
     }
 }

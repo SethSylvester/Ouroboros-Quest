@@ -13,6 +13,7 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        agent = gameObject.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public virtual void Die()
     {
-        agent.isStopped = true;
-        Object.Destroy(gameObject, 3);
+        //agent.isStopped = true;
+        //Object.Destroy(gameObject, 3);
     }
 }

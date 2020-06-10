@@ -82,7 +82,7 @@ public class SlimeBehavior : EnemyBehavior
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) //This is used to make sure that this is activating with the right trigger
         {
             jumpattack = false;
             agent.isStopped = false;

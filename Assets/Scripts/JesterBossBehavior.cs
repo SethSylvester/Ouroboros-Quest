@@ -68,4 +68,16 @@ public class JesterBossBehavior : EnemyBehavior
         return Physics.Raycast(transform.position, -Vector3.up, _groundDistance);
     }
 
+    private void SpreadShot()
+    {
+
+    }
+
+}
+public enum Attack
+{
+    None,
+    Spreadshot,
+    KnifeFork,
+    KnifeShower
 }

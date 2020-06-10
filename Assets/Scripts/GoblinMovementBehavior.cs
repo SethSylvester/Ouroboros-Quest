@@ -16,6 +16,7 @@ public class GoblinMovementBehavior : EnemyBehavior
     public float Timer;
     public float ChargeSpeed;
     public bool Charge;
+    public bool TestDying;
     public int Damage;
     public float RestTimer;
     public float ChargeTimer;
@@ -40,6 +41,10 @@ public class GoblinMovementBehavior : EnemyBehavior
     // Update is called once per frame
     void Update()
     {
+        if (TestDying)
+        {
+            Die();
+        }
         if (!Charge)
         {
             
@@ -77,6 +82,7 @@ public class GoblinMovementBehavior : EnemyBehavior
                 Charge = false;
             }
         }
+        CheckIfDead();
     }
 
 

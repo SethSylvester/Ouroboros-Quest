@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     private float _diagonalSpeed;
 
     //Movement Vectors
@@ -21,6 +21,9 @@ public class ProjectileBehavior : MonoBehaviour
 
         //Calculate the Diagonal speed
         _diagonalSpeed = Mathf.Sqrt((speed * speed) + (speed * speed)) / 2;
+
+        //Destroy projectiles after 5 seconds to save CPU usage.
+        Destroy(gameObject, 5);
     }
 
     // Update is called once per frame

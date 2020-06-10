@@ -18,7 +18,6 @@ public class ProjectileSpawnBehavior : MonoBehaviour
     void Start()
     {
         _spawnTimer = SpawnTimer;
-        //_currentSpawnPoint = SpawnPoint[0];
     }
 
     // Update is called once per frame
@@ -30,7 +29,6 @@ public class ProjectileSpawnBehavior : MonoBehaviour
             GameObject Spawned = Instantiate(SpawnedEnemy, transform.position, transform.rotation);
             spawnedamount += 1;
             _spawnTimer = SpawnTimer;
-            //_currentSpawnPoint = SpawnPoint[Random.Range(0, SpawnPoint.Count)];
         }
     }
 }

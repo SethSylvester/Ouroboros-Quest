@@ -223,6 +223,7 @@ MonoBehaviour:
   sword: {fileID: 2840036769758486610}
   scythe: {fileID: 7639336873385374812}
   axe: {fileID: 7464771377424485797}
+  arrow: {fileID: 4733063997773502064, guid: dd957d4319a9d6744910f4c520a5fe83, type: 3}
 --- !u!114 &6894744714144324010
 MonoBehaviour:
   m_ObjectHideFlags: 0

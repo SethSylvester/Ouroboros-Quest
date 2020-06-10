@@ -2,8 +2,6 @@
 
 public class PlayerAttackBehavior : MonoBehaviour
 {
-    //public variables
-
     //private variables
     private float damage;
     private float attackDelay;
@@ -22,9 +20,11 @@ public class PlayerAttackBehavior : MonoBehaviour
     GameObject scythe;
     [SerializeField]
     GameObject axe;
+    [SerializeField]
+    GameObject arrow;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         hitboxSpawnTime = hitboxSpawnTimeDefault;
 
@@ -35,7 +35,7 @@ public class PlayerAttackBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //If there is a left mouse click and the player is allowed to attack
         if (Input.GetMouseButtonDown(0) && _canAttack) { Attack(); }
@@ -44,10 +44,8 @@ public class PlayerAttackBehavior : MonoBehaviour
         WeaponTimer();
     }
 
-    void Attack()
+    private void Attack()
     {
-        if (PlayerScriptBehavior.weapon != PlayerScriptBehavior.Weapon.Bow)
-        {
             //Switch statement depending on which weapon
             switch (PlayerScriptBehavior.weapon)
             {
@@ -60,13 +58,16 @@ public class PlayerAttackBehavior : MonoBehaviour
                 case PlayerScriptBehavior.Weapon.Axe:
                     axe.SetActive(true);
                     break;
+                case PlayerScriptBehavior.Weapon.Bow:
+                Vector3 arrowSpawnPoint = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+                Instantiate(arrow, arrowSpawnPoint, transform.rotation);
+                break;
             }
             weaponOut = true;
-        }
         _canAttack = false;
     }
 
-    void WeaponTimer()
+    private void WeaponTimer()
     {
         //If the player is swinging the hitbox tick down the timer
         if (weaponOut)
@@ -91,7 +92,7 @@ public class PlayerAttackBehavior : MonoBehaviour
         }
     }
 
-    void CheckAttack()
+    private void CheckAttack()
     {
         //Switch statements are faster than if statements
         switch (_canAttack)

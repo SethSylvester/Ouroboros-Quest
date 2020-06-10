@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class SlimeBehavior : EnemyBehavior
 {
+    //Public Variables
     public Transform target;
+
+    public GameObject itemDropTest;
 
     public int damage;
 
@@ -15,6 +19,7 @@ public class SlimeBehavior : EnemyBehavior
     public float StopJumpAttacktime; //Timer until the slime stops its attack
     public float JumpSpeed; //sped that slime moves when it jumps
 
+    //Private Variables
     private float _oldspeed; // speed that was set before the slime jumps
     private float _timer; // The number that counts down
     private float _stopJumpAttackTime; // the stop jump attack timer that counts down
@@ -22,6 +27,9 @@ public class SlimeBehavior : EnemyBehavior
     private bool HasJumpattackTarget;
 
     private bool jumpattack = false; //bool so slime knows if it needs to jump attack
+
+    private int randMax = 20;
+    private int randMin = 0;
 
     public Material Green;
     public Material Red;
@@ -137,9 +145,16 @@ public class SlimeBehavior : EnemyBehavior
     public override void Die()
     {
         agent.isStopped = true;
-        Object.Destroy(gameObject, 3);
+        ItemDrop();
+        UnityEngine.Object.Destroy(gameObject, 3);
     }
 
+    void ItemDrop()
+    {
+        //Creates the random number to determine drops
+        //Random randPicker = new Random();
+        //int randItem = randPicker.Next(randMin, randMax);
 
-
+        GameObject itemDrop = Instantiate(itemDropTest);
+    }
 }

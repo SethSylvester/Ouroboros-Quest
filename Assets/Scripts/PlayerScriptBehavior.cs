@@ -22,26 +22,38 @@ public class PlayerScriptBehavior : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        Debug.Log("this worked");
         if (hp <= 0)
-        { die(); }
+        { Die(); }
     }
 
     public void Heal(int heal)
     { hp += heal; }
 
-    public void die()
+    public void Die()
     {
         PlayerMovementBehavior p = gameObject.GetComponent<PlayerMovementBehavior>();
         PlayerAttackBehavior a = gameObject.GetComponent<PlayerAttackBehavior>();
-        //If the player is grounded (So they don't die mid air and get stuck)
-        if (p.IsGrounded())
+
+        //Destroys the player movement so that they can't move while dead.
+        p.enabled = false;
+        //Also make them unable to attack
+        a.enabled = false;
+
+        if (!p.IsGrounded())
         {
-            //Destroys the player movement so that they can't move while dead.
-            p.enabled = false;
-            //Also make them unable to attack
-            a.enabled = false;
-            //Todo: Add player death animation
+            //Move player to the ground
+            RaycastHit ray = new RaycastHit();
+            Physics.Raycast(transform.position, -Vector3.up, out ray);
+
+            Vector3 ground = ray.point;
+            gameObject.transform.position = ground;
         }
+
+        //Todo: Add player death animation
+    }
+
+    private void ToGround()
+    {
+
     }
 }

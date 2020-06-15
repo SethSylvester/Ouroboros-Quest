@@ -1,33 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class KnifeForkProjectileBehavior : MonoBehaviour
 {
-    float timeDefault = 0.8f;
-    float returnTime;
-    float time;
+    private float timeDefault = 0.8f;
+    private float returnTime;
+    private float time;
 
     public Vector3 playerPos;
     public Vector3 parentPos;
 
-    float speedDefault = 15.0f;
+    private float speedDefault = 15.0f;
     public float speed;
 
     [SerializeField]
-    GameObject jester;
+    private GameObject jester;
     [SerializeField]
-    GameObject player;
+    private GameObject player;
 
     private Vector3 _movement = new Vector3(0, 0, 0);
 
     //The character controller
     private CharacterController _controller;
 
-    bool hasPlayerPos = false;
+    private bool hasPlayerPos = false;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         speed = speedDefault;
         //timeDefault = jester.GetComponent<JesterBossBehavior>().timeDefault;
@@ -38,12 +36,12 @@ public class KnifeForkProjectileBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         time -= Time.deltaTime;
         if (!hasPlayerPos)
         {
-            getPlayerPos();
+            GetPlayerPos();
         }
         if (jester.GetComponent<JesterBossBehavior>().returning)
         {
@@ -62,7 +60,7 @@ public class KnifeForkProjectileBehavior : MonoBehaviour
         }
     }
 
-    void getPlayerPos()
+    private void GetPlayerPos()
     {
         hasPlayerPos = true;
 
@@ -71,7 +69,7 @@ public class KnifeForkProjectileBehavior : MonoBehaviour
         transform.forward = playerPos;
     }
 
-    void MoveBulletForward()
+    private void MoveBulletForward()
     {
         //Find the players location and launch bullet to there
         _movement = transform.forward;
@@ -96,7 +94,7 @@ public class KnifeForkProjectileBehavior : MonoBehaviour
         _controller.Move(_movement * Time.deltaTime);
     }
 
-    void ResetBullet()
+    private void ResetBullet()
     {
         returnTime = timeDefault;
 
@@ -108,6 +106,15 @@ public class KnifeForkProjectileBehavior : MonoBehaviour
         gameObject.SetActive(false);
 
         gameObject.transform.rotation = new Quaternion(0, 0.38f, 0, 0);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponentInParent<PlayerMovementBehavior>() != null)
+        {
+            ResetBullet();
+            other.gameObject.GetComponentInParent<PlayerScriptBehavior>().TakeDamage(1);
+        }
     }
 
 }

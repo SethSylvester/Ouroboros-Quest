@@ -27,27 +27,27 @@ public class JesterBossBehavior : EnemyBehavior
     private Attack currentAttack = new Attack();
 
     public float timeDefault = 1.5f;
-    float time;
+    private float time;
 
     [SerializeField]
-    GameObject projectile1;
+    private GameObject projectile1;
     [SerializeField]
-    GameObject projectile2;
+    private GameObject projectile2;
     [SerializeField]
-    GameObject projectile3;
+    private GameObject projectile3;
     [SerializeField]
-    GameObject projectile4;
+    private GameObject projectile4;
 
-    bool active1 = false;
-    bool active2 = false;
-    bool active3 = false;
-    bool active4 = false;
+    private bool active1 = false;
+    private bool active2 = false;
+    private bool active3 = false;
+    private bool active4 = false;
 
     public bool returning = false;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //Grab the character controller
         _controller = GetComponent<CharacterController>();
@@ -61,13 +61,13 @@ public class JesterBossBehavior : EnemyBehavior
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //KnifeFork();
         //Gravity();
     }
-    
-    void KnifeFork()
+
+    private void KnifeFork()
     {
         //Tick down the timer
         time -= Time.deltaTime;

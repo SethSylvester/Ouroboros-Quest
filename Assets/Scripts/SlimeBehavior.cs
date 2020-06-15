@@ -19,7 +19,8 @@ public class SlimeBehavior : EnemyBehavior
     private float _timer; // The number that counts down
     private float _stopJumpAttackTime; // the stop jump attack timer that counts down
 
-    private bool HasJumpattackTarget;
+    private bool _hasJumpattackTarget;
+    private bool _isJumpAttacking;
 
     private bool jumpattack = false; //bool so slime knows if it needs to jump attack
 
@@ -68,27 +69,40 @@ public class SlimeBehavior : EnemyBehavior
             jumpattack = true;
             agent.autoRepath = false;
             agent.destination = agent.destination;
-
+            _isJumpAttacking = true;
             
         }
         //This checks if the trigger is the trigger for the hitbox
-        if(other.gameObject.CompareTag("PlayerHitbox"))
-        {
-            //Make the slimes hurt the player
-            PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
-            p.TakeDamage(1);
-        }
+        //if(other.gameObject.CompareTag("PlayerHitbox"))
+        //{
+        //    //Make the slimes hurt the player
+        //    PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
+        //    p.TakeDamage(1);
+        //}
     }
 
-    void OnTriggerExit(Collider other)
+    //void OnTriggerExit(Collider other)
+    //{
+
+    //    if (other.CompareTag("Player")) //This is used to make sure that this is activating with the right trigger
+    //    {
+    //        if (!_isJumpAttacking)
+    //        {
+    //            jumpattack = false;
+    //            agent.isStopped = false;
+    //            _timer = WaitTimer;
+    //            agent.speed = _oldspeed;
+    //            _stopJumpAttackTime = StopJumpAttacktime;
+    //        }
+    //    }
+
+    //}
+
+    private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) //This is used to make sure that this is activating with the right trigger
+        if (other.CompareTag("Player"))
         {
-            jumpattack = false;
-            agent.isStopped = false;
-            _timer = WaitTimer;
-            agent.speed = _oldspeed;
-            _stopJumpAttackTime = StopJumpAttacktime;
+            _isJumpAttacking = false;
         }
     }
 
@@ -97,22 +111,21 @@ public class SlimeBehavior : EnemyBehavior
         if (agent.isStopped == true)
         {
             _timer -= Time.deltaTime;
-
             if (agent.isStopped == true)
             {
                 if (_timer <= 0.0f)
                 {
-                    if (!HasJumpattackTarget)
+                    if (!_hasJumpattackTarget)
                     {
                         agent.destination = target.position;
-                        HasJumpattackTarget = true;
+                        _hasJumpattackTarget = true;
                     }
                     agent.speed = JumpSpeed;
                     agent.isStopped = false;
                     _stopJumpAttackTime = StopJumpAttacktime;
                     _timer = WaitTimer;
                 }
-                
+
             }
         }
         if (agent.isStopped == false)
@@ -120,11 +133,20 @@ public class SlimeBehavior : EnemyBehavior
             _stopJumpAttackTime -= Time.deltaTime;
             if (_stopJumpAttackTime <= 0)
             {
-                HasJumpattackTarget = false;
+                _hasJumpattackTarget = false;
                 agent.isStopped = true;
                 _stopJumpAttackTime = StopJumpAttacktime;
                 _timer = WaitTimer;
                 agent.destination = target.position;
+                if (!_isJumpAttacking)
+                {
+                    jumpattack = false;
+                    agent.isStopped = false;
+                    _timer = WaitTimer;
+                    agent.speed = _oldspeed;
+                    _stopJumpAttackTime = StopJumpAttacktime;
+                }
+
             }
         }
     }

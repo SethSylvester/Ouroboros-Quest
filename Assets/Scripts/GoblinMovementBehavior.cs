@@ -74,13 +74,18 @@ public class GoblinMovementBehavior : EnemyBehavior
                 agent.angularSpeed = 0;
             }
             NavMeshHit point;
+            NavMeshHit point2;
             Vector3 sourcePosition = transform.position + transform.forward * 5;
-            if (!NavMesh.SamplePosition(sourcePosition, out point, 3, NavMesh.AllAreas))
+            Vector3 sourcePosition2 = transform.position + transform.forward;
+
+            //if (!NavMesh.SamplePosition(sourcePosition, out point, 3, 1) || NavMesh.Raycast(agent.transform.position, sourcePosition2, out point2, 1))
+            //if (!agent.SamplePathPosition(NavMesh.AllAreas, 10, out point))
+            if (NavMesh.Raycast(agent.transform.position, sourcePosition2, out point2, 1))
             {
                Debug.Log("Stop");
                stop = true;
             }
-            Debug.Log(point.position);
+            //Debug.Log(point.position);
             _chargeTimer -= Time.deltaTime;
             if (_chargeTimer <= 0)
             {

@@ -9,8 +9,6 @@ public class SlimeBehavior : EnemyBehavior
     //Public Variables
     public Transform target;
 
-    public GameObject itemDropTest;
-
     public int damage;
 
     public bool testdying;
@@ -27,9 +25,6 @@ public class SlimeBehavior : EnemyBehavior
     private bool HasJumpattackTarget;
 
     private bool jumpattack = false; //bool so slime knows if it needs to jump attack
-
-    private int randMax = 20;
-    private int randMin = 0;
 
     public Material Green;
     public Material Red;
@@ -142,19 +137,11 @@ public class SlimeBehavior : EnemyBehavior
         base.TakeDamage(damage);
     }
 
-    public override void Die()
-    {
-        agent.isStopped = true;
-        ItemDrop();
-        UnityEngine.Object.Destroy(gameObject, 3);
-    }
+    //public override void Die()
+    //{
+    //    agent.isStopped = true;
+    //    ItemDrop();
+    //    UnityEngine.Object.Destroy(gameObject, 3);
+    //}
 
-    void ItemDrop()
-    {
-        //Creates the random number to determine drops
-        //Random randPicker = new Random();
-        //int randItem = randPicker.Next(randMin, randMax);
-
-        GameObject itemDrop = Instantiate(itemDropTest);
-    }
 }

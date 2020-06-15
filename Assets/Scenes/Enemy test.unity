@@ -417,11 +417,22 @@ PrefabInstance:
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: testdying
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: itemDropTest
+      value: 
+      objectReference: {fileID: 4650869271613012395, guid: 2cb151169e4e0c441a3244d9e70d7f71,
+        type: 3}
+    - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
+        type: 3}
+      propertyPath: Health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
+        type: 3}
+      propertyPath: itemDropped
       value: 
       objectReference: {fileID: 4650869271613012395, guid: 2cb151169e4e0c441a3244d9e70d7f71,
         type: 3}

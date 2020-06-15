@@ -138,6 +138,29 @@ public class PlayerMovementBehavior : MonoBehaviour
         _controller.Move(_verticalGravity * Time.deltaTime);
     }
 
+    private void Teleport()
+    {
+        //Find the mouse position
+        Vector3 MousePos = Input.mousePosition;
+        //Get a ray from the camera to the mouse
+        Ray ray = Camera.main.ScreenPointToRay(MousePos);
+
+        //Create a temporary plane at the player
+        Plane plane = new Plane(Vector3.up, transform.position);
+        //Find the distance from the ray to the plane
+        float rayDistance = 0.0f;
+        plane.Raycast(ray, out rayDistance);
+        //Get the point on the ray at the distance to the plane
+        Vector3 target = ray.GetPoint(rayDistance);
+
+        //Disable the controller to allow for transform.position to work
+        _controller.enabled = false;
+        //Teleport
+        transform.position = target;
+        //Reenable controller
+        _controller.enabled = true;
+    }
+
     private void GetInput()
     {
         //Tell the game not to use diagonal movement by default
@@ -149,6 +172,13 @@ public class PlayerMovementBehavior : MonoBehaviour
         //Jump if possible and space is pressed
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
             _jumping = true;
+
+        //Teleport
+        if (PlayerScriptBehavior.shards > 0 && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            PlayerScriptBehavior.shards--;
+            Teleport();
+        }
 
         //Up Down Left Right
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&

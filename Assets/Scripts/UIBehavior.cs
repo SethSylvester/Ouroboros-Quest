@@ -37,7 +37,7 @@ public class UIBehavior : MonoBehaviour
         //Displays attack speed
         attackSpeed.text = "Attack Speed: " + PlayerScriptBehavior.attackDelay.ToString();
         //displays normal speed
-        speed.text = "Speed: " + PlayerScriptBehavior.speed.ToString();
+        speed.text = "Movement Speed: " + PlayerScriptBehavior.speed.ToString();
         //displays the amount of shards
         shards.text = PlayerScriptBehavior.shards.ToString();
     }

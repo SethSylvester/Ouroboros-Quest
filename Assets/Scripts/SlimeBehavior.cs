@@ -19,20 +19,15 @@ public class SlimeBehavior : EnemyBehavior
     private float _timer; // The number that counts down
     private float _stopJumpAttackTime; // the stop jump attack timer that counts down
 
-    private bool _hasJumpattackTarget;
-    private bool _isJumpAttacking;
+    private bool _hasJumpattackTarget; // used so the script does not get the target again when jump attacking
+    private bool _isJumpAttacking; // used to tell slime if they should stop jump attacking
 
     private bool jumpattack = false; //bool so slime knows if it needs to jump attack
 
-    public Material Green;
-    public Material Red;
-    private MeshRenderer mesh;
     // Start is called before the first frame update
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        mesh = gameObject.GetComponent<MeshRenderer>();
-        mesh.material = Green;
         _oldspeed = agent.speed;
         _timer = WaitTimer;
         _stopJumpAttackTime = StopJumpAttacktime;
@@ -67,8 +62,6 @@ public class SlimeBehavior : EnemyBehavior
         {
             agent.isStopped = true;
             jumpattack = true;
-            //agent.autoRepath = false;
-            //agent.destination = agent.destination;
             _isJumpAttacking = true;
             
         }
@@ -108,6 +101,7 @@ public class SlimeBehavior : EnemyBehavior
 
     public void JumpAttack()
     {
+        Debug.Log("JumpAttack");
         if (agent.isStopped == true)
         {
             _timer -= Time.deltaTime;
@@ -119,9 +113,11 @@ public class SlimeBehavior : EnemyBehavior
                     {
                         agent.destination = target.position;
                         _hasJumpattackTarget = true;
+                        agent.isStopped = true;
                     }
                     agent.speed = JumpSpeed;
                     agent.isStopped = false;
+                    Debug.Log(agent.isStopped);
                     _stopJumpAttackTime = StopJumpAttacktime;
                     _timer = WaitTimer;
                     Debug.Log(agent.destination);

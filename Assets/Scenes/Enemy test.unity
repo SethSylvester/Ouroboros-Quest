@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1d24c76fa50c86441aab63ab25350165,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -221,7 +222,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &138368482
 BoxCollider:
@@ -310,6 +311,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6894744714144324002, guid: 42d53e6242c7d044c83d2b3be06c8896,
         type: 3}
       propertyPath: m_Name
@@ -394,7 +400,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &621233108
 MeshCollider:
@@ -631,6 +637,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2202954816819387052, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951084725705994699, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: m_Name
@@ -639,7 +655,7 @@ PrefabInstance:
     - target: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
@@ -649,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: StopJumpAttacktime
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603070, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
@@ -1277,7 +1293,7 @@ PrefabInstance:
     - target: {fileID: 3574575745715432573, guid: c139917544ae09f47b9bbe163975988e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c139917544ae09f47b9bbe163975988e, type: 3}

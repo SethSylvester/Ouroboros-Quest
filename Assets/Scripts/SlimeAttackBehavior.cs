@@ -18,7 +18,7 @@ public class SlimeAttackBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //This checks if the trigger is the trigger for the hitbox
-        if(other.gameObject.CompareTag("PlayerHitbox"))
+        if(other.CompareTag("PlayerHitbox"))
         {
             //Make the slimes hurt the player
             PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();

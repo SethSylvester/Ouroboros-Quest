@@ -67,8 +67,8 @@ public class SlimeBehavior : EnemyBehavior
         {
             agent.isStopped = true;
             jumpattack = true;
-            agent.autoRepath = false;
-            agent.destination = agent.destination;
+            //agent.autoRepath = false;
+            //agent.destination = agent.destination;
             _isJumpAttacking = true;
             
         }
@@ -124,6 +124,7 @@ public class SlimeBehavior : EnemyBehavior
                     agent.isStopped = false;
                     _stopJumpAttackTime = StopJumpAttacktime;
                     _timer = WaitTimer;
+                    Debug.Log(agent.destination);
                 }
 
             }
@@ -149,17 +150,6 @@ public class SlimeBehavior : EnemyBehavior
 
             }
         }
-    }
-
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-    }
-
-    public override void Die()
-    {
-        agent.isStopped = true;
-        Object.Destroy(gameObject, 3);
     }
 
 

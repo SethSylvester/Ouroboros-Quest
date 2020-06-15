@@ -119,13 +119,4 @@ public class SalamanderMovement : EnemyBehavior
         }
     }
 
-    public override void Die()
-    {
-        Salamander.isStopped = true;
-        Object.Destroy(gameObject, 3);
-    }
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-    }
 }

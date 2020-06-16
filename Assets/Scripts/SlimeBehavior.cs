@@ -60,7 +60,10 @@ public class SlimeBehavior : EnemyBehavior
         //This checks if the trigger is the trigger on the player
         if(other.gameObject.CompareTag("Player"))
         {
-            agent.isStopped = true;
+            if (_isJumpAttacking)
+            {
+                agent.isStopped = true;
+            }
             jumpattack = true;
             _isJumpAttacking = true;
             

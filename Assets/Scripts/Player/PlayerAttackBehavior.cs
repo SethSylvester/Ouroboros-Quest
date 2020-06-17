@@ -21,6 +21,8 @@ public class PlayerAttackBehavior : MonoBehaviour
     [SerializeField]
     GameObject axe;
     [SerializeField]
+    GameObject arrowSpawner;
+    [SerializeField]
     GameObject arrow;
 
     // Start is called before the first frame update
@@ -59,7 +61,7 @@ public class PlayerAttackBehavior : MonoBehaviour
                     axe.SetActive(true);
                     break;
                 case PlayerScriptBehavior.Weapon.Bow:
-                Vector3 arrowSpawnPoint = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+                Vector3 arrowSpawnPoint = arrowSpawner.transform.position;
                 Instantiate(arrow, arrowSpawnPoint, transform.rotation);
                 break;
             }

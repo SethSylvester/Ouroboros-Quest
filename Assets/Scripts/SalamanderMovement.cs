@@ -60,6 +60,11 @@ public class SalamanderMovement : EnemyBehavior
             {
                 SalamanderAttack();
             }
+
+            if(agent.remainingDistance >= 4 && agent.remainingDistance <= 5)
+            {
+
+            }
         }
         if(TestDying)
         {

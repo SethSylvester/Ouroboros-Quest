@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Enemyspawn : MonoBehaviour
 {
     public GameObject SpawnedEnemy;
-    public Transform target;
     public int SpawnAmountLimit;
     public float SpawnTimer;
     public List<Transform> SpawnPoint;
@@ -33,9 +32,7 @@ public class Enemyspawn : MonoBehaviour
             if (_spawnTimer <= 0)
             {
                 GameObject Spawned = Instantiate(SpawnedEnemy, _currentSpawnPoint.transform.position, _currentSpawnPoint.transform.rotation);
-                Spawned.tag = "Enemy attack";
                 SlimeBehavior slime = Spawned.GetComponent<SlimeBehavior>();
-                slime.target = target;
                 spawnedamount += 1;
                 _spawnTimer = SpawnTimer;
                 _currentSpawnPoint = SpawnPoint[Random.Range(0, SpawnPoint.Count)];

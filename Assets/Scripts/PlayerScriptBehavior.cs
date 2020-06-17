@@ -47,21 +47,4 @@ public class PlayerScriptBehavior : MonoBehaviour
             //Todo: Add player death animation
         }
     }
-
-    //Pick Up Item Function
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<ItemBehavior>())
-        {
-            if(hp < 3)
-            {
-                hp += ItemBehavior.healthRestore;
-            }
-            else
-            {
-
-            }
-            Destroy(other.gameObject);
-        }
-    }
 }

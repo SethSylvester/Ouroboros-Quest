@@ -37,13 +37,4 @@ public class ProjectileBehavior : MonoBehaviour
         _controller.Move(_movement * Time.deltaTime);
     }
 
-    //Move the projectile up
-    private void GoUp() { _movement += new Vector3(0, 0, 1); }
-    //Move the projectile down
-    private void GoDown() { _movement += new Vector3(0, 0, -1); }
-    //Move the projectile left
-    private void GoLeft() { _movement += new Vector3(-1, 0, 0); }
-    //Move the projectile right
-    private void GoRight() { _movement += new Vector3(1, 0, 0); }
-
 }

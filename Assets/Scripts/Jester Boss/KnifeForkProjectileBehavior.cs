@@ -47,7 +47,9 @@ public class KnifeForkProjectileBehavior : MonoBehaviour
         {
             time = timeDefault;
             speed = 20;
+
             ReturnBullet();
+
             returnTime -= Time.deltaTime;
             if (returnTime <= 0)
             {
@@ -96,16 +98,26 @@ public class KnifeForkProjectileBehavior : MonoBehaviour
 
     private void ResetBullet()
     {
+        //Reset the two different timers
+        time = timeDefault;
         returnTime = timeDefault;
 
+        //Reset the position of the bullet
         _controller.enabled = false;
         Vector3 parentPos = jester.transform.position;
         parentPos.z -= 1f;
         transform.position = parentPos;
         _controller.enabled = true;
-        gameObject.SetActive(false);
 
+        //Disable the bullet
+        gameObject.SetActive(false);
+        
+        //Fix the bullets rotation
         gameObject.transform.rotation = new Quaternion(0, 0.38f, 0, 0);
+
+        //Reset the speed and tell it to track the player next time
+        speed = speedDefault;
+        hasPlayerPos = false;
     }
 
     private void OnTriggerEnter(Collider other)

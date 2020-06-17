@@ -51,9 +51,16 @@ public class PlayerScriptBehavior : MonoBehaviour
     //Pick Up Item Function
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<TestPickUp>())
+        if (other.GetComponent<ItemBehavior>())
         {
-            testItemGain++;
+            if(hp < 3)
+            {
+                hp += ItemBehavior.healthRestore;
+            }
+            else
+            {
+
+            }
             Destroy(other.gameObject);
         }
     }

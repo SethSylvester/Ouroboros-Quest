@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3154463023506869805}
   - component: {fileID: 8429354997512229215}
   - component: {fileID: 3747028548753650711}
+  - component: {fileID: 4331357994392302662}
   m_Layer: 0
   m_Name: Silver Sword
   m_TagString: Untagged
@@ -94,3 +95,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &4331357994392302662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7585776576513204210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff0602f4caa1eb4b962b9b490238290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRestore: 0
+  shardIncrease: 0
+  speedIncrease: 0
+  attackIncrease: 0.5

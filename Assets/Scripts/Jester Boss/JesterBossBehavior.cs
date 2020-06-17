@@ -1,18 +1,26 @@
 ﻿using UnityEngine;
 
-public class JesterBossBehavior : EnemyBehavior
+public class JesterBossBehavior : MonoBehaviour
 {
     //private variables
+    public int hp = 100;
+    //Timers
     private float attackTimerDefault = 8.0f;
     private float attackTimer;
+    private float vulnerabilityTimerDefault = 5.0f;
+    private float vulnerabilityTimer;
+    public float knifeForkTimeDefault = 1.5f;
+    private float knifeForkTime;
+    //int Timers
+    private int attackLimit = 2;
+    private int attacks;
 
-    //The character controller
+    //The character booleans
     private bool hasAttack = false;
+    private bool vulnerable = false;
 
+    //Which attack its using
     public Attack currentAttack = new Attack();
-
-    public float timeDefault = 1.5f;
-    private float time;
 
     //Attack GameObjects
     [SerializeField]
@@ -32,6 +40,7 @@ public class JesterBossBehavior : EnemyBehavior
     [SerializeField]
     private GameObject projectile4;
 
+    //KnifeFork booleans
     private bool active1 = false;
     private bool active2 = false;
     private bool active3 = false;
@@ -43,45 +52,64 @@ public class JesterBossBehavior : EnemyBehavior
     // Start is called before the first frame update
     private void Start()
     {
+        //Set the timers to their default
         attackTimer = attackTimerDefault;
-        time = timeDefault;
+        vulnerabilityTimer = vulnerabilityTimerDefault;
+        knifeForkTime = knifeForkTimeDefault;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (hasAttack)
+        if (hasAttack && hp > 0)
         {
-            switch (currentAttack)
-            {
-                case Attack.Spreadshot:
-                    if (spreadShot.activeSelf == false)
-                    {
-                        spreadShot.SetActive(true);
-                    }
-                    break;
+            //Attack
+            BossAttack();
 
-                case Attack.KnifeFork:
-                    if (knifeFork.activeSelf == false)
-                    { knifeFork.SetActive(true); }
-
-                    KnifeFork();
-                    break;
-
-                case Attack.KnifeShower:
-                    if (knifeShower.activeSelf == false)
-                    {
-                        knifeShower.SetActive(true);
-                    }
-                    break;
-            }
             //Tick down the timer after picking the attack
             AttackTimer();
         }
-        else
+        else if (hp > 0)
         {
             SelectAttack();
         }
+    }
+
+    private void BossAttack()
+    {
+        switch (currentAttack)
+        {
+            case Attack.Spreadshot:
+                if (spreadShot.activeSelf == false)
+                {
+                    spreadShot.SetActive(true);
+                }
+                break;
+
+            case Attack.KnifeFork:
+                if (knifeFork.activeSelf == false)
+                { knifeFork.SetActive(true); }
+
+                KnifeFork();
+                break;
+
+            case Attack.KnifeShower:
+                if (knifeShower.activeSelf == false)
+                {
+                    knifeShower.SetActive(true);
+                }
+                break;
+            case Attack.None:
+                Vulnerability();
+                break;
+        }
+    }
+
+    //When the boss isnt attacking
+    private void Vulnerability()
+    {
+        attacks = 0;
+        vulnerable = true;
     }
 
     private void AttackTimer()
@@ -104,12 +132,25 @@ public class JesterBossBehavior : EnemyBehavior
         knifeFork.SetActive(false);
         knifeShower.SetActive(false);
 
-        //Pick a random attack
-        currentAttack = (Attack)Random.Range(1, 4);
+        if (attacks < attackLimit)
+        {
+            vulnerable = false;
 
-        //Reset the knifefork attack if its picked
-        if (currentAttack == Attack.KnifeFork)
-        { ResetKnifeFork(); }
+            //Pick a random attack
+            currentAttack = (Attack)Random.Range(1, 4);
+
+            //Reset the knifefork attack if its picked
+            if (currentAttack == Attack.KnifeFork)
+            { ResetKnifeFork(); }
+
+            attacks++;
+        }
+
+        else
+        {
+            currentAttack = Attack.None;
+            attackTimer = 5.0f;
+        }
 
         //Tell the Jester it has an attack
         hasAttack = true;
@@ -118,10 +159,10 @@ public class JesterBossBehavior : EnemyBehavior
     private void KnifeFork()
     {
         //Tick down the timer
-        time -= Time.deltaTime;
+        knifeForkTime -= Time.deltaTime;
 
         //if all are active and ready to return
-        if (active1 && active2 && active3 && active4 && time <= 0)
+        if (active1 && active2 && active3 && active4 && knifeForkTime <= 0)
         { returning = true; }
 
         else if (!active1)
@@ -129,35 +170,60 @@ public class JesterBossBehavior : EnemyBehavior
             projectile1.SetActive(true);
             active1 = true;
         }
-        else if (!active2 && time <= 0)
+        else if (!active2 && knifeForkTime <= 0)
         {
             projectile2.SetActive(true);
             active2 = true;
-            time = timeDefault;
+            knifeForkTime = knifeForkTimeDefault;
         }
-        else if (!active3 && time <= 0)
+        else if (!active3 && knifeForkTime <= 0)
         {
             projectile3.SetActive(true);
             active3 = true;
-            time = timeDefault;
+            knifeForkTime = knifeForkTimeDefault;
         }
-        else if (!active4 && time <= 0)
+        else if (!active4 && knifeForkTime <= 0)
         {
             projectile4.SetActive(true);
             active4 = true;
-            time = timeDefault;
+            knifeForkTime = knifeForkTimeDefault;
         }
     }
 
     private void ResetKnifeFork()
     {
-        time = timeDefault;
-
+        //Reset timer
+        knifeForkTime = knifeForkTimeDefault;
+        //Reset booleans
         returning = false;
         active1 = false;
         active2 = false;
         active3 = false;
         active4 = false;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        //Do more damage if vulnerable
+        if (vulnerable)
+        {
+            damage *= 5;
+        }
+
+        //subtract damage from hp
+        hp -= damage;
+
+        //Die if HP is less than or equal to zero
+        if (hp <= 0)
+        { Die(); }
+
+    }
+
+    private void Die() { }
+
+    public int GetHealth()
+    {
+        return hp;
     }
 }
 public enum Attack

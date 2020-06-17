@@ -291,7 +291,7 @@ public class JesterBossBehavior : MonoBehaviour
         }
 
         //subtract damage from hp
-        hp -= damage *=500;
+        hp -= damage;
 
         //Die if HP is less than or equal to zero
         if (hp <= 0)

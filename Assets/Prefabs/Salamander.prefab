@@ -178,12 +178,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 4
   Attack: 0
+  WaitTimer: 0.5
   TestJumpBack: 0
   JumpBackTimer: 1
   JumpBackSpeed: 5
-  AttackCoolDown: 1
+  AttackCoolDown: 0
   AttackTimer: 1
   Damage: 1
+  TestDying: 0
 --- !u!54 &4364596805974022193
 Rigidbody:
   m_ObjectHideFlags: 0

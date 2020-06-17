@@ -14,6 +14,7 @@ public class GoblinMovementBehavior : EnemyBehavior
     private float _chargeTimer;
     private bool _preparecharge;
     private float _oldAngularSpeed;
+    private float _chargeCoolDown;
 
     public float Timer;
     public float ChargeSpeed;
@@ -22,6 +23,7 @@ public class GoblinMovementBehavior : EnemyBehavior
     public int Damage;
     public float RestTimer;
     public float ChargeTimer;
+    public float ChargeCoolDown;
 
 
     // Charges the player if there is line of sight.
@@ -39,6 +41,7 @@ public class GoblinMovementBehavior : EnemyBehavior
         _chargeTimer = ChargeTimer;
         _preparecharge = true;
         _oldAngularSpeed = agent.angularSpeed;
+        _chargeCoolDown = ChargeCoolDown;
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class GoblinMovementBehavior : EnemyBehavior
         {
             Die();
         }
+
         if (!Charge)
         {
             
@@ -74,13 +78,8 @@ public class GoblinMovementBehavior : EnemyBehavior
                 agent.angularSpeed = 0;
             }
             NavMeshHit point;
-            NavMeshHit point2;
-            Vector3 sourcePosition = transform.position + transform.forward * 5;
-            Vector3 sourcePosition2 = transform.position + transform.forward;
-
-            //if (!NavMesh.SamplePosition(sourcePosition, out point, 3, 1) || NavMesh.Raycast(agent.transform.position, sourcePosition2, out point2, 1))
-            //if (!agent.SamplePathPosition(NavMesh.AllAreas, 10, out point))
-            if (NavMesh.Raycast(agent.transform.position, sourcePosition2, out point2, 1))
+            Vector3 sourcePosition = transform.position + transform.forward;
+            if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1))
             {
                Debug.Log("Stop");
                stop = true;
@@ -112,14 +111,17 @@ public class GoblinMovementBehavior : EnemyBehavior
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (_chargeCoolDown <= 0)
         {
-            NavMeshHit hit;
-
-            if (!agent.Raycast(target.position, out hit))
+            if (other.CompareTag("Player"))
             {
-                Charge = true;
-               
+                NavMeshHit hit;
+
+                if (!agent.Raycast(target.position, out hit))
+                {
+                    Charge = true;
+
+                }
             }
         }
     }

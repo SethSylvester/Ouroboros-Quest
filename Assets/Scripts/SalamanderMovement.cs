@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class SalamanderMovement : EnemyBehavior
 {
     private Transform target;
-    private NavMeshAgent Salamander;
     private Vector3 JumpBackPosition;
     private float _oldSpeed;
     private float _oldAngularSpeed;
@@ -17,8 +16,12 @@ public class SalamanderMovement : EnemyBehavior
     private GameObject weapon;
     private float _attackTimer;
 
+    private float _waitTimer;
+
     [HideInInspector]
     public bool Attack;
+
+    public float WaitTimer;
 
     public bool TestJumpBack;
     public float JumpBackTimer;
@@ -34,33 +37,29 @@ public class SalamanderMovement : EnemyBehavior
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        Salamander = gameObject.GetComponent<NavMeshAgent>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
         _jumpBack = false;
         hasTarget = false;
         _jumpBacktimer = JumpBackTimer;
         _attackcooldown = 0;
-        _oldSpeed = Salamander.speed;
-        _oldAngularSpeed = Salamander.angularSpeed;
+        _oldSpeed = agent.speed;
+        _oldAngularSpeed = agent.angularSpeed;
         //weapon = gameObject.GetComponentInChildren<GameObject>();
-        Attack = false;
+        Attack = true;
         _attackTimer = AttackTimer;
         TestDying = false;
     }
     // Update is called once per frame
     void Update()
     {
+        CheckIfDead();
         if (!_jumpBack)
         {
-            Salamander.destination = target.position;
-            if (Salamander.remainingDistance <= 1)
+            agent.destination = target.position;
+            if (agent.remainingDistance <= 1)
             {
                 SalamanderAttack();
             }
-
-            //if (Attack)
-            //{
-            //    SalamanderAttack();
-            //}
         }
         if(TestDying)
         {
@@ -79,44 +78,49 @@ public class SalamanderMovement : EnemyBehavior
 
     void SalamanderAttack()
     {
-        if (_attackcooldown <= 0)
-        {
-            Attack = true;
-            _attackTimer -= Time.deltaTime;
-            //if(AttackTimer <= 0)
-            //{
-                
-                _attackcooldown = AttackCoolDown;
-                _attackTimer = AttackTimer;
-            //}
-        }
-        if (_attackcooldown > 0)
-        {
-            _attackcooldown -= Time.deltaTime;
-        }
+        _attackTimer -= Time.deltaTime;
     }
 
     void JumpBack()
     {
-        NavMeshHit point;
-        Vector3 sourcePosition = transform.position + -transform.forward;
-        if (_jumpBacktimer <= 0 || !NavMesh.SamplePosition(sourcePosition, out point, 1, NavMesh.GetAreaFromName("Walkable")))
+        if (_waitTimer <= 0)
         {
-            Debug.Log("JumpbackDone");
-            _jumpBack = false;
-            _jumpBacktimer = JumpBackTimer;
-            Salamander.speed = _oldSpeed;
-            Salamander.angularSpeed = _oldAngularSpeed;
+            if(agent.isStopped == true)
+            {
+                agent.isStopped = false;
+            }
+
+            NavMeshHit point;
+            Vector3 sourcePosition = transform.position + -transform.forward;
+            if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1) || _jumpBacktimer <= 0)
+            {
+                Debug.Log("JumpbackDone");
+                _jumpBack = false;
+                _jumpBacktimer = JumpBackTimer;
+                agent.speed = _oldSpeed;
+                agent.angularSpeed = _oldAngularSpeed;
+                Attack = true;
+            }
+            else
+            {
+                _jumpBacktimer -= Time.deltaTime;
+                Vector3 JumpBackDirection = transform.position + -transform.forward;
+                agent.angularSpeed = 0;
+                agent.speed = JumpBackSpeed;
+                agent.destination = JumpBackDirection;
+            }
         }
         else
         {
-            _jumpBacktimer -= Time.deltaTime;
-            Vector3 JumpBackDirection = transform.position + -transform.forward;
-            Salamander.angularSpeed = 0;
-            Salamander.speed = JumpBackSpeed;
-            Salamander.destination = JumpBackDirection;
-            Salamander.destination = JumpBackDirection;
+            _waitTimer -= Time.deltaTime;
         }
+    }
+
+    void SetJumpbackTimer()
+    {
+        _waitTimer =  WaitTimer;
+        agent.isStopped = true;
+        Attack = false;
     }
 
 }

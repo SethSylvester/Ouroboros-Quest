@@ -26,8 +26,8 @@ public class SalamanderattackBehavior : MonoBehaviour
             {
                 PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
                 p.TakeDamage(Salamander.Damage);
-                Salamander.SendMessage("JumpBack");
-                Salamander.Attack = false;
+                Salamander.SendMessage("SetJumpbackTimer");
+                //Salamander.Attack = false;
                 Salamander.TestJumpBack = true;
             }
         }

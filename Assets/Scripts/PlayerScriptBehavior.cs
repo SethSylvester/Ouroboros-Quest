@@ -10,6 +10,7 @@ public class PlayerScriptBehavior : MonoBehaviour
     static public float attackDelay = 1.0f;
     static public float speed = 5.0f;
     static public float gravityDefault = 1.0f;
+    public int testItemGain = 0;
 
     static public Weapon weapon = Weapon.Scythe;
 
@@ -44,6 +45,16 @@ public class PlayerScriptBehavior : MonoBehaviour
             //Also make them unable to attack
             a.enabled = false;
             //Todo: Add player death animation
+        }
+    }
+
+    //Pick Up Item Function
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<TestPickUp>())
+        {
+            testItemGain++;
+            Destroy(other.gameObject);
         }
     }
 }

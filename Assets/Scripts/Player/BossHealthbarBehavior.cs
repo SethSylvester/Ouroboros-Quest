@@ -15,13 +15,18 @@ public class BossHealthbarBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+        backgroundPosition = new Vector2(position.x - 10, position.y - 10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        backgroundPosition = new Vector2(position.x - 10, position.y - 10);
+        //No healthbar if the boss is dead
+        if (boss.GetComponent<JesterBossBehavior>().GetHealth() <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnGUI()

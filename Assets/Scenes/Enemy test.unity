@@ -778,24 +778,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1474484448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 175083003941498901, guid: a43231be87d7c1041a75ef3720438cea,
-    type: 3}
-  m_PrefabInstance: {fileID: 7914565294060726893}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1474484449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474484448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b3dddfed2123240aaa12499b68c8cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1493992223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6894744714637654581, guid: 42d53e6242c7d044c83d2b3be06c8896,
@@ -1151,16 +1133,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3574575745715432551, guid: c139917544ae09f47b9bbe163975988e,
-        type: 3}
-      propertyPath: ChargeSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3574575745715432551, guid: c139917544ae09f47b9bbe163975988e,
-        type: 3}
-      propertyPath: ChargeTimer
-      value: 999
-      objectReference: {fileID: 0}
     - target: {fileID: 3574575745715432573, guid: c139917544ae09f47b9bbe163975988e,
         type: 3}
       propertyPath: m_Name
@@ -1305,6 +1277,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 175083003941498901, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponHitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 4138161340663028863, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_Speed
@@ -1325,6 +1302,12 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5563821392556708626, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: Fire
+      value: 
+      objectReference: {fileID: 1444121904932794726, guid: df6b7f691b0f0b04eb645b0bfb00ebd8,
+        type: 3}
     - target: {fileID: 7914565294549136570, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_LocalPosition.x

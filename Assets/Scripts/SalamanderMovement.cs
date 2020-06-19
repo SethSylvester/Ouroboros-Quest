@@ -21,6 +21,10 @@ public class SalamanderMovement : EnemyBehavior
     [HideInInspector]
     public bool Attack;
 
+    [HideInInspector]
+    public bool RangedAttack;
+
+
     public float WaitTimer;
 
     public bool TestJumpBack;
@@ -48,22 +52,32 @@ public class SalamanderMovement : EnemyBehavior
         Attack = true;
         _attackTimer = AttackTimer;
         TestDying = false;
+        agent.isStopped = false;
     }
     // Update is called once per frame
     void Update()
     {
+        _attackcooldown -= Time.deltaTime;
+        Debug.Log(agent.isStopped);
+        Debug.Log(agent.remainingDistance);
         CheckIfDead();
         if (!_jumpBack)
         {
+
             agent.destination = target.position;
             if (agent.remainingDistance <= 1)
             {
                 SalamanderAttack();
+                agent.isStopped = true;
             }
 
-            if(agent.remainingDistance >= 4 && agent.remainingDistance <= 5)
+            else if (agent.remainingDistance >= 4 && agent.remainingDistance <= 5)
             {
-
+                RangedAttack = true;
+            }
+            else
+            {
+                agent.isStopped = false;
             }
         }
         if(TestDying)
@@ -83,11 +97,13 @@ public class SalamanderMovement : EnemyBehavior
 
     void SalamanderAttack()
     {
+        Attack = true;
         _attackTimer -= Time.deltaTime;
     }
 
     void JumpBack()
     {
+        Attack = false;
         if (_waitTimer <= 0)
         {
             if(agent.isStopped == true)
@@ -124,8 +140,13 @@ public class SalamanderMovement : EnemyBehavior
     void SetJumpbackTimer()
     {
         _waitTimer =  WaitTimer;
-        agent.isStopped = true;
+        //agent.isStopped = true;
         Attack = false;
+    }
+
+    public void RangeCoolDown()
+    {
+        _attackcooldown = AttackCoolDown;
     }
 
 }

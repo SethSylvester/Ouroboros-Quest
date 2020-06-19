@@ -13,7 +13,6 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -22,12 +21,12 @@ public class EnemyBehavior : MonoBehaviour
         CheckIfDead();
     }
 
-    public void  TakeDamage(int damage)
+    public virtual void  TakeDamage(int damage)
     {
         Health -= damage;
     }
 
-    protected void CheckIfDead()
+    protected virtual void CheckIfDead()
     {
         if (Health <= 0)
         {
@@ -35,7 +34,7 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
         agent.isStopped = true;
         Object.Destroy(gameObject, 3);

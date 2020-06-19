@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class SalamanderattackBehavior : MonoBehaviour
 {
+    private float _attackcooldown;
     public GameObject Fire;
     private SalamanderMovement Salamander;
+    private FireTriggerScript SalamanderFire;
     
     public float FireTimer;
     private float _fireTimer;
@@ -20,6 +22,7 @@ public class SalamanderattackBehavior : MonoBehaviour
     void Start()
     {
         Salamander = gameObject.GetComponentInParent<SalamanderMovement>();
+        SalamanderFire = Salamander.GetComponentInChildren<FireTriggerScript>();
         _fireTimer = FireTimer;
         _restTimer = RestTimer;
         _fireSpawned = false;
@@ -28,6 +31,7 @@ public class SalamanderattackBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _attackcooldown -= Time.deltaTime;
         if (Salamander.RangedAttack)
         { 
             _fireTimer -= Time.deltaTime;
@@ -45,7 +49,7 @@ public class SalamanderattackBehavior : MonoBehaviour
                 {
                     Salamander.RangedAttack = false;
                     _fireSpawned = false;
-                    Salamander.RangeCoolDown();
+                    SalamanderFire.RangeCoolDown();
                     _fireTimer = FireTimer;
                     _restTimer = RestTimer;
                 }

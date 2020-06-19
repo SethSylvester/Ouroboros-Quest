@@ -12,7 +12,7 @@ public class SalamanderMovement : EnemyBehavior
     private bool _jumpBack;
     private bool hasTarget;
     private float _jumpBacktimer;
-    private float _attackcooldown;
+
     private GameObject weapon;
     private float _attackTimer;
 
@@ -45,7 +45,6 @@ public class SalamanderMovement : EnemyBehavior
         _jumpBack = false;
         hasTarget = false;
         _jumpBacktimer = JumpBackTimer;
-        _attackcooldown = 0;
         _oldSpeed = agent.speed;
         _oldAngularSpeed = agent.angularSpeed;
         //weapon = gameObject.GetComponentInChildren<GameObject>();
@@ -57,8 +56,6 @@ public class SalamanderMovement : EnemyBehavior
     // Update is called once per frame
     void Update()
     {
-        _attackcooldown -= Time.deltaTime;
-        Debug.Log(agent.isStopped);
         Debug.Log(agent.remainingDistance);
         CheckIfDead();
         if (!_jumpBack && !RangedAttack)
@@ -143,18 +140,13 @@ public class SalamanderMovement : EnemyBehavior
         Attack = false;
     }
 
-    public void RangeCoolDown()
-    {
-        _attackcooldown = AttackCoolDown;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        NavMeshHit point;
-        if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(target.position, out point))
-        {
-            RangedAttack = true;
-            agent.isStopped = true;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    NavMeshHit point;
+    //    if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(target.position, out point))
+    //    {
+    //        RangedAttack = true;
+    //        agent.isStopped = true;
+    //    }
+    //}
 }

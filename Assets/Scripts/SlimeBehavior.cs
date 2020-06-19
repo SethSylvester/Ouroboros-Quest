@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class SlimeBehavior : EnemyBehavior
 {
-    public Transform target;
+    private Transform target;
 
     public int damage;
 
@@ -31,6 +31,7 @@ public class SlimeBehavior : EnemyBehavior
         _oldspeed = agent.speed;
         _timer = WaitTimer;
         _stopJumpAttackTime = StopJumpAttacktime;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

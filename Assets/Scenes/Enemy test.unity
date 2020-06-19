@@ -316,6 +316,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
+        type: 3}
+      propertyPath: m_Height
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6894744714144324002, guid: 42d53e6242c7d044c83d2b3be06c8896,
         type: 3}
       propertyPath: m_Name
@@ -1155,7 +1170,7 @@ PrefabInstance:
     - target: {fileID: 5049698691646439528, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
@@ -1282,20 +1297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponHitbox
       objectReference: {fileID: 0}
-    - target: {fileID: 4138161340663028863, guid: a43231be87d7c1041a75ef3720438cea,
+    - target: {fileID: 3327099341559144197, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
-      propertyPath: m_Speed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4138161340663028863, guid: a43231be87d7c1041a75ef3720438cea,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 4138161340663028863, guid: a43231be87d7c1041a75ef3720438cea,
-        type: 3}
-      propertyPath: m_AngularSpeed
-      value: 360
+      propertyPath: m_Center.z
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4651235794764805843, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
@@ -1308,6 +1313,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1444121904932794726, guid: df6b7f691b0f0b04eb645b0bfb00ebd8,
         type: 3}
+    - target: {fileID: 5563821392556708626, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: FireTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563821392556708626, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: RestTimer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7914565294549136570, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1387,6 +1402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: WaitTimer
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108765228347135134, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: AttackCoolDown
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a43231be87d7c1041a75ef3720438cea, type: 3}

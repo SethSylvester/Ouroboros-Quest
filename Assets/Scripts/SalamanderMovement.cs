@@ -61,7 +61,7 @@ public class SalamanderMovement : EnemyBehavior
         Debug.Log(agent.isStopped);
         Debug.Log(agent.remainingDistance);
         CheckIfDead();
-        if (!_jumpBack)
+        if (!_jumpBack && !RangedAttack)
         {
 
             agent.destination = target.position;
@@ -71,14 +71,13 @@ public class SalamanderMovement : EnemyBehavior
                 agent.isStopped = true;
             }
 
-            else if (agent.remainingDistance >= 4 && agent.remainingDistance <= 5)
-            {
-                RangedAttack = true;
-            }
-            else
-            {
-                agent.isStopped = false;
-            }
+            //else if (agent.remainingDistance >= 8 && agent.remainingDistance <= 12 && _attackcooldown <= 0)
+            //{
+            //    RangedAttack = true;
+            //    agent.isStopped = true;
+            //}
+            if(!RangedAttack)
+            { agent.isStopped = false; }
         }
         if(TestDying)
         {
@@ -149,4 +148,13 @@ public class SalamanderMovement : EnemyBehavior
         _attackcooldown = AttackCoolDown;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        NavMeshHit point;
+        if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(target.position, out point))
+        {
+            RangedAttack = true;
+            agent.isStopped = true;
+        }
+    }
 }

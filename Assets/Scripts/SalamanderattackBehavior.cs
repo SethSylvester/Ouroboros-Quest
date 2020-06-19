@@ -7,23 +7,48 @@ public class SalamanderattackBehavior : MonoBehaviour
 {
     public GameObject Fire;
     private SalamanderMovement Salamander;
+    
+    public float FireTimer;
+    private float _fireTimer;
+
+    public float RestTimer;
+    private float _restTimer;
+
+    private bool _fireSpawned;
+
     // Start is called before the first frame update
     void Start()
     {
         Salamander = gameObject.GetComponentInParent<SalamanderMovement>();
+        _fireTimer = FireTimer;
+        _restTimer = RestTimer;
+        _fireSpawned = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Salamander.RangedAttack)
-        {
-            if (Salamander.AttackCoolDown <= 0)
+        if (Salamander.RangedAttack)
+        { 
+            _fireTimer -= Time.deltaTime;
+            if (_fireTimer <= 0)
             {
-                GameObject.Instantiate(Fire, Salamander.transform.position, Salamander.transform.rotation);
-                Debug.Log("Fire");
-                Salamander.RangedAttack = false;
-                Salamander.RangeCoolDown();
+                if (!_fireSpawned)
+                {
+                    GameObject.Instantiate(Fire, Salamander.transform.position, Salamander.transform.rotation);
+                    Debug.Log("Fire");
+                    _fireSpawned = true;
+                }
+                _restTimer -= Time.deltaTime;
+
+                if (_restTimer <= 0)
+                {
+                    Salamander.RangedAttack = false;
+                    _fireSpawned = false;
+                    Salamander.RangeCoolDown();
+                    _fireTimer = FireTimer;
+                    _restTimer = RestTimer;
+                }
             }
         }
     }

@@ -3,21 +3,30 @@
 public class JesterBossBehavior : MonoBehaviour
 {
     //private variables
-    public int hp = 100;
+    private int hp = 100;
     //Timers
     private float attackTimerDefault = 8.0f;
     private float attackTimer;
     private float vulnerabilityTimerDefault = 5.0f;
     private float vulnerabilityTimer;
-    public float knifeForkTimeDefault = 1.5f;
+    private float knifeForkTimeDefault = 1.5f;
     private float knifeForkTime;
+    private float SuperWaveTimerDefault = 1f;
+    private float SuperWaveTimer;
+
     //int Timers
     private int attackLimit = 2;
     private int attacks;
 
     //The character booleans
+    private bool canAttack = true;
+
     private bool hasAttack = false;
     private bool vulnerable = false;
+
+    private bool waveOne = false;
+    private bool waveTwo = false;
+    private bool waveThree = false;
 
     //Which attack its using
     public Attack currentAttack = new Attack();
@@ -29,6 +38,12 @@ public class JesterBossBehavior : MonoBehaviour
     private GameObject knifeFork;
     [SerializeField]
     private GameObject knifeShower;
+    [SerializeField]
+    private GameObject WaveOne;
+    [SerializeField]
+    private GameObject WaveTwo;
+    [SerializeField]
+    private GameObject WaveThree;
 
     //Knife Fork Projectiles & Variables
     [SerializeField]
@@ -56,12 +71,13 @@ public class JesterBossBehavior : MonoBehaviour
         attackTimer = attackTimerDefault;
         vulnerabilityTimer = vulnerabilityTimerDefault;
         knifeForkTime = knifeForkTimeDefault;
+        SuperWaveTimer = SuperWaveTimerDefault;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (hasAttack && hp > 0)
+        if (hasAttack && canAttack)
         {
             //Attack
             BossAttack();
@@ -69,7 +85,7 @@ public class JesterBossBehavior : MonoBehaviour
             //Tick down the timer after picking the attack
             AttackTimer();
         }
-        else if (hp > 0)
+        else if (canAttack)
         {
             SelectAttack();
         }
@@ -98,6 +114,9 @@ public class JesterBossBehavior : MonoBehaviour
                 {
                     knifeShower.SetActive(true);
                 }
+                break;
+            case Attack.SuperAttack:
+                SuperAttackOne();
                 break;
             case Attack.None:
                 Vulnerability();
@@ -132,12 +151,16 @@ public class JesterBossBehavior : MonoBehaviour
         knifeFork.SetActive(false);
         knifeShower.SetActive(false);
 
+        waveOne = false;
+        waveTwo = false;
+        waveThree = false;
+
         if (attacks < attackLimit)
         {
             vulnerable = false;
 
             //Pick a random attack
-            currentAttack = (Attack)Random.Range(1, 4);
+            currentAttack = (Attack)Random.Range(1, 5);
 
             //Reset the knifefork attack if its picked
             if (currentAttack == Attack.KnifeFork)
@@ -154,6 +177,63 @@ public class JesterBossBehavior : MonoBehaviour
 
         //Tell the Jester it has an attack
         hasAttack = true;
+    }
+
+    private void SuperAttackOne()
+    {
+        if (!waveOne)
+        {
+            waveOne = true;
+            WaveOne.SetActive(true);
+        }
+        SuperWaveTimer -= Time.deltaTime;
+        if (SuperWaveTimer <= 0 || waveTwo || waveThree)
+        {
+            SuperAttackTwo();
+        }
+    }
+
+    private void SuperAttackTwo()
+    {
+        if (WaveOne.activeSelf)
+        { WaveOne.SetActive(false); }
+
+        if (!waveTwo)
+        {
+            waveTwo = true;
+            WaveTwo.SetActive(true);
+            SuperWaveTimer = SuperWaveTimerDefault;
+        }
+
+        SuperWaveTimer -= Time.deltaTime;
+
+        if (SuperWaveTimer <= 0 || waveThree)
+        {
+            SuperAttackThree();
+        }
+
+    }
+
+    private void SuperAttackThree()
+    {
+        if (WaveTwo.activeSelf)
+        { WaveTwo.SetActive(false); }
+
+        if (!waveThree)
+        {
+            waveThree = true;
+            WaveThree.SetActive(true);
+            SuperWaveTimer = 4;
+        }
+
+        SuperWaveTimer -= Time.deltaTime;
+
+        if (SuperWaveTimer <= 0)
+        {
+            WaveThree.SetActive(false);
+            SuperWaveTimer = SuperWaveTimerDefault;
+            attacks = 2;
+        }
     }
 
     private void KnifeFork()
@@ -219,7 +299,19 @@ public class JesterBossBehavior : MonoBehaviour
 
     }
 
-    private void Die() { }
+    private void Die()
+    {
+        //Disable all attacks
+        spreadShot.SetActive(false);
+        knifeFork.SetActive(false);
+        knifeShower.SetActive(false);
+        WaveOne.SetActive(false);
+        WaveTwo.SetActive(false);
+        WaveThree.SetActive(false);
+
+        //Disable the boss from attacking
+        canAttack = false;
+    }
 
     public int GetHealth()
     {
@@ -231,5 +323,6 @@ public enum Attack
     None,
     Spreadshot,
     KnifeFork,
-    KnifeShower
+    KnifeShower,
+    SuperAttack,
 }

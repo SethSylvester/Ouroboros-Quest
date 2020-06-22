@@ -20,7 +20,7 @@ public class FireTriggerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _attackcooldown -= Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {

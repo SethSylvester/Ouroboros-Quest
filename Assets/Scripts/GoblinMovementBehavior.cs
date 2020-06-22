@@ -5,9 +5,7 @@ using UnityEngine.AI;
 
 public class GoblinMovementBehavior : EnemyBehavior
 {
-    private Transform target;
     private float _oldspeed;
-    private float _timer;
     private float _stopJumpAttackTime;
     private bool stop;
     private float _restTimer;
@@ -16,7 +14,6 @@ public class GoblinMovementBehavior : EnemyBehavior
     private float _oldAngularSpeed;
     private float _chargeCoolDown;
 
-    public float Timer;
     public float ChargeSpeed;
     public bool Charge;
     public bool TestDying;
@@ -24,6 +21,7 @@ public class GoblinMovementBehavior : EnemyBehavior
     public float RestTimer;
     public float ChargeTimer;
     public float ChargeCoolDown;
+    public float attackCoolDown;
 
 
     // Charges the player if there is line of sight.
@@ -33,7 +31,7 @@ public class GoblinMovementBehavior : EnemyBehavior
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         _oldspeed = agent.speed;
         stop = false;
@@ -58,7 +56,7 @@ public class GoblinMovementBehavior : EnemyBehavior
             
             if(_restTimer <= 0)
                 {
-                agent.destination = target.position;
+                agent.destination = Target.position;
                 Debug.Log("not Charging");
             }
             else if (_restTimer > 0)
@@ -117,7 +115,7 @@ public class GoblinMovementBehavior : EnemyBehavior
             {
                 NavMeshHit hit;
 
-                if (!agent.Raycast(target.position, out hit))
+                if (!agent.Raycast(Target.position, out hit))
                 {
                     Charge = true;
 

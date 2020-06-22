@@ -57,9 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b3dddfed2123240aaa12499b68c8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 0}
-  FireTimer: 0
-  RestTimer: 0
+  Fire: {fileID: 1444121904932794726, guid: df6b7f691b0f0b04eb645b0bfb00ebd8, type: 3}
+  FireTimer: 0.5
+  RestTimer: 1
 --- !u!1 &7914565294549136574
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,13 +194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 4
+  Target: {fileID: 0}
   Attack: 0
   RangedAttack: 0
-  WaitTimer: 0.5
+  WaitTimer: 0.25
   TestJumpBack: 0
-  JumpBackTimer: 1
-  JumpBackSpeed: 5
-  AttackCoolDown: 0
+  JumpBackTimer: 0.5
+  JumpBackSpeed: 20
+  AttackCoolDown: 10
   AttackTimer: 1
   Damage: 1
   TestDying: 0
@@ -230,6 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7974731537506705137}
   - component: {fileID: 821810475433634867}
+  - component: {fileID: 180202818659013161}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -264,3 +266,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 5}
   m_Center: {x: 0, y: 0, z: 9}
+--- !u!114 &180202818659013161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8606701457986216920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e5626378ab0fd449915dcb4e14fddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackCooldown: 10

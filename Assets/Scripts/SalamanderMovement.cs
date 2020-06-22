@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class SalamanderMovement : EnemyBehavior
 {
-    private Transform target;
     private Vector3 JumpBackPosition;
     private float _oldSpeed;
     private float _oldAngularSpeed;
@@ -40,7 +39,7 @@ public class SalamanderMovement : EnemyBehavior
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         _jumpBack = false;
         hasTarget = false;
@@ -61,7 +60,7 @@ public class SalamanderMovement : EnemyBehavior
         if (!_jumpBack && !RangedAttack)
         {
 
-            agent.destination = target.position;
+            agent.destination = Target.position;
             if (agent.remainingDistance <= 1)
             {
                 SalamanderAttack();

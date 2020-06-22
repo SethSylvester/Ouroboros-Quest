@@ -340,10 +340,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 51115905}
@@ -429,10 +431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 101394517}
@@ -1370,10 +1374,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 459575912}
@@ -1489,12 +1495,6 @@ MeshFilter:
 --- !u!1 &493378470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6894744714144324002, guid: 42d53e6242c7d044c83d2b3be06c8896,
-    type: 3}
-  m_PrefabInstance: {fileID: 1654377213}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &493378476 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6894744714637654581, guid: 42d53e6242c7d044c83d2b3be06c8896,
     type: 3}
   m_PrefabInstance: {fileID: 1654377213}
   m_PrefabAsset: {fileID: 0}
@@ -2450,10 +2450,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 728233131}
@@ -3035,10 +3037,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 828932204}
@@ -3370,10 +3374,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 925303540}
@@ -4052,10 +4058,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 1133669052}
@@ -4672,10 +4680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 1276095787}
@@ -5369,6 +5379,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2840036769758486610, guid: 42d53e6242c7d044c83d2b3be06c8896,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
         type: 3}
       propertyPath: m_IsTrigger
@@ -5871,10 +5886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-    type: 3}
-  target: {fileID: 493378476}
-  SpawnAmountLimit: 1
+  Slime: {fileID: 0}
+  Goblin: {fileID: 0}
+  Salamander: {fileID: 0}
+  SlimeSpawnAmountLimit: 0
+  GoblinSpawnAmountLimit: 0
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 1806425784}

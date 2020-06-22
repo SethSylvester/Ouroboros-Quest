@@ -89,7 +89,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7585776576513204210}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -110,4 +110,4 @@ MonoBehaviour:
   healthRestore: 0
   shardIncrease: 0
   speedIncrease: 0
-  attackIncrease: 0.5
+  attackIncrease: 1

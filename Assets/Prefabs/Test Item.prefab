@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4728542386441357574}
   - component: {fileID: 3197978753743302308}
   - component: {fileID: 1764201903628874104}
-  - component: {fileID: 2135531805143949910}
+  - component: {fileID: 2435142424330808918}
   m_Layer: 0
   m_Name: Test Item
   m_TagString: Untagged
@@ -95,7 +95,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2135531805143949910
+--- !u!114 &2435142424330808918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,6 +104,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4650869271613012395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e87e0112661e5b41ab655c6c7dab8b1, type: 3}
+  m_Script: {fileID: 11500000, guid: aff0602f4caa1eb4b962b9b490238290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthRestore: 0
+  shardIncrease: 0
+  speedIncrease: 0
+  attackIncrease: 0

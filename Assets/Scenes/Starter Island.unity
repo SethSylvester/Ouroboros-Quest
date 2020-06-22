@@ -798,6 +798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6540016948029979733, guid: 61608887399b7da4a8c5e04ce008f6e9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61608887399b7da4a8c5e04ce008f6e9, type: 3}
 --- !u!1 &860396360

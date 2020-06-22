@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6738457284754063046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -561,7 +561,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 455.5, y: 213}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 60, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3392007220708769439
 CanvasRenderer:
@@ -724,9 +724,6 @@ MonoBehaviour:
   heartFull: {fileID: 2800000, guid: 410f700a4fb4afe46a2020ced7d7f6bc, type: 3}
   heartEmpty: {fileID: 2800000, guid: a0612843bf2e84645a50f017ffe6975f, type: 3}
   shards: {fileID: 3827940619570315156}
-  currentWeapon: {fileID: 5429295972341983206}
-  attackSpeed: {fileID: 8011587194458567552}
-  speed: {fileID: 7059036525512682438}
 --- !u!1 &7657215383690034966
 GameObject:
   m_ObjectHideFlags: 0

@@ -391,12 +391,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &536589446 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
-    type: 3}
-  m_PrefabInstance: {fileID: 5049698692657093664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &546738245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1239,7 +1233,7 @@ PrefabInstance:
     - target: {fileID: 5049698691646439528, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
@@ -1298,11 +1292,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
-      propertyPath: SpawnPoint.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
       propertyPath: SpawnedEnemy
       value: 
       objectReference: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
@@ -1319,11 +1308,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
-      propertyPath: SpawnPoint.Array.data[0]
-      value: 
-      objectReference: {fileID: 536589446}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
       propertyPath: SpawnPoint.Array.data[1]
       value: 
       objectReference: {fileID: 720609377}
@@ -1331,11 +1315,6 @@ PrefabInstance:
         type: 3}
       propertyPath: SpawnAmountLimit
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: SpawnTimer
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
@@ -1352,39 +1331,6 @@ PrefabInstance:
       propertyPath: SpawnPoint.Array.data[4]
       value: 
       objectReference: {fileID: 680733804}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: Slime
-      value: 
-      objectReference: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-        type: 3}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: Goblin
-      value: 
-      objectReference: {fileID: 3574575745715432573, guid: c139917544ae09f47b9bbe163975988e,
-        type: 3}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: Salamander
-      value: 
-      objectReference: {fileID: 7914565294549136574, guid: a43231be87d7c1041a75ef3720438cea,
-        type: 3}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: SlimeSpawnAmountLimit
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: GoblinSpawnAmountLimit
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: SalamanderSpawnAmountLimit
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6361d02286540e4dba52f881d743cc8, type: 3}
 --- !u!1001 &7914565294060726893
@@ -1467,7 +1413,7 @@ PrefabInstance:
     - target: {fileID: 7914565294549136574, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8606701457986216920, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}

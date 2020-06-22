@@ -72,8 +72,11 @@ public class SalamanderMovement : EnemyBehavior
             //    RangedAttack = true;
             //    agent.isStopped = true;
             //}
-            if(!RangedAttack)
-            { agent.isStopped = false; }
+            if(!RangedAttack && !_jumpBack && agent.isStopped)
+            {
+                agent.isStopped = false;
+                agent.angularSpeed = _oldAngularSpeed;
+            }
         }
         if(TestDying)
         {
@@ -110,11 +113,11 @@ public class SalamanderMovement : EnemyBehavior
             Vector3 sourcePosition = transform.position + -transform.forward;
             if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1) || _jumpBacktimer <= 0)
             {
+                agent.isStopped = true;
                 Debug.Log("JumpbackDone");
                 _jumpBack = false;
                 _jumpBacktimer = JumpBackTimer;
                 agent.speed = _oldSpeed;
-                agent.angularSpeed = _oldAngularSpeed;
                 Attack = true;
             }
             else

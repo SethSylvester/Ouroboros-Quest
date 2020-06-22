@@ -6,11 +6,14 @@ public class AttackColliderBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If its an enemy
-        if (other.gameObject.GetComponent<SlimeBehavior>() != null || 
-            other.gameObject.GetComponent<GoblinMovementBehavior>() || 
-            other.gameObject.GetComponent<SalamanderMovement>())
+        if (other.gameObject.GetComponentInParent<SlimeBehavior>() != null ||
+            other.gameObject.GetComponentInParent<GoblinMovementBehavior>() != null ||
+            other.gameObject.GetComponentInParent<SalamanderMovement>() != null)
+
         {
-            other.GetComponent<EnemyBehavior>().TakeDamage(PlayerScriptBehavior.damage);
+            //Hurt it
+            other.GetComponentInParent<EnemyBehavior>().TakeDamage(PlayerScriptBehavior.damage);
+            //Then remove the arrow
             DestroyArrow();
         }
         //If its the boss

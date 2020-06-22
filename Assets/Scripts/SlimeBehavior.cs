@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class SlimeBehavior : EnemyBehavior
 {
-    public Transform target;
 
     public int damage;
 
@@ -27,10 +26,12 @@ public class SlimeBehavior : EnemyBehavior
     // Start is called before the first frame update
     void Start()
     {
+        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         _oldspeed = agent.speed;
         _timer = WaitTimer;
         _stopJumpAttackTime = StopJumpAttacktime;
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class SlimeBehavior : EnemyBehavior
         if (!jumpattack)
         {
             //sets the enemies destination to the target
-            agent.destination = target.position;
+            agent.destination = Target.position;
         }
         //This is used to tell the slime what to do when jump attack is true
         if (jumpattack)
@@ -114,7 +115,7 @@ public class SlimeBehavior : EnemyBehavior
                 {
                     if (!_hasJumpattackTarget)
                     {
-                        agent.destination = target.position;
+                        agent.destination = Target.position;
                         _hasJumpattackTarget = true;
                         agent.isStopped = true;
                     }
@@ -137,7 +138,7 @@ public class SlimeBehavior : EnemyBehavior
                 agent.isStopped = true;
                 _stopJumpAttackTime = StopJumpAttacktime;
                 _timer = WaitTimer;
-                agent.destination = target.position;
+                agent.destination = Target.position;
                 if (!_isJumpAttacking)
                 {
                     jumpattack = false;

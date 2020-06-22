@@ -43,6 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d58e4cdbb33a247a7066ee25177c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedEnemy: {fileID: 0}
-  target: {fileID: 0}
-  spawnamountlimit: 10
+  Slime: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1, type: 3}
+  Goblin: {fileID: 3574575745715432573, guid: c139917544ae09f47b9bbe163975988e, type: 3}
+  Salamander: {fileID: 7914565294549136574, guid: a43231be87d7c1041a75ef3720438cea,
+    type: 3}
+  SlimeSpawnAmountLimit: 10
+  GoblinSpawnAmountLimit: 2
+  SalamanderSpawnAmountLimit: 1
+  SpawnTimer: 1
+  SpawnPoint: []

@@ -72,6 +72,8 @@ GameObject:
   - component: {fileID: 7479967970693603069}
   - component: {fileID: 7479967970693603068}
   - component: {fileID: 2782960343568054351}
+  - component: {fileID: 150689600539643423}
+  - component: {fileID: 4493247519173131043}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -167,14 +169,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 1
-  target: {fileID: 0}
+  Target: {fileID: 0}
   damage: 2
   testdying: 0
   WaitTimer: 0.7
-  StopJumpAttacktime: 0.4
+  StopJumpAttacktime: 1
   JumpSpeed: 20
-  Green: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}
-  Red: {fileID: 0}
 --- !u!195 &7479967970693603068
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -213,3 +213,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &150689600539643423
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479967970693603066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &4493247519173131043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479967970693603066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 6}
+  m_Center: {x: 0, y: 0, z: 3}

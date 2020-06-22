@@ -5,55 +5,76 @@ using UnityEngine.UI;
 //The behavior class for the start button of the main menu
 public class NavigateMenuBehavior : MonoBehaviour
 {
+    public bool fullscreen = true;
+
     //0 Main Menu
-    public List<GameObject> Menus;
+    public List<GameObject> menus;
 
     [SerializeField]
-    Slider volume;
+    Slider volumeSlider;
+    [SerializeField]
+    Dropdown resolutionDropdown;
+    [SerializeField]
+    Toggle fullscreenToggle;
 
     public void MainMenu()
     {
         //Turn on Main Menu
-        Menus[0].SetActive(true);
+        menus[0].SetActive(true);
         //Turn off Options
-        Menus[1].SetActive(false);
+        menus[1].SetActive(false);
     }
 
     public void OptionsMenu()
     {
         //Turn off Main Menu
-        Menus[0].SetActive(false);
+        menus[0].SetActive(false);
         //Turn on Options
-        Menus[1].SetActive(true);
-        //Turn off Resolution and Volume
-        Menus[2].SetActive(false);
-        Menus[3].SetActive(false);
+        menus[1].SetActive(true);
     }
 
-    public void ResolutionMenu()
+    private void SetResolution()
     {
-        //Turn off Options
-        Menus[0].SetActive(false);
-        //Turn on Resolution
-        Menus[2].SetActive(true);
+        switch (resolutionDropdown.value)
+        {
+            //640x480
+            case 0:
+                Screen.SetResolution(600, 480, fullscreen);
+                break;
+            //800x600
+            case 1:
+                Screen.SetResolution(800, 600, fullscreen);
+                break;
+            //1280x960
+            case 2:
+                Screen.SetResolution(1280, 960, fullscreen);
+                break;
+            //1600×900
+            case 3:
+                Screen.SetResolution(1600, 900, fullscreen);
+                break;
+            //1920×1080
+            case 4:
+                Screen.SetResolution(1920, 1080, fullscreen);
+                break;
+            //3840×2160
+            case 5:
+                Screen.SetResolution(3840, 2160, fullscreen);
+                break;
+        }
     }
 
-    public void VolumeMenu()
-    {
-        //Turn off Options
-        Menus[0].SetActive(false);
-        //Turn on Resolution
-        Menus[3].SetActive(true);
-    }
+    private void SetVolume()
+    { AudioListener.volume = volumeSlider.value; }
 
-    public void SetResolution()
-    {
+    private void FullScreenToggle()
+    { fullscreen = fullscreenToggle.enabled; }
 
-    }
-
-    public void SetVolume()
+    public void ApplyChanges()
     {
-        AudioListener.volume = volume.value;
+        FullScreenToggle();
+        SetResolution();
+        SetVolume();
     }
 
     public void Quit()

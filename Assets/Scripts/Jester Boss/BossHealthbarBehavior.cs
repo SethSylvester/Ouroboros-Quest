@@ -23,7 +23,7 @@ public class BossHealthbarBehavior : MonoBehaviour
     void Update()
     {
         //No healthbar if the boss is dead
-        if (boss.GetComponent<JesterBossBehavior>().GetHealth() <= 0)
+        if (boss.GetComponent<JesterBossBehavior>().GetHealth() <= 0 || boss == null)
         {
             gameObject.SetActive(false);
         }

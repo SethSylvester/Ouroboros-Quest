@@ -168,14 +168,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 20
-  Timer: 4
+  Target: {fileID: 0}
   ChargeSpeed: 20
   Charge: 0
   TestDying: 0
   Damage: 10
   RestTimer: 4
-  ChargeTimer: 4
+  ChargeTimer: 1
   ChargeCoolDown: 0
+  attackCoolDown: 0
 --- !u!195 &3574575745715432544
 NavMeshAgent:
   m_ObjectHideFlags: 0

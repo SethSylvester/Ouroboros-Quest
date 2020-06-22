@@ -10,7 +10,7 @@ public class BossHealthbarBehavior : MonoBehaviour
 
     Vector2 position;
     Vector2 backgroundPosition;
-    Vector2 backgroundSize = new Vector2(1020, 100);
+    Vector2 backgroundSize = new Vector2(Screen.width/2.2f + 20, Screen.height/11);
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class BossHealthbarBehavior : MonoBehaviour
         Rect background = new Rect(backgroundPosition, backgroundSize);
         DrawQuad(background, Color.black);
 
-        Vector2 remainingHP = new Vector2(boss.GetComponent<JesterBossBehavior>().GetHealth() * 10, 80);
+        Vector2 remainingHP = new Vector2(boss.GetComponent<JesterBossBehavior>().GetHealth() * (Screen.width /200), Screen.height / 14);
         Rect r = new Rect(position, remainingHP);
         DrawQuad(r, Color.red);
     }

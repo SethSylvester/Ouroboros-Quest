@@ -11,6 +11,28 @@ public class PlayerScriptBehavior : MonoBehaviour
 
     static public Weapon weapon = Weapon.Bow;
 
+    public bool invul = false;
+    public float iFramesDefault = 0.5f;
+    public float iFrames;
+
+    private void Start()
+    {
+        iFrames = iFramesDefault;
+    }
+
+    private void Update()
+    {
+        if (invul)
+        {
+            iFrames -= Time.deltaTime;
+            if (iFrames <= 0)
+            {
+                invul = false;
+                iFrames = iFramesDefault;
+            }
+        }
+    }
+
     public enum Weapon
     {
         Sword,
@@ -21,7 +43,11 @@ public class PlayerScriptBehavior : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        hp -= damage;
+        if (!invul)
+        {
+            hp -= damage;
+            invul = true;
+        }
         if (hp <= 0)
         { Die(); }
     }
@@ -50,10 +76,5 @@ public class PlayerScriptBehavior : MonoBehaviour
         }
 
         //Todo: Add player death animation
-    }
-
-    private void ToGround()
-    {
-
     }
 }

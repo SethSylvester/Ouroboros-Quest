@@ -30,9 +30,6 @@ public class Enemyspawn : MonoBehaviour
         if (_spawnTimer <= 0 && SpawnAmountLimit > spawnedamount)
         {
             GameObject Spawned = Instantiate(SpawnedEnemy, _currentSpawnPoint.transform.position, _currentSpawnPoint.transform.rotation);
-            Spawned.tag = "Enemy attack";
-            SlimeBehavior slime = Spawned.GetComponent<SlimeBehavior>();
-            slime.target = target;
             spawnedamount += 1;
             _spawnTimer = SpawnTimer;
             _currentSpawnPoint = SpawnPoint[Random.Range(0, SpawnPoint.Count)];

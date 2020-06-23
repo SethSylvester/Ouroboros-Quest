@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-guid: 59c61e03ebdebf14fa2a40376e0b1606
-=======
-guid: 6c416cbb0591b3842af9ca7b53a46397
->>>>>>> master
-=======
-guid: 7220af2571e5b2e4893c6564c56caf26
->>>>>>> Seth
+guid: 3666d4205992f244185e5315ee3f6bec
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []

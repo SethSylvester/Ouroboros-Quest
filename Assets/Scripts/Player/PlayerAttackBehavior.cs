@@ -15,15 +15,23 @@ public class PlayerAttackBehavior : MonoBehaviour
     private bool weaponOut = false;
 
     [SerializeField]
-    GameObject sword;
+    GameObject swordHitbox;
     [SerializeField]
-    GameObject scythe;
+    GameObject scytheHitbox;
     [SerializeField]
-    GameObject axe;
+    GameObject axeHitbox;
     [SerializeField]
     GameObject arrowSpawner;
     [SerializeField]
     GameObject arrow;
+
+    [SerializeField]
+    GameObject swordModel;
+    [SerializeField]
+    GameObject axeModel;
+    [SerializeField]
+    GameObject bowModel;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -52,13 +60,13 @@ public class PlayerAttackBehavior : MonoBehaviour
             switch (PlayerScriptBehavior.weapon)
             {
                 case PlayerScriptBehavior.Weapon.Sword:
-                    sword.SetActive(true);
+                    swordHitbox.SetActive(true);
                     break;
                 case PlayerScriptBehavior.Weapon.Scythe:
-                    scythe.SetActive(true);
+                    scytheHitbox.SetActive(true);
                     break;
                 case PlayerScriptBehavior.Weapon.Axe:
-                    axe.SetActive(true);
+                    axeHitbox.SetActive(true);
                     break;
                 case PlayerScriptBehavior.Weapon.Bow:
                 Vector3 arrowSpawnPoint = arrowSpawner.transform.position;
@@ -79,14 +87,14 @@ public class PlayerAttackBehavior : MonoBehaviour
         if (hitboxSpawnTime <= 0)
         {
             //Sword
-            if (sword.activeSelf)
-            { sword.SetActive(false); }
+            if (swordHitbox.activeSelf)
+            { swordHitbox.SetActive(false); }
             //Scythe
-            else if (scythe.activeSelf)
-            { scythe.SetActive(false); }
+            else if (scytheHitbox.activeSelf)
+            { scytheHitbox.SetActive(false); }
             //Axe
-            else if (axe.activeSelf)
-            { axe.SetActive(false); }
+            else if (axeHitbox.activeSelf)
+            { axeHitbox.SetActive(false); }
 
             //Stop & reset the timer
             weaponOut = false;

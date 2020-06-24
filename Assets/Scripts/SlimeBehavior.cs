@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,6 +15,7 @@ public class SlimeBehavior : EnemyBehavior
     public float StopJumpAttacktime; //Timer until the slime stops its attack
     public float JumpSpeed; //sped that slime moves when it jumps
 
+    //Private Variables
     private float _oldspeed; // speed that was set before the slime jumps
     private float _timer; // The number that counts down
     private float _stopJumpAttackTime; // the stop jump attack timer that counts down
@@ -151,7 +153,6 @@ public class SlimeBehavior : EnemyBehavior
             }
         }
     }
-
 
 
 }

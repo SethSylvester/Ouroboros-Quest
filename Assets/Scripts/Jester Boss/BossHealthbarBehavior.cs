@@ -31,15 +31,18 @@ public class BossHealthbarBehavior : MonoBehaviour
 
     private void OnGUI()
     {
-        Rect background = new Rect(backgroundPosition, backgroundSize);
-        DrawQuad(background, Color.black);
+        if (boss != null)
+        {
+            Rect background = new Rect(backgroundPosition, backgroundSize);
+            DrawQuad(background, Color.black);
 
-        Vector2 remainingHP = new Vector2(boss.GetComponent<JesterBossBehavior>().GetHealth() * (Screen.width /200), Screen.height / 14);
-        Rect r = new Rect(position, remainingHP);
-        DrawQuad(r, Color.red);
+            Vector2 remainingHP = new Vector2(boss.GetComponent<JesterBossBehavior>().GetHealth() * (Screen.width / 200), Screen.height / 14);
+            Rect r = new Rect(position, remainingHP);
+            DrawQuad(r, Color.red);
+        }
     }
 
-    void DrawQuad(Rect position, Color color)
+    private void DrawQuad(Rect position, Color color)
     {
         Texture2D texture = new Texture2D(1, 1);
         texture.SetPixel(0, 0, color);

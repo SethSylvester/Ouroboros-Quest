@@ -89,8 +89,11 @@ public class UIBehavior : MonoBehaviour
     //Teleports you to the boss island
     public void TeleportBossIsland()
     {
-        bossButtons.SetActive(false);
-        PlayerScriptBehavior.shards -= 25;
-        SceneManager.LoadScene("Boss Island");
+        if (PlayerScriptBehavior.shards >= 25)
+        {
+            bossButtons.SetActive(false);
+            PlayerScriptBehavior.shards -= 25;
+            SceneManager.LoadScene("Boss Island");
+        }
     }
 }

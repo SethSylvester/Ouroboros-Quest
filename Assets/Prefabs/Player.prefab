@@ -255,8 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990367f79b6ef8f469313ea4e233e013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordHitbox: {fileID: 657069266973668361}
-  axeHitbox: {fileID: 5085756677689799961}
+  swordHitbox: {fileID: 2840036769758486610}
+  axeHitbox: {fileID: 7464771377424485797}
   arrowSpawner: {fileID: 7879176166463465484}
   arrow: {fileID: 4733063997773502064, guid: dd957d4319a9d6744910f4c520a5fe83, type: 3}
   swordModel: {fileID: 657069266973668361}

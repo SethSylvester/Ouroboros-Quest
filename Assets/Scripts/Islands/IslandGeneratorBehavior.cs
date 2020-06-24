@@ -17,8 +17,8 @@ public class IslandGeneratorBehavior : MonoBehaviour
     private Color32 groundColor;
 
     private Color32 DarkGreen = new Color32(18, 178, 25, 1);
-    [SerializeField]
-    private GameObject islandFloor;
+    //[SerializeField]
+    //private GameObject islandFloor;
 
     // Start is called before the first frame update
     private void Start()
@@ -31,7 +31,7 @@ public class IslandGeneratorBehavior : MonoBehaviour
     {
         groundColor = DarkGreen;
 
-        islandFloor.GetComponent<Renderer>().material.color = groundColor;
+        //islandFloor.GetComponent<Renderer>().material.color = groundColor;
 
         float rng;
         float rngScale;

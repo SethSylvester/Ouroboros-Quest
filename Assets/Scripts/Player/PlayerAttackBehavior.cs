@@ -115,4 +115,24 @@ public class PlayerAttackBehavior : MonoBehaviour
                 break;
         }
     }
+
+    public void SwitchWeaponModel()
+    {
+        swordModel.SetActive(false);
+        axeModel.SetActive(false);
+        bowModel.SetActive(false);
+
+        switch (PlayerScriptBehavior.weapon)
+        {
+            case (PlayerScriptBehavior.Weapon.Sword):
+                swordModel.SetActive(true);
+                break;
+            case (PlayerScriptBehavior.Weapon.Axe):
+                axeModel.SetActive(true);
+                break;
+            case (PlayerScriptBehavior.Weapon.Bow):
+                bowModel.SetActive(true);
+                break;
+        }
+    }
 }

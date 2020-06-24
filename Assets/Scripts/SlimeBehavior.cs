@@ -33,7 +33,7 @@ public class SlimeBehavior : EnemyBehavior
         _oldspeed = agent.speed;
         _timer = WaitTimer;
         _stopJumpAttackTime = StopJumpAttacktime;
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
+        //Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

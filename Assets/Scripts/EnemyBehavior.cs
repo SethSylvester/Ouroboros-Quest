@@ -8,6 +8,8 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject itemDropped;
     public bool isDropped = false;
 
+    public GameObject Enemy;
+
     [SerializeField]
     protected int Health;
 

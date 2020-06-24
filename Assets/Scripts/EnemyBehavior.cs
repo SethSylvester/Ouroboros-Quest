@@ -11,6 +11,9 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     protected int Health;
 
+    [HideInInspector]
+    public Transform Target;
+
     protected NavMeshAgent agent;
 
     protected int randMax = 20;
@@ -27,12 +30,12 @@ public class EnemyBehavior : MonoBehaviour
         CheckIfDead();
     }
 
-    public virtual void  TakeDamage(int damage)
+    public void  TakeDamage(int damage)
     {
         Health -= damage;
     }
 
-    protected virtual void CheckIfDead()
+    protected void CheckIfDead()
     {
         if (Health <= 0)
         {
@@ -40,7 +43,7 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    public virtual void Die()
+    public void Die()
     {
         agent.isStopped = true;
         if (!isDropped)

@@ -118,7 +118,6 @@ public class GoblinMovementBehavior : EnemyBehavior
                 if (!agent.Raycast(Target.position, out hit))
                 {
                     Charge = true;
-
                 }
             }
         }

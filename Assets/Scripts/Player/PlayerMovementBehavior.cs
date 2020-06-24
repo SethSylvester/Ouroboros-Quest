@@ -2,16 +2,15 @@
 
 public class PlayerMovementBehavior : MonoBehaviour
 {
-    //private variables
-    private float gravityDefault;
-    private float speed;
+    //public variables
+    public float gravityDefault = 1.0f;
+    //public int testItemGain = 0;
 
+    //private variables
     private float _jumpTimer = 0.5f;
     private float _gravity;
-    private float _diagonalSpeed;
     private float _groundDistance = 1.0f;
 
-    private bool _diagonalMove = false;
     private bool _jumping = false;
 
     //Movement Vectors
@@ -23,8 +22,6 @@ public class PlayerMovementBehavior : MonoBehaviour
 
     private void Start()
     {
-        //Get the Speed
-        speed = PlayerScriptBehavior.speed;
         //Get the gravity
         gravityDefault = PlayerScriptBehavior.gravityDefault;
 
@@ -33,8 +30,6 @@ public class PlayerMovementBehavior : MonoBehaviour
 
         //Tell gravity to start off at its default
         _gravity = gravityDefault;
-        //Calculate the Diagonal speed
-        _diagonalSpeed = Mathf.Sqrt((speed * speed) + (speed * speed)) / 2;
     }
 
     private void Jump()
@@ -71,9 +66,7 @@ public class PlayerMovementBehavior : MonoBehaviour
         _movement.Normalize();
 
         //Set the magnitude
-        if (_diagonalMove) { _movement *= _diagonalSpeed; }
-        else { _movement *= speed; }
-
+        _movement *= PlayerScriptBehavior.speed;
         //Finally, move the player
         _controller.Move(_movement * Time.deltaTime);
 
@@ -163,9 +156,6 @@ public class PlayerMovementBehavior : MonoBehaviour
 
     private void GetInput()
     {
-        //Tell the game not to use diagonal movement by default
-        _diagonalMove = false;
-
         //Find the direction
         _movement = new Vector3(0, 0, 0);
 
@@ -216,7 +206,6 @@ public class PlayerMovementBehavior : MonoBehaviour
         {
             GoUp();
             GoRight();
-            _diagonalMove = true;
         }
 
         //Up Left
@@ -224,7 +213,6 @@ public class PlayerMovementBehavior : MonoBehaviour
         {
             GoUp();
             GoLeft();
-            _diagonalMove = true;
         }
 
         //Down Right
@@ -232,14 +220,12 @@ public class PlayerMovementBehavior : MonoBehaviour
         {
             GoDown();
             GoRight();
-            _diagonalMove = true;
         }
         //Down Left
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
         {
             GoDown();
             GoLeft();
-            _diagonalMove = true;
         }
 
         //Up
@@ -258,4 +244,14 @@ public class PlayerMovementBehavior : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
             GoRight();
     }
+
+    ////Pick Up Item Function
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.GetComponent<TestPickUp>())
+    //    {
+    //        testItemGain++;
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 }

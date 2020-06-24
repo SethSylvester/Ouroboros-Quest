@@ -7,6 +7,8 @@ public class PlayerScriptBehavior : MonoBehaviour
     static public int damage = 1;
     static public float attackDelay = 1.0f;
     static public float speed = 5.0f;
+    static public float normalSpeed;
+    static public float slowedSpeed;
     static public float gravityDefault = 1.0f;
 
     static public Weapon weapon = Weapon.Bow;
@@ -15,9 +17,15 @@ public class PlayerScriptBehavior : MonoBehaviour
     public float iFramesDefault = 0.5f;
     public float iFrames;
 
+    private PlayerAttackBehavior playerAttack;
+
     private void Start()
     {
         iFrames = iFramesDefault;
+        normalSpeed = speed;
+        slowedSpeed = speed * 0.5f;
+
+        playerAttack = gameObject.GetComponent<PlayerAttackBehavior>();
     }
 
     private void Update()
@@ -30,6 +38,18 @@ public class PlayerScriptBehavior : MonoBehaviour
                 invul = false;
                 iFrames = iFramesDefault;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchWeapon(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchWeapon(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchWeapon(3);
         }
     }
 
@@ -76,5 +96,25 @@ public class PlayerScriptBehavior : MonoBehaviour
         }
 
         //Todo: Add player death animation
+    }
+
+    public void SwitchWeapon(int weaponID)
+    {
+        weapon = (Weapon)weaponID;
+
+        if (weapon == Weapon.Sword)
+        {
+            damage = 2;
+        }
+        else if (weapon == Weapon.Axe)
+        {
+            damage = 4;
+        }
+        else if (weapon == Weapon.Bow)
+        {
+            damage = 1;
+        }
+
+        playerAttack.SwitchWeaponModel();
     }
 }

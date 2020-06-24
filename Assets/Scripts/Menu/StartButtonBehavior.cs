@@ -5,5 +5,5 @@ using UnityEngine.SceneManagement;
 public class StartButtonBehavior : MonoBehaviour
 {
     public void StartGame()
-    { SceneManager.LoadScene(1); }
+    { SceneManager.LoadScene("Starter Island"); }
 }

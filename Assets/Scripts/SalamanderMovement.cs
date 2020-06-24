@@ -35,7 +35,7 @@ public class SalamanderMovement : EnemyBehavior
 
     public bool TestDying;
 
-
+    private float Timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,11 +51,12 @@ public class SalamanderMovement : EnemyBehavior
         _attackTimer = AttackTimer;
         TestDying = false;
         agent.isStopped = false;
+        Timer = 0.3f;
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(agent.remainingDistance);
+       // Debug.Log(agent.remainingDistance);
         CheckIfDead();
         if (!_jumpBack && !RangedAttack)
         {
@@ -72,8 +73,19 @@ public class SalamanderMovement : EnemyBehavior
             //    RangedAttack = true;
             //    agent.isStopped = true;
             //}
-            if(!RangedAttack)
-            { agent.isStopped = false; }
+            if(!RangedAttack && !_jumpBack )
+            {
+                agent.isStopped = false;
+                Timer -= Time.deltaTime;
+                //Debug.Log(Timer);
+                Debug.Log(_oldAngularSpeed);
+                if (Timer <= 0)
+                {
+                    agent.angularSpeed = _oldAngularSpeed;
+                    Timer = 0.3f;
+                }
+
+            }
         }
         if(TestDying)
         {
@@ -110,17 +122,19 @@ public class SalamanderMovement : EnemyBehavior
             Vector3 sourcePosition = transform.position + -transform.forward;
             if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1) || _jumpBacktimer <= 0)
             {
+                agent.isStopped = true;
                 Debug.Log("JumpbackDone");
                 _jumpBack = false;
                 _jumpBacktimer = JumpBackTimer;
                 agent.speed = _oldSpeed;
-                agent.angularSpeed = _oldAngularSpeed;
                 Attack = true;
+                Timer = 0.3f;
             }
             else
             {
                 _jumpBacktimer -= Time.deltaTime;
                 Vector3 JumpBackDirection = transform.position + -transform.forward;
+                //JumpBackDirection.Normalize();
                 agent.angularSpeed = 0;
                 agent.speed = JumpBackSpeed;
                 agent.destination = JumpBackDirection;

@@ -7,6 +7,8 @@ public class PlayerScriptBehavior : MonoBehaviour
     static public int damage = 1;
     static public float attackDelay = 1.0f;
     static public float speed = 5.0f;
+    static public float normalSpeed;
+    static public float slowedSpeed;
     static public float gravityDefault = 1.0f;
 
     static public Weapon weapon = Weapon.Bow;
@@ -18,6 +20,8 @@ public class PlayerScriptBehavior : MonoBehaviour
     private void Start()
     {
         iFrames = iFramesDefault;
+        normalSpeed = speed;
+        slowedSpeed = speed * 0.5f;
     }
 
     private void Update()

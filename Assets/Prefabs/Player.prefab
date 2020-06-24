@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 6894744714144324006}
   - component: {fileID: 6894744714144324007}
   - component: {fileID: 6894744714144324000}
-  - component: {fileID: 6894744714144324010}
+  - component: {fileID: 5441109333505341026}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef69c92633850d4ea2a25be1849b465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravityDefault: 1
 --- !u!143 &6894744714144324007
 CharacterController:
   m_ObjectHideFlags: 0
@@ -255,14 +256,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordHitbox: {fileID: 657069266973668361}
-  scytheHitbox: {fileID: 0}
   axeHitbox: {fileID: 5085756677689799961}
   arrowSpawner: {fileID: 7879176166463465484}
   arrow: {fileID: 4733063997773502064, guid: dd957d4319a9d6744910f4c520a5fe83, type: 3}
   swordModel: {fileID: 657069266973668361}
   axeModel: {fileID: 5085756677689799961}
   bowModel: {fileID: 8740657172179381612}
---- !u!114 &6894744714144324010
+--- !u!114 &5441109333505341026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,9 +271,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6894744714144324002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a879729e706b041999110d00c9b0ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b8cf396e532a624da515e5946ab69db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invul: 0
+  iFramesDefault: 0.5
+  iFrames: 0
 --- !u!1 &7464771377424485797
 GameObject:
   m_ObjectHideFlags: 0

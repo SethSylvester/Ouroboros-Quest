@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class TeleporterBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject canvas;
+    private UIBehavior ui;
+
+    private void Start()
     {
-        
+        ui = canvas.GetComponent<UIBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ui.TeleporterButtons();
+        }
     }
     //If raycasting over the teleporter
     //Set the material to a glowy texture

@@ -15,4 +15,7 @@ public class TeleporterBehavior : MonoBehaviour
     {
         
     }
+    //If raycasting over the teleporter
+    //Set the material to a glowy texture
+
 }

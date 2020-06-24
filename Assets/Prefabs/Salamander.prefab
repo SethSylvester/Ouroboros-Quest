@@ -194,6 +194,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6b1d3b6ed480a43ab9e023de2b9db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDropped1: {fileID: 7133048901952133275, guid: 31b16b83e07bfcd4cb212264271931e8,
+    type: 3}
+  itemDropped2: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
+    type: 3}
+  itemDropped3: {fileID: 7585776576513204210, guid: e39ee9f026d732142abbd8e635433767,
+    type: 3}
+  itemDropped4: {fileID: 2669041114474715783, guid: 36eaf2ef0bc904f4e8e60c2663598a1c,
+    type: 3}
+  isDropped: 0
   Health: 4
   Target: {fileID: 0}
   Attack: 0

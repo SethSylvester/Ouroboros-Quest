@@ -11,6 +11,8 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject itemDropped4;
     public bool isDropped = false;
 
+    public GameObject Enemy;
+
     [SerializeField]
     protected int Health;
 

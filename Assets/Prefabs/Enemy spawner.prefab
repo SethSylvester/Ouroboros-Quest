@@ -49,6 +49,6 @@ MonoBehaviour:
     type: 3}
   SlimeSpawnAmountLimit: 10
   GoblinSpawnAmountLimit: 2
-  SalamanderSpawnAmountLimit: 1
+  SalamanderSpawnAmountLimit: 0
   SpawnTimer: 1
   SpawnPoint: []

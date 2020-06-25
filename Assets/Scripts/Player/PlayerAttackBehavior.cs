@@ -17,8 +17,6 @@ public class PlayerAttackBehavior : MonoBehaviour
     [SerializeField]
     GameObject swordHitbox;
     [SerializeField]
-    GameObject scytheHitbox;
-    [SerializeField]
     GameObject axeHitbox;
     [SerializeField]
     GameObject arrowSpawner;
@@ -62,9 +60,6 @@ public class PlayerAttackBehavior : MonoBehaviour
                 case PlayerScriptBehavior.Weapon.Sword:
                     swordHitbox.SetActive(true);
                     break;
-                case PlayerScriptBehavior.Weapon.Scythe:
-                    scytheHitbox.SetActive(true);
-                    break;
                 case PlayerScriptBehavior.Weapon.Axe:
                     axeHitbox.SetActive(true);
                     break;
@@ -89,9 +84,6 @@ public class PlayerAttackBehavior : MonoBehaviour
             //Sword
             if (swordHitbox.activeSelf)
             { swordHitbox.SetActive(false); }
-            //Scythe
-            else if (scytheHitbox.activeSelf)
-            { scytheHitbox.SetActive(false); }
             //Axe
             else if (axeHitbox.activeSelf)
             { axeHitbox.SetActive(false); }
@@ -120,6 +112,26 @@ public class PlayerAttackBehavior : MonoBehaviour
                     _attackDelayTimer = attackDelay;
                 }
                 //End of switch statement
+                break;
+        }
+    }
+
+    public void SwitchWeaponModel()
+    {
+        swordModel.SetActive(false);
+        axeModel.SetActive(false);
+        bowModel.SetActive(false);
+
+        switch (PlayerScriptBehavior.weapon)
+        {
+            case (PlayerScriptBehavior.Weapon.Sword):
+                swordModel.SetActive(true);
+                break;
+            case (PlayerScriptBehavior.Weapon.Axe):
+                axeModel.SetActive(true);
+                break;
+            case (PlayerScriptBehavior.Weapon.Bow):
+                bowModel.SetActive(true);
                 break;
         }
     }

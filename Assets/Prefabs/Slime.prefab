@@ -169,9 +169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bff4193f09785f4dba200fd0e34188b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDropped: {fileID: 0}
+  itemDropped1: {fileID: 7133048901952133275, guid: 31b16b83e07bfcd4cb212264271931e8,
+    type: 3}
+  itemDropped2: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
+    type: 3}
+  itemDropped3: {fileID: 7585776576513204210, guid: e39ee9f026d732142abbd8e635433767,
+    type: 3}
+  itemDropped4: {fileID: 2669041114474715783, guid: 36eaf2ef0bc904f4e8e60c2663598a1c,
+    type: 3}
   isDropped: 0
-  Enemy: {fileID: 0}
   Health: 1
   Target: {fileID: 0}
   damage: 2
@@ -317,9 +323,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc595904b396a6646866cd0a371d376a, type: 3}
---- !u!4 &1788408920703152885 stripped
+--- !u!4 &2018377441822873972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: fc595904b396a6646866cd0a371d376a,
     type: 3}
-  m_PrefabInstance: {fileID: 6749489285243541999}
+  m_PrefabInstance: {fileID: 6446906544869749358}
   m_PrefabAsset: {fileID: 0}

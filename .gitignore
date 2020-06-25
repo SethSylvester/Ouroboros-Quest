@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Models/EnvironmentAssets/TallAndSmallGrass/SmallGrassBlockout.fbx.meta
+Assets/Models/EnvironmentAssets/TallAndSmallGrass/TallGrassBlockout.fbx.meta
+Assets/Weapons/Materials/Salamander_Khopesh-lambert1.mat.meta
+Assets/Weapons/Materials/Salamander_Khopesh-lambert1.mat
+Assets/Models/EnvironmentAssets/TallAndSmallGrass.meta

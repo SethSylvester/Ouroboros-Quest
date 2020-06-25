@@ -178,6 +178,7 @@ MonoBehaviour:
   itemDropped4: {fileID: 2669041114474715783, guid: 36eaf2ef0bc904f4e8e60c2663598a1c,
     type: 3}
   isDropped: 0
+  Enemy: {fileID: 0}
   Health: 1
   Target: {fileID: 0}
   damage: 2
@@ -234,7 +235,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
+  m_Size: {x: 1.25, y: 2, z: 1.25}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!65 &4493247519173131043
 BoxCollider:
@@ -323,9 +324,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc595904b396a6646866cd0a371d376a, type: 3}
---- !u!4 &2018377441822873972 stripped
+--- !u!4 &1788408920703152885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: fc595904b396a6646866cd0a371d376a,
     type: 3}
-  m_PrefabInstance: {fileID: 6446906544869749358}
+  m_PrefabInstance: {fileID: 6749489285243541999}
   m_PrefabAsset: {fileID: 0}

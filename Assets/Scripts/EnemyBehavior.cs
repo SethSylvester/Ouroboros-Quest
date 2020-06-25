@@ -55,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             ItemDrop();
         }
-        UnityEngine.Object.Destroy(gameObject, 3);
+        UnityEngine.Object.Destroy(gameObject, 0);
     }
 
     //Function for dropping items for each enemy

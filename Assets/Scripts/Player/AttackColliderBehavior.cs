@@ -6,9 +6,10 @@ public class AttackColliderBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If its an enemy
-        if (other.gameObject.GetComponentInParent<SlimeBehavior>() != null ||
-            other.gameObject.GetComponentInParent<GoblinMovementBehavior>() != null ||
-            other.gameObject.GetComponentInParent<SalamanderMovement>() != null)
+        if (other.CompareTag("EnemyHitbox"))
+            //(other.gameObject.GetComponentInParent<SlimeBehavior>() != null ||
+        //    other.gameObject.GetComponentInParent<GoblinMovementBehavior>() != null ||
+        //    other.gameObject.GetComponentInParent<SalamanderMovement>() != null)
 
         {
             //Hurt it

@@ -661,11 +661,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7479967970693603064, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: m_Name
@@ -674,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479967970693603069, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
         type: 3}
@@ -741,6 +736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977698924439601133, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccf1c16a9f1ac5e4a8843998281b86f1, type: 3}
@@ -982,7 +982,7 @@ GameObject:
   - component: {fileID: 2084673087}
   m_Layer: 0
   m_Name: Directional Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1161,7 +1161,7 @@ PrefabInstance:
     - target: {fileID: 5049698691646439528, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
@@ -1278,6 +1278,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy attack
       objectReference: {fileID: 0}
+    - target: {fileID: 2372699912904903117, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7914565294549136570, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1349,6 +1354,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
         type: 3}
+    - target: {fileID: 8108765228347135134, guid: a43231be87d7c1041a75ef3720438cea,
+        type: 3}
+      propertyPath: Health
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8606701457986216920, guid: a43231be87d7c1041a75ef3720438cea,
         type: 3}
       propertyPath: m_TagString

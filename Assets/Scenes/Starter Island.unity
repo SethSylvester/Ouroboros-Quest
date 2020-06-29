@@ -249,12 +249,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!4 &54756909 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5049698691646439529, guid: a6361d02286540e4dba52f881d743cc8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1710457700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &84484230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1609,14 +1603,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
-      propertyPath: SpawnPoint.Array.size
+      propertyPath: Limit.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
-      propertyPath: SpawnPoint.Array.data[0]
-      value: 
-      objectReference: {fileID: 54756909}
+      propertyPath: Limit.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: Limit.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: Limit.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: SpawnPoint.Array.data[1]
@@ -1627,12 +1631,6 @@ PrefabInstance:
       propertyPath: SpawnPoint.Array.data[2]
       value: 
       objectReference: {fileID: 1672394622}
-    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
-        type: 3}
-      propertyPath: Slime
-      value: 
-      objectReference: {fileID: 7479967970693603066, guid: ccf1c16a9f1ac5e4a8843998281b86f1,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6361d02286540e4dba52f881d743cc8, type: 3}
 --- !u!1001 &1765089284

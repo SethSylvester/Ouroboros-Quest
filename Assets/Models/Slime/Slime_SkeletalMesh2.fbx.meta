@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -67,7 +67,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - 2c1282cfcc46fff4f88f5962f52a071f
+  - 07b7961b2c77fd144a8a9c8e22e80f23
+  - 262f1e161f3b11b42b947432073de5f0
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

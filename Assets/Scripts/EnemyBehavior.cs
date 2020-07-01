@@ -16,6 +16,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     protected int Health;
 
+    public Enemyspawn enemyspawner;
+
     [HideInInspector]
     public Transform Target;
 
@@ -50,6 +52,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Die()
     {
+        enemyspawner.playerkills += 1;
         agent.isStopped = true;
         if (!isDropped)
         {

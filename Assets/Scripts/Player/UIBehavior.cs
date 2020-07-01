@@ -65,7 +65,7 @@ public class UIBehavior : MonoBehaviour
                 health2.texture = heartEmpty;
                 health3.texture = heartEmpty;
                 break;
-            case 0:
+            default:
                 health1.texture = heartEmpty;
                 health2.texture = heartEmpty;
                 health3.texture = heartEmpty;

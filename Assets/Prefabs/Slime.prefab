@@ -346,6 +346,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7479967970693603070}
     m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: fc595904b396a6646866cd0a371d376a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 91717ddf731659f448f424070181a286, type: 2}
     - target: {fileID: -4216859302048453862, guid: fc595904b396a6646866cd0a371d376a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -405,6 +410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slime_SkeletalMesh2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528387467374286826, guid: fc595904b396a6646866cd0a371d376a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4528387467374286826, guid: fc595904b396a6646866cd0a371d376a,
         type: 3}

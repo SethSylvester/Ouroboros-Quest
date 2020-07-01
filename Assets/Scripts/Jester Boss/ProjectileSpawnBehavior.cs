@@ -31,4 +31,5 @@ public class ProjectileSpawnBehavior : MonoBehaviour
             _spawnTimer = SpawnTimer;
         }
     }
+
 }

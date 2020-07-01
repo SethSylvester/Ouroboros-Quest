@@ -11,7 +11,7 @@ public class JesterBossBehavior : MonoBehaviour
     private float vulnerabilityTimer;
     private float knifeForkTimeDefault = 1.5f;
     private float knifeForkTime;
-    private float SuperWaveTimerDefault = 1f;
+    private float SuperWaveTimerDefault = 1.5f;
     private float SuperWaveTimer;
 
     //int Timers
@@ -195,7 +195,9 @@ public class JesterBossBehavior : MonoBehaviour
             waveOne = true;
             WaveOne.SetActive(true);
         }
+
         SuperWaveTimer -= Time.deltaTime;
+
         if (SuperWaveTimer <= 0 || waveTwo)
         {
             SuperAttackTwo();
@@ -204,11 +206,11 @@ public class JesterBossBehavior : MonoBehaviour
 
     private void SuperAttackTwo()
     {
-        if (WaveOne.activeSelf)
-        { WaveOne.SetActive(false); }
-
         if (!waveTwo)
         {
+            if (WaveOne.activeSelf)
+            { WaveOne.SetActive(false); }
+
             waveTwo = true;
             WaveTwo.SetActive(true);
             SuperWaveTimer = SuperWaveTimerDefault;
@@ -225,11 +227,11 @@ public class JesterBossBehavior : MonoBehaviour
 
     private void SuperAttackThree()
     {
-        if (WaveTwo.activeSelf)
-        { WaveTwo.SetActive(false); }
-
         if (!waveThree)
         {
+            if (WaveTwo.activeSelf)
+            { WaveTwo.SetActive(false); }
+
             waveThree = true;
             WaveOne.SetActive(true);
             SuperWaveTimer = SuperWaveTimerDefault;
@@ -245,11 +247,11 @@ public class JesterBossBehavior : MonoBehaviour
 
     private void SuperAttackFour()
     {
-        if (WaveOne.activeSelf)
-        { WaveOne.SetActive(false); }
-
         if (!waveFour)
         {
+            if (WaveOne.activeSelf)
+            { WaveOne.SetActive(false); }
+
             waveFour = true;
             WaveTwo.SetActive(true);
             SuperWaveTimer = SuperWaveTimerDefault;
@@ -266,11 +268,11 @@ public class JesterBossBehavior : MonoBehaviour
 
     private void SuperAttackFive()
     {
-        if (WaveTwo.activeSelf)
-        { WaveTwo.SetActive(false); }
-
         if (!waveFive)
         {
+            if (WaveTwo.activeSelf)
+            { WaveTwo.SetActive(false); }
+
             waveFive = true;
             WaveFive.SetActive(true);
             SuperWaveTimer = 4;

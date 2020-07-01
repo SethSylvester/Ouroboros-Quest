@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class SlimeBehavior : EnemyBehavior
 {
 
+    Animator SlimeAnimator;
+
     public int damage;
 
     public bool testdying;
@@ -33,7 +35,7 @@ public class SlimeBehavior : EnemyBehavior
         _oldspeed = agent.speed;
         _timer = WaitTimer;
         _stopJumpAttackTime = StopJumpAttacktime;
-        //Target = GameObject.FindGameObjectWithTag("Player").transform;
+        SlimeAnimator = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -96,6 +98,7 @@ public class SlimeBehavior : EnemyBehavior
 
     public void JumpAttack()
     {
+        SlimeAnimator.SetTrigger("Attack");
         Debug.Log("JumpAttack");
         if (agent.isStopped == true)
         {
@@ -137,6 +140,7 @@ public class SlimeBehavior : EnemyBehavior
                     _timer = WaitTimer;
                     agent.speed = _oldspeed;
                     _stopJumpAttackTime = StopJumpAttacktime;
+                    //SlimeAnimator.SetTrigger("Attack");
                 }
 
             }

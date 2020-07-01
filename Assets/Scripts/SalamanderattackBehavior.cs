@@ -5,11 +5,13 @@ using UnityEngine.AI;
 
 public class SalamanderattackBehavior : MonoBehaviour
 {
+    PlayerScriptBehavior p;
     private float _attackcooldown;
     public GameObject Fire;
     private SalamanderMovement Salamander;
     private FireTriggerScript SalamanderFire;
-    
+    private NavMeshAgent Agent;
+
     public float FireTimer;
     private float _fireTimer;
 
@@ -17,6 +19,10 @@ public class SalamanderattackBehavior : MonoBehaviour
     private float _restTimer;
 
     private bool _fireSpawned;
+
+    private float _normalAttackTimer;
+
+    public float NormalAttackTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +32,8 @@ public class SalamanderattackBehavior : MonoBehaviour
         _fireTimer = FireTimer;
         _restTimer = RestTimer;
         _fireSpawned = false;
+        _normalAttackTimer = NormalAttackTimer;
+        Agent = gameObject.GetComponentInParent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -55,6 +63,25 @@ public class SalamanderattackBehavior : MonoBehaviour
                 }
             }
         }
+        if(Salamander.NormalAttack)
+        {
+            _normalAttackTimer -= Time.deltaTime;
+            if (_normalAttackTimer <= 0)
+            {
+                _attack();
+            }
+        }
+    }
+
+    private void _attack()
+    {
+        p.TakeDamage(Salamander.Damage);
+        Salamander.SendMessage("SetJumpbackTimer");
+        //Salamander.Attack = false;
+        Salamander.TestJumpBack = true;
+        Agent.isStopped = true;
+        Salamander.NormalAttack = false;
+        _normalAttackTimer = NormalAttackTimer;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,12 +90,22 @@ public class SalamanderattackBehavior : MonoBehaviour
         {
             if (other.CompareTag("PlayerHitbox"))
             {
-                PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
-                p.TakeDamage(Salamander.Damage);
-                Salamander.SendMessage("SetJumpbackTimer");
-                //Salamander.Attack = false;
-                Salamander.TestJumpBack = true;
+                p = other.GetComponentInParent<PlayerScriptBehavior>();
+                Salamander.NormalAttack = true;
+                Agent.isStopped = true;
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (Salamander.NormalAttack)
+        {
+            if  (other.CompareTag("PlayerHitbox"))
+            {
+                Salamander.NormalAttack = false;
+                Agent.isStopped = false;
+            }
+
         }
     }
 }

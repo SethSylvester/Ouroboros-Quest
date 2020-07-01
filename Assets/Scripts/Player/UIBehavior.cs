@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIBehavior : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class UIBehavior : MonoBehaviour
     //The text portions of the UI
     [SerializeField]
     public Text shards;
+
+    [SerializeField]
+    GameObject bossButtons;
     //[SerializeField]
     //public Text currentWeapon;
     //[SerializeField]
@@ -61,11 +65,35 @@ public class UIBehavior : MonoBehaviour
                 health2.texture = heartEmpty;
                 health3.texture = heartEmpty;
                 break;
-            case 0:
+            default:
                 health1.texture = heartEmpty;
                 health2.texture = heartEmpty;
                 health3.texture = heartEmpty;
                 break;
+        }
+    }
+
+    public void TeleporterButtons()
+    {
+        bossButtons.SetActive(true);
+    }
+
+    //Teleports you to a new island
+    public void TeleportNewIsland()
+    {
+        bossButtons.SetActive(false);
+        PlayerScriptBehavior.shards -= 5;
+        SceneManager.LoadScene("New Island");
+    }
+
+    //Teleports you to the boss island
+    public void TeleportBossIsland()
+    {
+        if (PlayerScriptBehavior.shards >= 25)
+        {
+            bossButtons.SetActive(false);
+            PlayerScriptBehavior.shards -= 25;
+            SceneManager.LoadScene("Boss Island");
         }
     }
 }

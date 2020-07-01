@@ -11,6 +11,8 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject itemDropped4;
     public bool isDropped = false;
 
+    public GameObject Enemy;
+
     [SerializeField]
     protected int Health;
 
@@ -53,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             ItemDrop();
         }
-        UnityEngine.Object.Destroy(gameObject, 3);
+        UnityEngine.Object.Destroy(gameObject, 0);
     }
 
     //Function for dropping items for each enemy

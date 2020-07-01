@@ -33,7 +33,7 @@ public class SlimeBehavior : EnemyBehavior
         _oldspeed = agent.speed;
         _timer = WaitTimer;
         _stopJumpAttackTime = StopJumpAttacktime;
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
+        //Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -58,10 +58,7 @@ public class SlimeBehavior : EnemyBehavior
         CheckIfDead();
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        //This checks if the trigger is the trigger on the player
-        if(other.gameObject.CompareTag("Player"))
+    public void BeginJumpAttack()
         {
             if (_isJumpAttacking)
             {
@@ -71,14 +68,6 @@ public class SlimeBehavior : EnemyBehavior
             _isJumpAttacking = true;
             
         }
-        //This checks if the trigger is the trigger for the hitbox
-        //if(other.gameObject.CompareTag("PlayerHitbox"))
-        //{
-        //    //Make the slimes hurt the player
-        //    PlayerScriptBehavior p = other.GetComponentInParent<PlayerScriptBehavior>();
-        //    p.TakeDamage(1);
-        //}
-    }
 
     //void OnTriggerExit(Collider other)
     //{

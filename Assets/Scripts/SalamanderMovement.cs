@@ -12,6 +12,9 @@ public class SalamanderMovement : EnemyBehavior
     private bool hasTarget;
     private float _jumpBacktimer;
 
+    [HideInInspector]
+    public bool NormalAttack;
+
     private GameObject weapon;
     private float _attackTimer;
 
@@ -56,7 +59,12 @@ public class SalamanderMovement : EnemyBehavior
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(agent.remainingDistance);
+        if (TestJumpBack)
+        {
+            TestJumpBack = false;
+            _jumpBack = true;
+        }
+        // Debug.Log(agent.remainingDistance);
         CheckIfDead();
         if (!_jumpBack && !RangedAttack)
         {
@@ -73,7 +81,7 @@ public class SalamanderMovement : EnemyBehavior
             //    RangedAttack = true;
             //    agent.isStopped = true;
             //}
-            if(!RangedAttack && !_jumpBack )
+            if(!RangedAttack && !_jumpBack && !NormalAttack)
             {
                 agent.isStopped = false;
                 Timer -= Time.deltaTime;
@@ -95,11 +103,7 @@ public class SalamanderMovement : EnemyBehavior
         {
             JumpBack();
         }
-        if (TestJumpBack)
-        {
-            TestJumpBack = false;
-            _jumpBack = true;
-        }
+        
     }
 
     void SalamanderAttack()

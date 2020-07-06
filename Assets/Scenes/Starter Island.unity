@@ -845,21 +845,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
-        type: 3}
-      propertyPath: m_Height
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2941681310811921982, guid: 42d53e6242c7d044c83d2b3be06c8896,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6894744714144324002, guid: 42d53e6242c7d044c83d2b3be06c8896,
         type: 3}
       propertyPath: m_Name
@@ -974,6 +959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 11588060270591535}
     m_Modifications:
+    - target: {fileID: -9180872401070687746, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8f6acbc6b773834b97a1191cf060f25, type: 2}
     - target: {fileID: -4216859302048453862, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1054,6 +1044,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LandMain (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2162664957380460586, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7d893307de063a40a2784c406195ba4, type: 2}
+    - target: {fileID: 6418793295444483797, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49613ba1e93af7247856997c06249f2b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2a0f82c21d9c1a41a3fb880d61ce01f, type: 3}
 --- !u!4 &1312396137 stripped
@@ -1648,8 +1648,13 @@ PrefabInstance:
       objectReference: {fileID: 1672394622}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
-      propertyPath: SlimeSpawnAmountLimit
+      propertyPath: SalamanderSpawnAmountLimit
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: SlimeSpawnAmountLimit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6361d02286540e4dba52f881d743cc8, type: 3}

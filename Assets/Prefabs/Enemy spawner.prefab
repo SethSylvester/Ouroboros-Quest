@@ -47,7 +47,7 @@ MonoBehaviour:
   Goblin: {fileID: 3574575745715432573, guid: c139917544ae09f47b9bbe163975988e, type: 3}
   Salamander: {fileID: 7914565294549136574, guid: a43231be87d7c1041a75ef3720438cea,
     type: 3}
-  SlimeSpawnAmountLimit: 4
+  SlimeSpawnAmountLimit: 0
   GoblinSpawnAmountLimit: 0
   SalamanderSpawnAmountLimit: 1
   SpawnTimer: 3

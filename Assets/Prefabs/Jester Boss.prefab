@@ -476,6 +476,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880987881737648}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880987921066706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1101,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880988026227239}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880988040483620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2142,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880988429385251}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880988468935067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,6 +2767,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880988710843123}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880988722621544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,6 +3487,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880989056370894}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880989064560940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,6 +3581,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880989106755354}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880989107234276
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,6 +4182,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880989310394991}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880989343160291
 GameObject:
   m_ObjectHideFlags: 0
@@ -4501,6 +4522,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880989415219447}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880989456416755
 GameObject:
   m_ObjectHideFlags: 0
@@ -4745,7 +4769,7 @@ MonoBehaviour:
   knifeShower: {fileID: 2009880988608368354}
   WaveOne: {fileID: 2009880988132072224}
   WaveTwo: {fileID: 2009880989195254234}
-  WaveThree: {fileID: 2009880988040483620}
+  WaveFive: {fileID: 0}
   projectile1: {fileID: 2009880988215852956}
   projectile2: {fileID: 2009880988405061314}
   projectile3: {fileID: 2009880989672520995}
@@ -5088,6 +5112,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 2009880989515961392}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!1 &2009880989569168557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5835,7 +5862,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3740e4caad1cf0e41b91bbc328d27022, type: 2}
+      objectReference: {fileID: 2100000, guid: 4d4ed8ecdb0362542836d29d7c19623d, type: 2}
     - target: {fileID: -4216859302048453862, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5910,32 +5937,47 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: da9c41ff9c76ce8408b54266bfd8fff2, type: 2}
+      objectReference: {fileID: 2100000, guid: 07bc8cb301752564aa657166b6e00b92, type: 2}
     - target: {fileID: -1405764595796388787, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3740e4caad1cf0e41b91bbc328d27022, type: 2}
+      objectReference: {fileID: 2100000, guid: 4d4ed8ecdb0362542836d29d7c19623d, type: 2}
     - target: {fileID: -927199367670048503, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
         type: 3}
       propertyPath: m_Name
       value: GameReadyJesterBlockout
       objectReference: {fileID: 0}
+    - target: {fileID: 401814201792555623, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07bc8cb301752564aa657166b6e00b92, type: 2}
     - target: {fileID: 1074869157525287604, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3740e4caad1cf0e41b91bbc328d27022, type: 2}
+      objectReference: {fileID: 2100000, guid: 4d4ed8ecdb0362542836d29d7c19623d, type: 2}
+    - target: {fileID: 1256417873657675895, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07bc8cb301752564aa657166b6e00b92, type: 2}
+    - target: {fileID: 2079811869385685191, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07bc8cb301752564aa657166b6e00b92, type: 2}
     - target: {fileID: 2974435722643736347, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6dc38442b1254cd4dafe5ad21ff368d5, type: 2}
+      objectReference: {fileID: 2100000, guid: 4d4ed8ecdb0362542836d29d7c19623d, type: 2}
     - target: {fileID: 7448237762609144904, guid: ff8a8977e88168b4e9c980e5d63d8f5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6dc38442b1254cd4dafe5ad21ff368d5, type: 2}
+      objectReference: {fileID: 2100000, guid: 4d4ed8ecdb0362542836d29d7c19623d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8a8977e88168b4e9c980e5d63d8f5a, type: 3}
 --- !u!4 &6817953762000005578 stripped

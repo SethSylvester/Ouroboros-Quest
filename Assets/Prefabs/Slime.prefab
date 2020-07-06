@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bff4193f09785f4dba200fd0e34188b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 0}
   itemDropped1: {fileID: 7133048901952133275, guid: 31b16b83e07bfcd4cb212264271931e8,
     type: 3}
   itemDropped2: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
@@ -225,6 +226,7 @@ MonoBehaviour:
   isDropped: 0
   Enemy: {fileID: 0}
   Health: 1
+  enemyspawner: {fileID: 0}
   Target: {fileID: 0}
   damage: 2
   testdying: 0
@@ -420,7 +422,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}
+      objectReference: {fileID: 2100000, guid: f712999533d37224299959ce342a314b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc595904b396a6646866cd0a371d376a, type: 3}
 --- !u!4 &1788408920703152885 stripped

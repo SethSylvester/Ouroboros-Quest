@@ -1634,12 +1634,17 @@ PrefabInstance:
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: SalamanderSpawnAmountLimit
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: SlimeSpawnAmountLimit
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: WaveRestartKillLimit
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6361d02286540e4dba52f881d743cc8, type: 3}

@@ -55,6 +55,7 @@ public class SalamanderMovement : EnemyBehavior
         TestDying = false;
         agent.isStopped = false;
         Timer = 0.3f;
+        EnemyAnimator = gameObject.GetComponentInChildren<Animator>();
     }
     // Update is called once per frame
     void Update()

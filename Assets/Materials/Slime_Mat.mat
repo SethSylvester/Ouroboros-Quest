@@ -21,8 +21,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Slime_Mat
+<<<<<<< HEAD
   m_Shader: {fileID: -6465566751694194690, guid: a3548e7589d2887419d4f8e30fd3120b,
     type: 3}
+=======
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+>>>>>>> parent of b817adc... Updated URP
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,10 +37,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -57,11 +57,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+<<<<<<< HEAD
     - _SpecGlossMap:
+=======
+    - _ParallaxMap:
+>>>>>>> parent of b817adc... Updated URP
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+<<<<<<< HEAD
     - Vector1_6C781760: 0.93
     - Vector1_9F4E67A2: 0
     - Vector1_B2DD6140: 0.867
@@ -69,16 +74,24 @@ Material:
     - Vector1_F1C2F1B: 0.354
     - _AlphaClip: 0
     - _Blend: 0
+=======
+>>>>>>> parent of b817adc... Updated URP
     - _BumpScale: 1
-    - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
+<<<<<<< HEAD
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+=======
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+>>>>>>> parent of b817adc... Updated URP
     - _Metallic: 0
     - _OcclusionStrength: 1
+<<<<<<< HEAD
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -89,9 +102,20 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_6FBAD26C: {r: 0.427451, g: 0.8431373, b: 0.5803922, a: 0}
+    - Color_6FBAD26C: {r: 0.25640798, g: 0.8113208, b: 0.25917664, a: 0}
     - Color_836B0789: {r: 0.05448028, g: 0.6901961, b: 0.4507858, a: 0.8156863}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+=======
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>> parent of b817adc... Updated URP

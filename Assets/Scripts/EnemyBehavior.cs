@@ -7,6 +7,8 @@ public class EnemyBehavior : MonoBehaviour
 {
     public Animator EnemyAnimator;
 
+    public float deathTimer;
+
     public GameObject itemDropped1;
     public GameObject itemDropped2;
     public GameObject itemDropped3;
@@ -14,6 +16,9 @@ public class EnemyBehavior : MonoBehaviour
     public bool isDropped = false;
 
     public GameObject Enemy;
+
+    [HideInInspector]
+    public bool death;
 
     [SerializeField]
     protected int Health;
@@ -60,8 +65,9 @@ public class EnemyBehavior : MonoBehaviour
         {
             ItemDrop();
         }
+        death = true;
         EnemyAnimator.SetTrigger("Death");
-        UnityEngine.Object.Destroy(gameObject, 4);
+        UnityEngine.Object.Destroy(gameObject, deathTimer);
     }
 
     //Function for dropping items for each enemy

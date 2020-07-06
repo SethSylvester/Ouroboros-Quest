@@ -38,23 +38,26 @@ public class SlimeBehavior : EnemyBehavior
     // Update is called once per frame
     void Update()
     {
-        if (!jumpattack)
+        if(!death)
         {
-            //sets the enemies destination to the target
-            agent.destination = Target.position;
-        }
-        //This is used to tell the slime what to do when jump attack is true
-        if (jumpattack)
-        {
-            JumpAttack();
-        }
+            if (!jumpattack)
+            {
+                //sets the enemies destination to the target
+                agent.destination = Target.position;
+            }
+            //This is used to tell the slime what to do when jump attack is true
+            if (jumpattack)
+            {
+                JumpAttack();
+            }
 
-        //This is used to call the die function so dying can be tested without the player killing the slime
-        if (testdying)
-        {
-            Die();
+            //This is used to call the die function so dying can be tested without the player killing the slime
+            if (testdying)
+            {
+                Die();
+            }
+            CheckIfDead();
         }
-        CheckIfDead();
     }
 
     public void BeginJumpAttack()
@@ -95,51 +98,55 @@ public class SlimeBehavior : EnemyBehavior
 
     public void JumpAttack()
     {
-        EnemyAnimator.SetTrigger("Attack");
-        Debug.Log("JumpAttack");
-        if (agent.isStopped == true)
+        if (!death)
         {
-            _timer -= Time.deltaTime;
+            EnemyAnimator.SetTrigger("Attack");
+            Debug.Log("JumpAttack");
             if (agent.isStopped == true)
             {
-                if (_timer <= 0.0f)
+                _timer -= Time.deltaTime;
+                if (agent.isStopped == true)
                 {
-                    if (!_hasJumpattackTarget)
+                    if (_timer <= 0.0f)
                     {
-                        agent.destination = Target.position;
-                        _hasJumpattackTarget = true;
-                        agent.isStopped = true;
+                        if (!_hasJumpattackTarget)
+                        {
+                            agent.destination = Target.position;
+                            _hasJumpattackTarget = true;
+                            agent.isStopped = true;
+                        }
+                        agent.speed = JumpSpeed;
+                        agent.isStopped = false;
+                        Debug.Log(agent.isStopped);
+                        _stopJumpAttackTime = StopJumpAttacktime;
+                        _timer = WaitTimer;
+                        Debug.Log(agent.destination);
                     }
-                    agent.speed = JumpSpeed;
-                    agent.isStopped = false;
-                    Debug.Log(agent.isStopped);
-                    _stopJumpAttackTime = StopJumpAttacktime;
-                    _timer = WaitTimer;
-                    Debug.Log(agent.destination);
-                }
 
+                }
             }
-        }
-        if (agent.isStopped == false)
-        {
-            _stopJumpAttackTime -= Time.deltaTime;
-            if (_stopJumpAttackTime <= 0)
-            {
-                _hasJumpattackTarget = false;
-                agent.isStopped = true;
-                _stopJumpAttackTime = StopJumpAttacktime;
-                _timer = WaitTimer;
-                agent.destination = Target.position;
-                if (!_isJumpAttacking)
-                {
-                    jumpattack = false;
-                    agent.isStopped = false;
-                    _timer = WaitTimer;
-                    agent.speed = _oldspeed;
-                    _stopJumpAttackTime = StopJumpAttacktime;
-                    //SlimeAnimator.SetTrigger("Attack");
-                }
 
+            if (agent.isStopped == false)
+            {
+                _stopJumpAttackTime -= Time.deltaTime;
+                if (_stopJumpAttackTime <= 0)
+                {
+                    _hasJumpattackTarget = false;
+                    agent.isStopped = true;
+                    _stopJumpAttackTime = StopJumpAttacktime;
+                    _timer = WaitTimer;
+                    agent.destination = Target.position;
+                    if (!_isJumpAttacking)
+                    {
+                        jumpattack = false;
+                        agent.isStopped = false;
+                        _timer = WaitTimer;
+                        agent.speed = _oldspeed;
+                        _stopJumpAttackTime = StopJumpAttacktime;
+                        //SlimeAnimator.SetTrigger("Attack");
+                    }
+
+                }
             }
         }
     }

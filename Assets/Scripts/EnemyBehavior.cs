@@ -15,6 +15,7 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject itemDropped4;
     public bool isDropped = false;
 
+    [HideInInspector]
     public GameObject Enemy;
 
     [HideInInspector]
@@ -23,6 +24,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     protected int Health;
 
+    [HideInInspector]
     public Enemyspawn enemyspawner;
 
     [HideInInspector]
@@ -61,6 +63,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         enemyspawner.playerkills += 1;
         agent.isStopped = true;
+        Debug.Log(enemyspawner.playerkills);
         if (!isDropped)
         {
             ItemDrop();

@@ -60,51 +60,54 @@ public class SalamanderMovement : EnemyBehavior
     // Update is called once per frame
     void Update()
     {
-        if (TestJumpBack)
+        if (!death)
         {
-            TestJumpBack = false;
-            _jumpBack = true;
-        }
-        // Debug.Log(agent.remainingDistance);
-        CheckIfDead();
-        if (!_jumpBack && !RangedAttack)
-        {
-
-            agent.destination = Target.position;
-            if (agent.remainingDistance <= 1)
+            if (TestJumpBack)
             {
-                SalamanderAttack();
-                agent.isStopped = true;
+                TestJumpBack = false;
+                _jumpBack = true;
             }
-
-            //else if (agent.remainingDistance >= 8 && agent.remainingDistance <= 12 && _attackcooldown <= 0)
-            //{
-            //    RangedAttack = true;
-            //    agent.isStopped = true;
-            //}
-            if(!RangedAttack && !_jumpBack && !NormalAttack)
+            // Debug.Log(agent.remainingDistance);
+            CheckIfDead();
+            if (!_jumpBack && !RangedAttack)
             {
-                agent.isStopped = false;
-                Timer -= Time.deltaTime;
-                //Debug.Log(Timer);
-                Debug.Log(_oldAngularSpeed);
-                if (Timer <= 0)
+
+                agent.destination = Target.position;
+                if (agent.remainingDistance <= 1)
                 {
-                    agent.angularSpeed = _oldAngularSpeed;
-                    Timer = 0.3f;
+                    SalamanderAttack();
+                    agent.isStopped = true;
                 }
 
+                //else if (agent.remainingDistance >= 8 && agent.remainingDistance <= 12 && _attackcooldown <= 0)
+                //{
+                //    RangedAttack = true;
+                //    agent.isStopped = true;
+                //}
+                if (!RangedAttack && !_jumpBack && !NormalAttack)
+                {
+                    agent.isStopped = false;
+                    Timer -= Time.deltaTime;
+                    //Debug.Log(Timer);
+                    Debug.Log(_oldAngularSpeed);
+                    if (Timer <= 0)
+                    {
+                        agent.angularSpeed = _oldAngularSpeed;
+                        Timer = 0.3f;
+                    }
+
+                }
             }
+            if (TestDying)
+            {
+                Die();
+            }
+            if (_jumpBack)
+            {
+                JumpBack();
+            }
+
         }
-        if(TestDying)
-        {
-            Die();
-        }
-        if (_jumpBack)
-        {
-            JumpBack();
-        }
-        
     }
 
     void SalamanderAttack()

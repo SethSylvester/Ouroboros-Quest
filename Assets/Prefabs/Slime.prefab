@@ -226,13 +226,14 @@ MonoBehaviour:
     type: 3}
   isDropped: 0
   Enemy: {fileID: 0}
+  death: 0
   Health: 1
   enemyspawner: {fileID: 0}
   Target: {fileID: 0}
   damage: 2
   testdying: 0
   WaitTimer: 0.7
-  StopJumpAttacktime: 1
+  StopJumpAttacktime: 0.25
   JumpSpeed: 20
 --- !u!195 &7479967970693603068
 NavMeshAgent:

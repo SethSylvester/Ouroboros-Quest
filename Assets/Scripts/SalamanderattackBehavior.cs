@@ -90,6 +90,7 @@ public class SalamanderattackBehavior : MonoBehaviour
         {
             if (other.CompareTag("PlayerHitbox"))
             {
+                Salamander.EnemyAnimator.SetTrigger("JumpAtk");
                 p = other.GetComponentInParent<PlayerScriptBehavior>();
                 Salamander.NormalAttack = true;
                 Agent.isStopped = true;

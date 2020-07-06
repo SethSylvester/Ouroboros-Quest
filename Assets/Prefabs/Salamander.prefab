@@ -58,9 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 1444121904932794726, guid: df6b7f691b0f0b04eb645b0bfb00ebd8, type: 3}
-  FireTimer: 0.5
+  FireTimer: 1
   RestTimer: 1
-  NormalAttackTimer: 3
+  NormalAttackTimer: 0.5
 --- !u!1 &1307573530308485583
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
     type: 3}
   isDropped: 0
   Enemy: {fileID: 0}
+  death: 0
   Health: 2
   enemyspawner: {fileID: 0}
   Target: {fileID: 0}

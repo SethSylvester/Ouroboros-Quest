@@ -213,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d610c2737b8bedc4e8160908345a341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyAnimator: {fileID: 0}
   itemDropped1: {fileID: 7133048901952133275, guid: 31b16b83e07bfcd4cb212264271931e8,
     type: 3}
   itemDropped2: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
@@ -366,7 +365,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a8c3ed5088bed8240a5e7366d9ec8c26, type: 2}
+      objectReference: {fileID: 2100000, guid: bc79eb63d9cd64f4c86348748ab3671e, type: 2}
     - target: {fileID: 8215786994064015480, guid: 3bd3c52d4b593aa4295df5e309b78a71,
         type: 3}
       propertyPath: m_LocalScale.x

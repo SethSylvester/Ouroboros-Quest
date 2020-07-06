@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public Animator EnemyAnimator;
+
     public GameObject itemDropped1;
     public GameObject itemDropped2;
     public GameObject itemDropped3;
@@ -58,7 +60,8 @@ public class EnemyBehavior : MonoBehaviour
         {
             ItemDrop();
         }
-        UnityEngine.Object.Destroy(gameObject, 0);
+        EnemyAnimator.SetTrigger("Death");
+        UnityEngine.Object.Destroy(gameObject, 4);
     }
 
     //Function for dropping items for each enemy

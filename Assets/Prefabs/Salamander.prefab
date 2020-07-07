@@ -171,7 +171,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5835d999bcdc66c4197ee351e5be4998, type: 2}
+  - {fileID: 2100000, guid: ed1027a22f037374b9f57faa891cc21d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -217,7 +217,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 120
+  m_Acceleration: 170
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0
@@ -259,9 +259,9 @@ MonoBehaviour:
   NormalAttack: 0
   Attack: 0
   RangedAttack: 0
-  WaitTimer: 0.25
+  WaitTimer: 0.35
   TestJumpBack: 0
-  JumpBackTimer: 0.5
+  JumpBackTimer: 0.3
   JumpBackSpeed: 20
   AttackCoolDown: 10
   AttackTimer: 1

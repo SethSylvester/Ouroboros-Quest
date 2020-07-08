@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fire: {fileID: 1444121904932794726, guid: df6b7f691b0f0b04eb645b0bfb00ebd8, type: 3}
   FireTimer: 1
-  RestTimer: 1
+  RestTimer: 2
   NormalAttackTimer: 0.5
 --- !u!1 &1307573530308485583
 GameObject:
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7914565294549136574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.4, y: 1, z: 10.8}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8941936984855173021}
@@ -267,6 +267,7 @@ MonoBehaviour:
   AttackTimer: 1
   Damage: 1
   TestDying: 0
+  RangedAttackPlayed: 0
 --- !u!54 &4364596805974022193
 Rigidbody:
   m_ObjectHideFlags: 0

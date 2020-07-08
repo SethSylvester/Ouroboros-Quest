@@ -276,7 +276,7 @@ MonoBehaviour:
   invul: 0
   iFramesDefault: 0.5
   iFrames: 0
-  animator: {fileID: 0}
+  animator: {fileID: 7881477216914379917}
 --- !u!1 &7464771377424485797
 GameObject:
   m_ObjectHideFlags: 0

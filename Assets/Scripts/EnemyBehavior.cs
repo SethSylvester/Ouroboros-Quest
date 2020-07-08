@@ -61,14 +61,15 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Die()
     {
+        death = true;
         enemyspawner.playerkills += 1;
         agent.isStopped = true;
+        agent.SetDestination(gameObject.transform.position); 
         Debug.Log(enemyspawner.playerkills);
         if (!isDropped)
         {
             ItemDrop();
         }
-        death = true;
         EnemyAnimator.SetTrigger("Death");
         UnityEngine.Object.Destroy(gameObject, deathTimer);
     }

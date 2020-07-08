@@ -143,7 +143,7 @@ public class SlimeBehavior : EnemyBehavior
                         _timer = WaitTimer;
                         agent.speed = _oldspeed;
                         _stopJumpAttackTime = StopJumpAttacktime;
-                        //SlimeAnimator.SetTrigger("Attack");
+                        EnemyAnimator.SetTrigger("AtkCancel");
                     }
 
                 }

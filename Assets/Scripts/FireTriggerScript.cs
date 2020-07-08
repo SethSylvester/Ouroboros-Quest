@@ -25,13 +25,19 @@ public class FireTriggerScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
-        NavMeshHit point;
-        if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(agent.destination, out point))
+        if (!Salamander.death)
         {
-            Salamander.EnemyAnimator.SetTrigger("FireAtk");
-            Salamander.RangedAttack = true;
-            agent.isStopped = true;
+            NavMeshHit point;
+            if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(agent.destination, out point))
+            {
+                if (!Salamander.RangedAttackPlayed)
+                {
+                    Salamander.EnemyAnimator.SetTrigger("FireAtk");
+                    Salamander.RangedAttackPlayed = true;
+                }
+                Salamander.RangedAttack = true;
+                agent.isStopped = true;
+            }
         }
     }
     public void RangeCoolDown()

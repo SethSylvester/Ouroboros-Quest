@@ -39,36 +39,40 @@ public class SalamanderattackBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _attackcooldown -= Time.deltaTime;
-        if (Salamander.RangedAttack)
-        { 
-            _fireTimer -= Time.deltaTime;
-            if (_fireTimer <= 0)
+        if (!Salamander.death)
+        {
+            _attackcooldown -= Time.deltaTime;
+            if (Salamander.RangedAttack)
             {
-                if (!_fireSpawned)
+                _fireTimer -= Time.deltaTime;
+                if (_fireTimer <= 0)
                 {
-                    GameObject.Instantiate(Fire, Salamander.transform.position, Salamander.transform.rotation);
-                    Debug.Log("Fire");
-                    _fireSpawned = true;
-                }
-                _restTimer -= Time.deltaTime;
+                    if (!_fireSpawned)
+                    {
+                        GameObject.Instantiate(Fire, Salamander.transform.position, Salamander.transform.rotation);
+                        Debug.Log("Fire");
+                        _fireSpawned = true;
+                    }
+                    _restTimer -= Time.deltaTime;
 
-                if (_restTimer <= 0)
-                {
-                    Salamander.RangedAttack = false;
-                    _fireSpawned = false;
-                    SalamanderFire.RangeCoolDown();
-                    _fireTimer = FireTimer;
-                    _restTimer = RestTimer;
+                    if (_restTimer <= 0)
+                    {
+                        Salamander.RangedAttack = false;
+                        _fireSpawned = false;
+                        SalamanderFire.RangeCoolDown();
+                        _fireTimer = FireTimer;
+                        _restTimer = RestTimer;
+                        Salamander.RangedAttackPlayed = false;
+                    }
                 }
             }
-        }
-        if(Salamander.NormalAttack)
-        {
-            _normalAttackTimer -= Time.deltaTime;
-            if (_normalAttackTimer <= 0)
+            if (Salamander.NormalAttack)
             {
-                _attack();
+                _normalAttackTimer -= Time.deltaTime;
+                if (_normalAttackTimer <= 0)
+                {
+                    _attack();
+                }
             }
         }
     }
@@ -86,26 +90,32 @@ public class SalamanderattackBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Salamander.Attack)
+        if(!Salamander.death)
         {
-            if (other.CompareTag("PlayerHitbox"))
+            if (Salamander.Attack)
             {
-                p = other.GetComponentInParent<PlayerScriptBehavior>();
-                Salamander.NormalAttack = true;
-                Agent.isStopped = true;
+                if (other.CompareTag("PlayerHitbox"))
+                {
+                    Salamander.EnemyAnimator.SetTrigger("JumpAtk");
+                    p = other.GetComponentInParent<PlayerScriptBehavior>();
+                    Salamander.NormalAttack = true;
+                    Agent.isStopped = true;
+                }
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (Salamander.NormalAttack)
+        if (!Salamander.death)
         {
-            if  (other.CompareTag("PlayerHitbox"))
+            if (Salamander.NormalAttack)
             {
-                Salamander.NormalAttack = false;
-                Agent.isStopped = false;
+                if (other.CompareTag("PlayerHitbox"))
+                {
+                    Salamander.NormalAttack = false;
+                    Agent.isStopped = false;
+                }
             }
-
         }
     }
 }

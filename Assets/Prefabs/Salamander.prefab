@@ -58,9 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 1444121904932794726, guid: df6b7f691b0f0b04eb645b0bfb00ebd8, type: 3}
-  FireTimer: 0.5
+  FireTimer: 1
   RestTimer: 1
-  NormalAttackTimer: 3
+  NormalAttackTimer: 0.5
 --- !u!1 &1307573530308485583
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ NavMeshAgent:
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
-  m_AutoRepath: 0
+  m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
@@ -240,6 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6b1d3b6ed480a43ab9e023de2b9db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 0}
+  deathTimer: 4
   itemDropped1: {fileID: 7133048901952133275, guid: 31b16b83e07bfcd4cb212264271931e8,
     type: 3}
   itemDropped2: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
@@ -250,9 +252,11 @@ MonoBehaviour:
     type: 3}
   isDropped: 0
   Enemy: {fileID: 0}
+  death: 0
   Health: 2
   enemyspawner: {fileID: 0}
   Target: {fileID: 0}
+  NormalAttack: 0
   Attack: 0
   RangedAttack: 0
   WaitTimer: 0.25

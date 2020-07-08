@@ -15,6 +15,7 @@ public class FireTriggerScript : MonoBehaviour
     {
         Salamander = gameObject.GetComponentInParent<SalamanderMovement>();
         agent = gameObject.GetComponentInParent<NavMeshAgent>();
+        _attackcooldown = 0;
     }
 
     // Update is called once per frame
@@ -24,11 +25,19 @@ public class FireTriggerScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        NavMeshHit point;
-        if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(agent.destination, out point))
+        if (!Salamander.death)
         {
-            Salamander.RangedAttack = true;
-            agent.isStopped = true;
+            NavMeshHit point;
+            if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(agent.destination, out point))
+            {
+                if (!Salamander.RangedAttackPlayed)
+                {
+                    Salamander.EnemyAnimator.SetTrigger("FireAtk");
+                    Salamander.RangedAttackPlayed = true;
+                }
+                Salamander.RangedAttack = true;
+                agent.isStopped = true;
+            }
         }
     }
     public void RangeCoolDown()

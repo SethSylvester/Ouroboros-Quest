@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScriptBehavior : MonoBehaviour
 {
@@ -17,7 +18,13 @@ public class PlayerScriptBehavior : MonoBehaviour
     public float iFramesDefault = 0.5f;
     public float iFrames;
 
+    float deathTimer = 3.0f;
+
     private PlayerAttackBehavior playerAttack;
+
+    [SerializeField]
+    Animator animator;
+
 
     private void Start()
     {
@@ -30,6 +37,7 @@ public class PlayerScriptBehavior : MonoBehaviour
 
     private void Update()
     {
+        animator.speed = (speed/5);
         if (invul)
         {
             iFrames -= Time.deltaTime;
@@ -51,6 +59,19 @@ public class PlayerScriptBehavior : MonoBehaviour
         {
             SwitchWeapon(3);
         }
+
+        //Scene Switcher for Player Death
+        if (hp <= 0)
+        {
+            deathTimer -= Time.deltaTime;
+
+            if (deathTimer < 0)
+            {
+                print("Does this work?");
+                //After the Player Dies, Send the User to the Game Lose Screen
+                EndGame();
+            }
+        }
     }
 
     public enum Weapon
@@ -67,6 +88,7 @@ public class PlayerScriptBehavior : MonoBehaviour
         {
             hp -= damage;
             invul = true;
+            animator.SetTrigger("Hurt");
         }
         if (hp <= 0)
         { Die(); }
@@ -77,6 +99,8 @@ public class PlayerScriptBehavior : MonoBehaviour
 
     public void Die()
     {
+        animator.SetTrigger("Death");
+
         PlayerMovementBehavior p = gameObject.GetComponent<PlayerMovementBehavior>();
         PlayerAttackBehavior a = gameObject.GetComponent<PlayerAttackBehavior>();
 
@@ -96,6 +120,7 @@ public class PlayerScriptBehavior : MonoBehaviour
         }
 
         //Todo: Add player death animation
+
     }
 
     public void SwitchWeapon(int weaponID)
@@ -116,5 +141,10 @@ public class PlayerScriptBehavior : MonoBehaviour
         }
 
         playerAttack.SwitchWeaponModel();
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("Game Lose Screen");        
     }
 }

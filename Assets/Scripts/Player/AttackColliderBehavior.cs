@@ -28,6 +28,7 @@ public class AttackColliderBehavior : MonoBehaviour
 
     private void DestroyArrow()
     {
+        //If an arrow
         if (gameObject.GetComponent<ProjectileBehavior>())
         {
             Destroy(gameObject);

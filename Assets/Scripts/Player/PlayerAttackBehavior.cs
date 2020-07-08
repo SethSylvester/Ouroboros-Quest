@@ -3,7 +3,6 @@
 public class PlayerAttackBehavior : MonoBehaviour
 {
     //private variables
-    private float damage;
     private float attackDelay;
 
     private float hitboxSpawnTimeDefault = 0.5f;
@@ -30,13 +29,15 @@ public class PlayerAttackBehavior : MonoBehaviour
     [SerializeField]
     GameObject bowModel;
 
+    [SerializeField]
+    Animator animator;
+
 
     // Start is called before the first frame update
     private void Start()
     {
         hitboxSpawnTime = hitboxSpawnTimeDefault;
 
-        damage = PlayerScriptBehavior.damage;
         attackDelay = PlayerScriptBehavior.attackDelay;
 
         _attackDelayTimer = attackDelay;
@@ -58,6 +59,7 @@ public class PlayerAttackBehavior : MonoBehaviour
             switch (PlayerScriptBehavior.weapon)
             {
                 case PlayerScriptBehavior.Weapon.Sword:
+                animator.SetTrigger("Attack");
                     swordHitbox.SetActive(true);
                     break;
                 case PlayerScriptBehavior.Weapon.Axe:

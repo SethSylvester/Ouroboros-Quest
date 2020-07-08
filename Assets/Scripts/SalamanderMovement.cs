@@ -39,6 +39,10 @@ public class SalamanderMovement : EnemyBehavior
     public bool TestDying;
 
     private float Timer;
+
+    [HideInInspector]
+    public bool RangedAttackPlayed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,10 +60,15 @@ public class SalamanderMovement : EnemyBehavior
         agent.isStopped = false;
         Timer = 0.3f;
         EnemyAnimator = gameObject.GetComponentInChildren<Animator>();
+        RangedAttackPlayed = false;
+
+
+
     }
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(agent.isStopped);
         if (!death)
         {
             if (TestJumpBack)
@@ -108,6 +117,10 @@ public class SalamanderMovement : EnemyBehavior
             }
 
         }
+        else if(death)
+        {
+            agent.isStopped = true;
+        }
     }
 
     void SalamanderAttack()
@@ -118,39 +131,42 @@ public class SalamanderMovement : EnemyBehavior
 
     void JumpBack()
     {
-        Attack = false;
-        if (_waitTimer <= 0)
+        if (!death)
         {
-            if(agent.isStopped == true)
+            Attack = false;
+            if (_waitTimer <= 0)
             {
-                agent.isStopped = false;
-            }
+                if (agent.isStopped == true)
+                {
+                    agent.isStopped = false;
+                }
 
-            NavMeshHit point;
-            Vector3 sourcePosition = transform.position + -transform.forward;
-            if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1) || _jumpBacktimer <= 0)
-            {
-                agent.isStopped = true;
-                Debug.Log("JumpbackDone");
-                _jumpBack = false;
-                _jumpBacktimer = JumpBackTimer;
-                agent.speed = _oldSpeed;
-                Attack = true;
-                Timer = 0.3f;
+                NavMeshHit point;
+                Vector3 sourcePosition = transform.position + -transform.forward;
+                if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1) || _jumpBacktimer <= 0)
+                {
+                    agent.isStopped = true;
+                    Debug.Log("JumpbackDone");
+                    _jumpBack = false;
+                    _jumpBacktimer = JumpBackTimer;
+                    agent.speed = _oldSpeed;
+                    Attack = true;
+                    Timer = 0.3f;
+                }
+                else
+                {
+                    _jumpBacktimer -= Time.deltaTime;
+                    Vector3 JumpBackDirection = transform.position + -transform.forward;
+                    //JumpBackDirection.Normalize();
+                    agent.angularSpeed = 0;
+                    agent.speed = JumpBackSpeed;
+                    agent.destination = JumpBackDirection;
+                }
             }
             else
             {
-                _jumpBacktimer -= Time.deltaTime;
-                Vector3 JumpBackDirection = transform.position + -transform.forward;
-                //JumpBackDirection.Normalize();
-                agent.angularSpeed = 0;
-                agent.speed = JumpBackSpeed;
-                agent.destination = JumpBackDirection;
+                _waitTimer -= Time.deltaTime;
             }
-        }
-        else
-        {
-            _waitTimer -= Time.deltaTime;
         }
     }
 

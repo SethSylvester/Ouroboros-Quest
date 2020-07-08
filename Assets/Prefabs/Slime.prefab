@@ -83,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 5595828971575627936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
   m_Children: []
   m_Father: {fileID: 7479967970693603070}
   m_RootOrder: 3
@@ -214,6 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bff4193f09785f4dba200fd0e34188b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 0}
+  deathTimer: 4
   itemDropped1: {fileID: 7133048901952133275, guid: 31b16b83e07bfcd4cb212264271931e8,
     type: 3}
   itemDropped2: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
@@ -224,12 +226,14 @@ MonoBehaviour:
     type: 3}
   isDropped: 0
   Enemy: {fileID: 0}
+  death: 0
   Health: 1
+  enemyspawner: {fileID: 0}
   Target: {fileID: 0}
   damage: 2
   testdying: 0
   WaitTimer: 0.7
-  StopJumpAttacktime: 1
+  StopJumpAttacktime: 0.25
   JumpSpeed: 20
 --- !u!195 &7479967970693603068
 NavMeshAgent:
@@ -346,6 +350,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7479967970693603070}
     m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: fc595904b396a6646866cd0a371d376a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 91717ddf731659f448f424070181a286, type: 2}
     - target: {fileID: -4216859302048453862, guid: fc595904b396a6646866cd0a371d376a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -405,6 +414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slime_SkeletalMesh2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528387467374286826, guid: fc595904b396a6646866cd0a371d376a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4528387467374286826, guid: fc595904b396a6646866cd0a371d376a,
         type: 3}

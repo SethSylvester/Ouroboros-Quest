@@ -12,6 +12,9 @@ public class SalamanderMovement : EnemyBehavior
     private bool hasTarget;
     private float _jumpBacktimer;
 
+    [HideInInspector]
+    public bool NormalAttack;
+
     private GameObject weapon;
     private float _attackTimer;
 
@@ -36,6 +39,10 @@ public class SalamanderMovement : EnemyBehavior
     public bool TestDying;
 
     private float Timer;
+
+    [HideInInspector]
+    public bool RangedAttackPlayed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,53 +59,67 @@ public class SalamanderMovement : EnemyBehavior
         TestDying = false;
         agent.isStopped = false;
         Timer = 0.3f;
+        EnemyAnimator = gameObject.GetComponentInChildren<Animator>();
+        RangedAttackPlayed = false;
+
+
+
     }
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(agent.remainingDistance);
-        CheckIfDead();
-        if (!_jumpBack && !RangedAttack)
+        Debug.Log(agent.isStopped);
+        if (!death)
         {
-
-            agent.destination = Target.position;
-            if (agent.remainingDistance <= 1)
+            if (TestJumpBack)
             {
-                SalamanderAttack();
-                agent.isStopped = true;
+                TestJumpBack = false;
+                _jumpBack = true;
             }
-
-            //else if (agent.remainingDistance >= 8 && agent.remainingDistance <= 12 && _attackcooldown <= 0)
-            //{
-            //    RangedAttack = true;
-            //    agent.isStopped = true;
-            //}
-            if(!RangedAttack && !_jumpBack )
+            // Debug.Log(agent.remainingDistance);
+            CheckIfDead();
+            if (!_jumpBack && !RangedAttack)
             {
-                agent.isStopped = false;
-                Timer -= Time.deltaTime;
-                //Debug.Log(Timer);
-                Debug.Log(_oldAngularSpeed);
-                if (Timer <= 0)
+
+                agent.destination = Target.position;
+                if (agent.remainingDistance <= 1)
                 {
-                    agent.angularSpeed = _oldAngularSpeed;
-                    Timer = 0.3f;
+                    SalamanderAttack();
+                    agent.isStopped = true;
                 }
 
+                //else if (agent.remainingDistance >= 8 && agent.remainingDistance <= 12 && _attackcooldown <= 0)
+                //{
+                //    RangedAttack = true;
+                //    agent.isStopped = true;
+                //}
+                if (!RangedAttack && !_jumpBack && !NormalAttack)
+                {
+                    agent.isStopped = false;
+                    Timer -= Time.deltaTime;
+                    //Debug.Log(Timer);
+                    Debug.Log(_oldAngularSpeed);
+                    if (Timer <= 0)
+                    {
+                        agent.angularSpeed = _oldAngularSpeed;
+                        Timer = 0.3f;
+                    }
+
+                }
             }
+            if (TestDying)
+            {
+                Die();
+            }
+            if (_jumpBack)
+            {
+                JumpBack();
+            }
+
         }
-        if(TestDying)
+        else if(death)
         {
-            Die();
-        }
-        if (_jumpBack)
-        {
-            JumpBack();
-        }
-        if (TestJumpBack)
-        {
-            TestJumpBack = false;
-            _jumpBack = true;
+            agent.isStopped = true;
         }
     }
 
@@ -110,39 +131,42 @@ public class SalamanderMovement : EnemyBehavior
 
     void JumpBack()
     {
-        Attack = false;
-        if (_waitTimer <= 0)
+        if (!death)
         {
-            if(agent.isStopped == true)
+            Attack = false;
+            if (_waitTimer <= 0)
             {
-                agent.isStopped = false;
-            }
+                if (agent.isStopped == true)
+                {
+                    agent.isStopped = false;
+                }
 
-            NavMeshHit point;
-            Vector3 sourcePosition = transform.position + -transform.forward;
-            if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1) || _jumpBacktimer <= 0)
-            {
-                agent.isStopped = true;
-                Debug.Log("JumpbackDone");
-                _jumpBack = false;
-                _jumpBacktimer = JumpBackTimer;
-                agent.speed = _oldSpeed;
-                Attack = true;
-                Timer = 0.3f;
+                NavMeshHit point;
+                Vector3 sourcePosition = transform.position + -transform.forward;
+                if (NavMesh.Raycast(agent.transform.position, sourcePosition, out point, 1) || _jumpBacktimer <= 0)
+                {
+                    agent.isStopped = true;
+                    Debug.Log("JumpbackDone");
+                    _jumpBack = false;
+                    _jumpBacktimer = JumpBackTimer;
+                    agent.speed = _oldSpeed;
+                    Attack = true;
+                    Timer = 0.3f;
+                }
+                else
+                {
+                    _jumpBacktimer -= Time.deltaTime;
+                    Vector3 JumpBackDirection = transform.position + -transform.forward;
+                    //JumpBackDirection.Normalize();
+                    agent.angularSpeed = 0;
+                    agent.speed = JumpBackSpeed;
+                    agent.destination = JumpBackDirection;
+                }
             }
             else
             {
-                _jumpBacktimer -= Time.deltaTime;
-                Vector3 JumpBackDirection = transform.position + -transform.forward;
-                //JumpBackDirection.Normalize();
-                agent.angularSpeed = 0;
-                agent.speed = JumpBackSpeed;
-                agent.destination = JumpBackDirection;
+                _waitTimer -= Time.deltaTime;
             }
-        }
-        else
-        {
-            _waitTimer -= Time.deltaTime;
         }
     }
 

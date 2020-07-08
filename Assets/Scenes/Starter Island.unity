@@ -959,6 +959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 11588060270591535}
     m_Modifications:
+    - target: {fileID: -8536492323000602115, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1038,6 +1043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LandMain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550243977990784477, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2a0f82c21d9c1a41a3fb880d61ce01f, type: 3}
@@ -1631,6 +1641,21 @@ PrefabInstance:
       propertyPath: SpawnPoint.Array.data[2]
       value: 
       objectReference: {fileID: 1672394622}
+    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: SalamanderSpawnAmountLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: SlimeSpawnAmountLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
+        type: 3}
+      propertyPath: WaveRestartKillLimit
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6361d02286540e4dba52f881d743cc8, type: 3}
 --- !u!1001 &1765089284

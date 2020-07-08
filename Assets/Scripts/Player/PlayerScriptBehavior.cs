@@ -34,6 +34,7 @@ public class PlayerScriptBehavior : MonoBehaviour
 
     private void Update()
     {
+        animator.speed = (speed/5);
         if (invul)
         {
             iFrames -= Time.deltaTime;

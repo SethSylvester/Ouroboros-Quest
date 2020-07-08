@@ -1109,7 +1109,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b9c9643f94243a54c86032705bb9b978, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -1242,8 +1242,8 @@ MonoBehaviour:
   health1: {fileID: 8392464274142859843}
   health2: {fileID: 7741740690107475036}
   health3: {fileID: 7810151538208905701}
-  heartFull: {fileID: 2800000, guid: 410f700a4fb4afe46a2020ced7d7f6bc, type: 3}
-  heartEmpty: {fileID: 2800000, guid: a0612843bf2e84645a50f017ffe6975f, type: 3}
+  heartFull: {fileID: 2800000, guid: 50e2c371738417d469b5f0d69fa67f3e, type: 3}
+  heartEmpty: {fileID: 2800000, guid: fedcd2048032efb4a955f73fc8faa2c6, type: 3}
   shards: {fileID: 3827940619570315156}
   bossButtons: {fileID: 3062989581178333403}
 --- !u!1 &7657215383690034966
@@ -1350,7 +1350,7 @@ RectTransform:
   m_GameObject: {fileID: 7766834967679360928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.39262962, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 8399170366450778423}
   m_RootOrder: 1
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2042a81960fe50f4fb8f67299ac8970d, type: 3}
+  m_Texture: {fileID: 2800000, guid: c675485121d1eee48b499dd1013bc3e4, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

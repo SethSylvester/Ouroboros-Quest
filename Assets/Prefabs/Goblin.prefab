@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1240083593957358910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.434682, y: 0.80662984, z: 1.14}
   m_Children: []
   m_Father: {fileID: 3574575745715432545}
   m_RootOrder: 2
@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d610c2737b8bedc4e8160908345a341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 0}
+  deathTimer: 0
   itemDropped1: {fileID: 7133048901952133275, guid: 31b16b83e07bfcd4cb212264271931e8,
     type: 3}
   itemDropped2: {fileID: 443296341736319733, guid: c23635ef8e93d6b4281b3e9ca7cc3de4,
@@ -223,6 +225,7 @@ MonoBehaviour:
     type: 3}
   isDropped: 0
   Enemy: {fileID: 0}
+  death: 0
   Health: 20
   enemyspawner: {fileID: 0}
   Target: {fileID: 0}

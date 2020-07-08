@@ -29,6 +29,9 @@ public class PlayerAttackBehavior : MonoBehaviour
     [SerializeField]
     GameObject bowModel;
 
+    [SerializeField]
+    Animator animator;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -56,6 +59,7 @@ public class PlayerAttackBehavior : MonoBehaviour
             switch (PlayerScriptBehavior.weapon)
             {
                 case PlayerScriptBehavior.Weapon.Sword:
+                animator.SetTrigger("Attack");
                     swordHitbox.SetActive(true);
                     break;
                 case PlayerScriptBehavior.Weapon.Axe:

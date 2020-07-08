@@ -19,6 +19,10 @@ public class PlayerScriptBehavior : MonoBehaviour
 
     private PlayerAttackBehavior playerAttack;
 
+    [SerializeField]
+    Animator animator;
+
+
     private void Start()
     {
         iFrames = iFramesDefault;
@@ -67,6 +71,7 @@ public class PlayerScriptBehavior : MonoBehaviour
         {
             hp -= damage;
             invul = true;
+            animator.SetTrigger("Hurt");
         }
         if (hp <= 0)
         { Die(); }
@@ -77,6 +82,8 @@ public class PlayerScriptBehavior : MonoBehaviour
 
     public void Die()
     {
+        animator.SetTrigger("Death");
+
         PlayerMovementBehavior p = gameObject.GetComponent<PlayerMovementBehavior>();
         PlayerAttackBehavior a = gameObject.GetComponent<PlayerAttackBehavior>();
 

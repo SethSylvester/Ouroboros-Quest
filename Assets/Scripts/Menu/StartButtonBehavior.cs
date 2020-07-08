@@ -6,4 +6,7 @@ public class StartButtonBehavior : MonoBehaviour
 {
     public void StartGame()
     { SceneManager.LoadScene("Starter Island"); }
+
+    public void MenuChange()
+    { SceneManager.LoadScene("Main Menu"); }
 }

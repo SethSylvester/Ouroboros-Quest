@@ -30,6 +30,9 @@ public class JesterBossBehavior : MonoBehaviour
     private bool waveFour = false;
     private bool waveFive = false;
 
+    [SerializeField]
+    Animator animator;
+    
     //Which attack its using
     public Attack currentAttack = new Attack();
 
@@ -65,10 +68,6 @@ public class JesterBossBehavior : MonoBehaviour
 
     public bool returning = false;
 
-    //TODO: Make the spreadshot shooters on the waves
-    //triggered shots rather then timed ones.
-    //Make knife fork go the entire distance
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -103,13 +102,17 @@ public class JesterBossBehavior : MonoBehaviour
             case Attack.Spreadshot:
                 if (spreadShot.activeSelf == false)
                 {
+                    animator.SetTrigger("AttackSpread");
                     spreadShot.SetActive(true);
                 }
                 break;
 
             case Attack.KnifeFork:
                 if (knifeFork.activeSelf == false)
-                { knifeFork.SetActive(true); }
+                {
+                    animator.SetTrigger("AttackFork");
+                    knifeFork.SetActive(true);
+                }
 
                 KnifeFork();
                 break;
@@ -117,6 +120,8 @@ public class JesterBossBehavior : MonoBehaviour
             case Attack.KnifeShower:
                 if (knifeShower.activeSelf == false)
                 {
+                    animator.SetTrigger("AttackSpread");
+
                     knifeShower.SetActive(true);
                 }
                 break;
@@ -151,6 +156,9 @@ public class JesterBossBehavior : MonoBehaviour
 
     private void SelectAttack()
     {
+        //Disable Animationn
+        animator.SetTrigger("AttackEnd");
+
         //Disable all attacks
         spreadShot.SetActive(false);
         knifeFork.SetActive(false);
@@ -192,6 +200,7 @@ public class JesterBossBehavior : MonoBehaviour
     {
         if (!waveOne)
         {
+            animator.SetTrigger("AttackSuper");
             waveOne = true;
             WaveOne.SetActive(true);
         }

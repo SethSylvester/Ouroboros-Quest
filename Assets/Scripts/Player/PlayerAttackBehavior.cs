@@ -3,7 +3,6 @@
 public class PlayerAttackBehavior : MonoBehaviour
 {
     //private variables
-    private float damage;
     private float attackDelay;
 
     private float hitboxSpawnTimeDefault = 0.5f;
@@ -36,7 +35,6 @@ public class PlayerAttackBehavior : MonoBehaviour
     {
         hitboxSpawnTime = hitboxSpawnTimeDefault;
 
-        damage = PlayerScriptBehavior.damage;
         attackDelay = PlayerScriptBehavior.attackDelay;
 
         _attackDelayTimer = attackDelay;

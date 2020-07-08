@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScriptBehavior : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerScriptBehavior : MonoBehaviour
     public bool invul = false;
     public float iFramesDefault = 0.5f;
     public float iFrames;
+
+    float deathTimer = 3.0f;
 
     private PlayerAttackBehavior playerAttack;
 
@@ -55,6 +58,19 @@ public class PlayerScriptBehavior : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             SwitchWeapon(3);
+        }
+
+        //Scene Switcher for Player Death
+        if (hp <= 0)
+        {
+            deathTimer -= Time.deltaTime;
+
+            if (deathTimer < 0)
+            {
+                print("Does this work?");
+                //After the Player Dies, Send the User to the Game Lose Screen
+                EndGame();
+            }
         }
     }
 
@@ -104,6 +120,7 @@ public class PlayerScriptBehavior : MonoBehaviour
         }
 
         //Todo: Add player death animation
+
     }
 
     public void SwitchWeapon(int weaponID)
@@ -124,5 +141,10 @@ public class PlayerScriptBehavior : MonoBehaviour
         }
 
         playerAttack.SwitchWeaponModel();
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("Game Lose Screen");        
     }
 }

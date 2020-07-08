@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JesterBossBehavior : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class JesterBossBehavior : MonoBehaviour
     //int Timers
     private int attackLimit = 2;
     private int attacks;
+
+    //End Game Timer
+    private float deathTimer = 4.0f;
 
     //The character booleans
     private bool canAttack = true;
@@ -92,6 +96,18 @@ public class JesterBossBehavior : MonoBehaviour
         else if (canAttack)
         {
             SelectAttack();
+        }
+
+        //Scene Switcher for Jester Death
+        if (hp <= 0)
+        {           
+            deathTimer -= Time.deltaTime;
+
+            if (deathTimer < 0)
+            {
+                //After the Jester Dies, Send the User to the Game Lose Screen
+                EndGame();
+            }
         }
     }
 
@@ -378,6 +394,11 @@ public class JesterBossBehavior : MonoBehaviour
     {
         return hp;
     }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("Game Win Screen");
+    }
 }
 public enum Attack
 {
@@ -387,3 +408,4 @@ public enum Attack
     KnifeShower,
     SuperAttack,
 }
+

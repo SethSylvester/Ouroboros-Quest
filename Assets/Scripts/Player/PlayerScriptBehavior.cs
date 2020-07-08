@@ -60,9 +60,9 @@ public class PlayerScriptBehavior : MonoBehaviour
             SwitchWeapon(3);
         }
 
+        //Scene Switcher for Player Death
         if (hp <= 0)
         {
-            //float deathTimer = 3.0f;
             deathTimer -= Time.deltaTime;
 
             if (deathTimer < 0)

@@ -260,6 +260,7 @@ MonoBehaviour:
   Attack: 0
   RangedAttack: 0
   RestTimer: 1
+  _restTimer: 0
   WaitTimer: 0.35
   TestJumpBack: 0
   JumpBackTimer: 0.3

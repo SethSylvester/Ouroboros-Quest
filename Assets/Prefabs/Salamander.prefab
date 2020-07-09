@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fire: {fileID: 1444121904932794726, guid: df6b7f691b0f0b04eb645b0bfb00ebd8, type: 3}
   FireTimer: 1
-  RestTimer: 2
+  FireRestTimer: 0
   NormalAttackTimer: 0.5
 --- !u!1 &1307573530308485583
 GameObject:
@@ -259,6 +259,7 @@ MonoBehaviour:
   NormalAttack: 0
   Attack: 0
   RangedAttack: 0
+  RestTimer: 1
   WaitTimer: 0.35
   TestJumpBack: 0
   JumpBackTimer: 0.3

@@ -28,7 +28,7 @@ public class FireTriggerScript : MonoBehaviour
         if (!Salamander.death)
         {
             NavMeshHit point;
-            if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(agent.destination, out point))
+            if (other.CompareTag("Player") && _attackcooldown <= 0 && !agent.Raycast(agent.destination, out point) && Salamander._restTimer <= 0)
             {
                 if (!Salamander.RangedAttackPlayed)
                 {

@@ -15,8 +15,10 @@ public class SalamanderattackBehavior : MonoBehaviour
     public float FireTimer;
     private float _fireTimer;
 
-    public float RestTimer;
-    private float _restTimer;
+    public float FireRestTimer;
+    private float _fireRestTimer;
+
+
 
     private bool _fireSpawned;
 
@@ -30,7 +32,7 @@ public class SalamanderattackBehavior : MonoBehaviour
         Salamander = gameObject.GetComponentInParent<SalamanderMovement>();
         SalamanderFire = Salamander.GetComponentInChildren<FireTriggerScript>();
         _fireTimer = FireTimer;
-        _restTimer = RestTimer;
+        _fireRestTimer = FireRestTimer;
         _fireSpawned = false;
         _normalAttackTimer = NormalAttackTimer;
         Agent = gameObject.GetComponentInParent<NavMeshAgent>();
@@ -53,16 +55,23 @@ public class SalamanderattackBehavior : MonoBehaviour
                         Debug.Log("Fire");
                         _fireSpawned = true;
                     }
-                    _restTimer -= Time.deltaTime;
-
-                    if (_restTimer <= 0)
+                    else if (_fireSpawned)
                     {
-                        Salamander.RangedAttack = false;
-                        _fireSpawned = false;
-                        SalamanderFire.RangeCoolDown();
-                        _fireTimer = FireTimer;
-                        _restTimer = RestTimer;
-                        Salamander.RangedAttackPlayed = false;
+                        _fireRestTimer -= Time.deltaTime;
+
+                        if (_fireRestTimer <= 0)
+                        {
+                            Salamander.RangedAttack = false;
+                            _fireSpawned = false;
+                            SalamanderFire.RangeCoolDown();
+                            _fireTimer = FireTimer;
+                            _fireRestTimer = FireRestTimer;
+                            Salamander.RangedAttackPlayed = false;
+                            
+
+                        }
+                        //Salamander.EnemyAnimator.SetTrigger("AtkCancel");
+                        //Salamander.EnemyAnimator.speed = 0f;
                     }
                 }
             }

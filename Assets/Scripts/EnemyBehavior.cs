@@ -64,6 +64,7 @@ public class EnemyBehavior : MonoBehaviour
         death = true;
         enemyspawner.playerkills += 1;
         agent.isStopped = true;
+        gameObject.GetComponent<Collider>().enabled = false;
         agent.SetDestination(gameObject.transform.position); 
         Debug.Log(enemyspawner.playerkills);
         if (!isDropped)

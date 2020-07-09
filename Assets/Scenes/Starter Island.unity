@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -257,6 +257,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 281105123}
     m_Modifications:
     - target: {fileID: -8297033687446062066, guid: f320c70c5f352ee43b1133b90355adba,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -7835652716276243278, guid: f320c70c5f352ee43b1133b90355adba,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -426,6 +431,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4a75e0ca859256c45852f4dcd43d8391, type: 2}
+    - target: {fileID: 3279256018134279065, guid: f320c70c5f352ee43b1133b90355adba,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3753611651666813625, guid: f320c70c5f352ee43b1133b90355adba,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -471,6 +481,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0e3b5b6186aae8b4eb5e53367da65415, type: 2}
+    - target: {fileID: 7214525894600747890, guid: f320c70c5f352ee43b1133b90355adba,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294362920814142240, guid: f320c70c5f352ee43b1133b90355adba,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8249115927918959592, guid: f320c70c5f352ee43b1133b90355adba,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -743,7 +763,7 @@ PrefabInstance:
     - target: {fileID: 7201077703595221655, guid: 61608887399b7da4a8c5e04ce008f6e9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61608887399b7da4a8c5e04ce008f6e9, type: 3}
@@ -915,6 +935,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894744714637654581, guid: 42d53e6242c7d044c83d2b3be06c8896,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894744714637654581, guid: 42d53e6242c7d044c83d2b3be06c8896,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d53e6242c7d044c83d2b3be06c8896, type: 3}
@@ -1660,7 +1690,7 @@ PrefabInstance:
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}
       propertyPath: SlimeSpawnAmountLimit
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5049698691646439530, guid: a6361d02286540e4dba52f881d743cc8,
         type: 3}

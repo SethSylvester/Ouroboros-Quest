@@ -20,12 +20,18 @@ public class SalamanderMovement : EnemyBehavior
 
     private float _waitTimer;
 
+    //private float _restTimer;
+    //public float RestTimer;
+
     [HideInInspector]
     public bool Attack;
 
     [HideInInspector]
     public bool RangedAttack;
 
+    public float RestTimer;
+    [HideInInspector]
+    public float _restTimer;
 
     public float WaitTimer;
 
@@ -61,9 +67,7 @@ public class SalamanderMovement : EnemyBehavior
         Timer = 0.3f;
         EnemyAnimator = gameObject.GetComponentInChildren<Animator>();
         RangedAttackPlayed = false;
-
-
-
+        _restTimer = 0;
     }
     // Update is called once per frame
     void Update()
@@ -80,7 +84,7 @@ public class SalamanderMovement : EnemyBehavior
             CheckIfDead();
             if (!_jumpBack && !RangedAttack)
             {
-
+                _restTimer -= Time.deltaTime;
                 agent.destination = Target.position;
                 if (agent.remainingDistance <= 1)
                 {
@@ -93,8 +97,9 @@ public class SalamanderMovement : EnemyBehavior
                 //    RangedAttack = true;
                 //    agent.isStopped = true;
                 //}
-                if (!RangedAttack && !_jumpBack && !NormalAttack)
+                if (!RangedAttack && !_jumpBack && !NormalAttack && _restTimer <= 0)
                 {
+                    EnemyAnimator.speed = 1.0f;
                     agent.isStopped = false;
                     Timer -= Time.deltaTime;
                     //Debug.Log(Timer);
@@ -152,6 +157,8 @@ public class SalamanderMovement : EnemyBehavior
                     agent.speed = _oldSpeed;
                     Attack = true;
                     Timer = 0.3f;
+                    _restTimer = RestTimer;
+                    //EnemyAnimator.speed = 0;
                 }
                 else
                 {
@@ -161,6 +168,7 @@ public class SalamanderMovement : EnemyBehavior
                     agent.angularSpeed = 0;
                     agent.speed = JumpBackSpeed;
                     agent.destination = JumpBackDirection;
+                    
                 }
             }
             else

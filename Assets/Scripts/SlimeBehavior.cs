@@ -93,6 +93,7 @@ public class SlimeBehavior : EnemyBehavior
         if (other.CompareTag("Player"))
         {
             _isJumpAttacking = false;
+            EnemyAnimator.SetTrigger("AtkCancel");
         }
     }
 

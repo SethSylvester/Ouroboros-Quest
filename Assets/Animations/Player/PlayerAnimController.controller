@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 500, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5082378394422636359}
-    m_Position: {x: 280, y: 0, z: 0}
+    m_Position: {x: 290, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6600791822892830664}
     m_Position: {x: 500, y: -100, z: 0}
@@ -364,7 +364,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1827226128182048838, guid: 37c5533ab06aa294582f6cbb9031ce00,
     type: 3}
-  m_Tag: 
+  m_Tag: swordattack
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 

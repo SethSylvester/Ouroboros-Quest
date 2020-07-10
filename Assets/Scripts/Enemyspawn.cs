@@ -13,7 +13,9 @@ public class Enemyspawn : MonoBehaviour
 
     private Transform target;
     public int SlimeSpawnAmountLimit;
+    [HideInInspector]
     public int GoblinSpawnAmountLimit;
+
     public int SalamanderSpawnAmountLimit;
     public float SpawnTimer;
     public List<Transform> SpawnPoint;

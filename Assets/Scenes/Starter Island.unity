@@ -1686,6 +1686,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 4033245499606244933, guid: 92f894ac67a1a1942b4d10e61acdce30,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4033245499606244937, guid: 92f894ac67a1a1942b4d10e61acdce30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1755,6 +1760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.3333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033245500577345396, guid: 92f894ac67a1a1942b4d10e61acdce30,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92f894ac67a1a1942b4d10e61acdce30, type: 3}

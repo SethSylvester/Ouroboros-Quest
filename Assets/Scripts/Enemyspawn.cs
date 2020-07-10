@@ -44,6 +44,7 @@ public class Enemyspawn : MonoBehaviour
         _waveRestartTimer = WaveRestartTimer;
         playerkills = 0;
         enemyspawn = gameObject.GetComponent<Enemyspawn>();
+        GoblinSpawnAmountLimit = 0;
     }
 
     // Update is called once per frame

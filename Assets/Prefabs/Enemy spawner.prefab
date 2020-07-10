@@ -56,5 +56,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   WaveRestartTimer: 10
-  WaveRestartKillLimit: 5
+  WaveRestartKillLimit: 3
   playerkills: 0

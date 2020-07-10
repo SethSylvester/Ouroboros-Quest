@@ -13,7 +13,9 @@ public class Enemyspawn : MonoBehaviour
 
     private Transform target;
     public int SlimeSpawnAmountLimit;
+    [HideInInspector]
     public int GoblinSpawnAmountLimit;
+
     public int SalamanderSpawnAmountLimit;
     public float SpawnTimer;
     public List<Transform> SpawnPoint;
@@ -42,6 +44,7 @@ public class Enemyspawn : MonoBehaviour
         _waveRestartTimer = WaveRestartTimer;
         playerkills = 0;
         enemyspawn = gameObject.GetComponent<Enemyspawn>();
+        GoblinSpawnAmountLimit = 0;
     }
 
     // Update is called once per frame

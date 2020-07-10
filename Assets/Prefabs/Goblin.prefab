@@ -226,7 +226,7 @@ MonoBehaviour:
   isDropped: 0
   Enemy: {fileID: 0}
   death: 0
-  Health: 20
+  Health: 2
   enemyspawner: {fileID: 0}
   Target: {fileID: 0}
   ChargeSpeed: 20

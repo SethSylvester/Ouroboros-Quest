@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boss Island.unity
     guid: 26c5a51894be19b45980c49cf794cbbf
+  - enabled: 1
+    path: Assets/Scenes/Game Lose Screen.unity
+    guid: a564ac47e851e8b4b910d01fdc8213a1
+  - enabled: 1
+    path: Assets/Scenes/Game Win Screen.unity
+    guid: ac48640582be8454486329963aa89a54
   m_configObjects: {}

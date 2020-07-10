@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: aee89645dfca0df47abad9aa6d927574, type: 2}
 --- !u!1 &24881994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2708103642403477072, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: b2a0f82c21d9c1a41a3fb880d61ce01f,
         type: 3}

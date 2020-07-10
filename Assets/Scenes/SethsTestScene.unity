@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -349,6 +349,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 51115905}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &51115905
 Transform:
   m_ObjectHideFlags: 0
@@ -440,6 +443,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 101394517}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &101394517
 Transform:
   m_ObjectHideFlags: 0
@@ -606,7 +612,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1377,6 +1383,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 459575912}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &459575912
 Transform:
   m_ObjectHideFlags: 0
@@ -2453,6 +2462,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 728233131}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &728233131
 Transform:
   m_ObjectHideFlags: 0
@@ -2895,13 +2907,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31f4651e81d0eb44bfa3422bee49a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   currentAttack: 0
   spreadShot: {fileID: 623903915}
   knifeFork: {fileID: 2058952004}
   knifeShower: {fileID: 1633627769}
   WaveOne: {fileID: 2112060347}
   WaveTwo: {fileID: 1044650305}
-  WaveThree: {fileID: 1132065727}
+  WaveFive: {fileID: 0}
   projectile1: {fileID: 2028314375}
   projectile2: {fileID: 1832842841}
   projectile3: {fileID: 565353912}
@@ -3040,6 +3053,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 828932204}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &828932204
 Transform:
   m_ObjectHideFlags: 0
@@ -3377,6 +3393,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 925303540}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &925303540
 Transform:
   m_ObjectHideFlags: 0
@@ -4012,6 +4031,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 1133669052}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &1133669052
 Transform:
   m_ObjectHideFlags: 0
@@ -4634,6 +4656,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 1276095787}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &1276095787
 Transform:
   m_ObjectHideFlags: 0
@@ -5845,6 +5870,9 @@ MonoBehaviour:
   SpawnTimer: 1.3
   SpawnPoint:
   - {fileID: 1806425784}
+  WaveRestartTimer: 0
+  WaveRestartKillLimit: 0
+  playerkills: 0
 --- !u!4 &1806425784
 Transform:
   m_ObjectHideFlags: 0

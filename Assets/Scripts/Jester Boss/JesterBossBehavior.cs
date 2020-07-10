@@ -190,10 +190,9 @@ public class JesterBossBehavior : MonoBehaviour
         {
             vulnerable = false;
 
-            ////Pick a random attack
-            //currentAttack = (Attack)Random.Range(1, 5);
+            //Pick a random attack
+            currentAttack = (Attack)Random.Range(1, 5);
 
-            currentAttack = Attack.SuperAttack;
 
             //Reset the knifefork attack if its picked
             if (currentAttack == Attack.KnifeFork)

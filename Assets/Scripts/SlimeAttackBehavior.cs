@@ -16,7 +16,7 @@ public class SlimeAttackBehavior : MonoBehaviour
     {
         
     }
-    private void OntriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!Slime.death)
         {

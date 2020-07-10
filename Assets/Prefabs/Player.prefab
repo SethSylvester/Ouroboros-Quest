@@ -13829,6 +13829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityDefault: 1
+  animator: {fileID: 7881477216914379917}
 --- !u!143 &6894744714144324007
 CharacterController:
   m_ObjectHideFlags: 0
@@ -13860,11 +13861,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordHitbox: {fileID: 2840036769758486610}
-  axeHitbox: {fileID: 7464771377424485797}
   arrowSpawner: {fileID: 7879176166463465484}
   arrow: {fileID: 4733063997773502064, guid: dd957d4319a9d6744910f4c520a5fe83, type: 3}
   swordModel: {fileID: 7471395533581154943}
-  axeModel: {fileID: 5085756677689799961}
   bowModel: {fileID: 1960866333958076363}
   animator: {fileID: 7881477216914379917}
 --- !u!114 &1585762695904333692
@@ -18529,12 +18528,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f0b943d24e03143b53edf17172bf36, type: 3}
---- !u!1 &5085756677689799961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b4f0b943d24e03143b53edf17172bf36,
-    type: 3}
-  m_PrefabInstance: {fileID: 3870230175434812432}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8128827007595415306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b4f0b943d24e03143b53edf17172bf36,

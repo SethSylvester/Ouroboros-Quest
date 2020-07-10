@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScriptBehavior : MonoBehaviour
 {
     static public int hp = 3;
-    static public int shards = 100;
+    static public int shards = 10;
     static public int damage = 1;
     static public float attackDelay = 1.0f;
     static public float speed = 5.0f;
@@ -12,7 +12,7 @@ public class PlayerScriptBehavior : MonoBehaviour
     static public float slowedSpeed;
     static public float gravityDefault = 1.0f;
 
-    static public Weapon weapon = Weapon.Bow;
+    static public Weapon weapon = Weapon.Sword;
 
     public bool invul = false;
     public float iFramesDefault = 0.5f;
@@ -52,10 +52,6 @@ public class PlayerScriptBehavior : MonoBehaviour
             SwitchWeapon(0);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchWeapon(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             SwitchWeapon(3);
         }
@@ -131,10 +127,10 @@ public class PlayerScriptBehavior : MonoBehaviour
         {
             damage = 2;
         }
-        else if (weapon == Weapon.Axe)
-        {
-            damage = 4;
-        }
+        //else if (weapon == Weapon.Axe)
+        //{
+        //    damage = 4;
+        //}
         else if (weapon == Weapon.Bow)
         {
             damage = 1;

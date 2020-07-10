@@ -5,7 +5,7 @@ public class PlayerAttackBehavior : MonoBehaviour
     //private variables
     private float attackDelay;
 
-    private float hitboxSpawnTimeDefault = 0.5f;
+    private float hitboxSpawnTimeDefault = 0.3f;
     private float hitboxSpawnTime;
 
     private float _attackDelayTimer;
@@ -16,16 +16,12 @@ public class PlayerAttackBehavior : MonoBehaviour
     [SerializeField]
     GameObject swordHitbox;
     [SerializeField]
-    GameObject axeHitbox;
-    [SerializeField]
     GameObject arrowSpawner;
     [SerializeField]
     GameObject arrow;
 
     [SerializeField]
     GameObject swordModel;
-    [SerializeField]
-    GameObject axeModel;
     [SerializeField]
     GameObject bowModel;
 
@@ -62,9 +58,9 @@ public class PlayerAttackBehavior : MonoBehaviour
                 animator.SetTrigger("Attack");
                     swordHitbox.SetActive(true);
                     break;
-                case PlayerScriptBehavior.Weapon.Axe:
-                    axeHitbox.SetActive(true);
-                    break;
+                //case PlayerScriptBehavior.Weapon.Axe:
+                //    axeHitbox.SetActive(true);
+                //    break;
                 case PlayerScriptBehavior.Weapon.Bow:
                 Vector3 arrowSpawnPoint = arrowSpawner.transform.position;
                 Instantiate(arrow, arrowSpawnPoint, transform.rotation);
@@ -86,9 +82,9 @@ public class PlayerAttackBehavior : MonoBehaviour
             //Sword
             if (swordHitbox.activeSelf)
             { swordHitbox.SetActive(false); }
-            //Axe
-            else if (axeHitbox.activeSelf)
-            { axeHitbox.SetActive(false); }
+            ////Axe
+            //else if (axeHitbox.activeSelf)
+            //{ axeHitbox.SetActive(false); }
 
             //Stop & reset the timer
             weaponOut = false;
@@ -121,7 +117,7 @@ public class PlayerAttackBehavior : MonoBehaviour
     public void SwitchWeaponModel()
     {
         swordModel.SetActive(false);
-        axeModel.SetActive(false);
+        //axeModel.SetActive(false);
         bowModel.SetActive(false);
 
         switch (PlayerScriptBehavior.weapon)
@@ -129,9 +125,9 @@ public class PlayerAttackBehavior : MonoBehaviour
             case (PlayerScriptBehavior.Weapon.Sword):
                 swordModel.SetActive(true);
                 break;
-            case (PlayerScriptBehavior.Weapon.Axe):
-                axeModel.SetActive(true);
-                break;
+            //case (PlayerScriptBehavior.Weapon.Axe):
+            //    axeModel.SetActive(true);
+            //    break;
             case (PlayerScriptBehavior.Weapon.Bow):
                 bowModel.SetActive(true);
                 break;

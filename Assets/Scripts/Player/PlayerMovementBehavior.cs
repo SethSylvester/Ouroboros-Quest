@@ -11,7 +11,7 @@ public class PlayerMovementBehavior : MonoBehaviour
     private float _gravity;
     private float _groundDistance = 1.0f;
 
-    private bool _jumping = false;
+    //private bool _jumping = false;
 
     //Movement Vectors
     private Vector3 _verticalGravity = new Vector3(0, 0, 0);
@@ -32,22 +32,22 @@ public class PlayerMovementBehavior : MonoBehaviour
         _gravity = gravityDefault;
     }
 
-    private void Jump()
-    {
-        //Modify gravity
-        _movement += new Vector3(0, 1, 0);
-        //Start the jump timer
-        _jumpTimer -= Time.deltaTime;
+    //private void Jump()
+    //{
+    //    //Modify gravity
+    //    _movement += new Vector3(0, 1, 0);
+    //    //Start the jump timer
+    //    _jumpTimer -= Time.deltaTime;
 
-        //when the jump timer ends
-        if (_jumpTimer <= 0)
-        {
-            //reset it
-            _jumpTimer = 0.5f;
-            //No more jumping
-            _jumping = false;
-        }
-    }
+    //    //when the jump timer ends
+    //    if (_jumpTimer <= 0)
+    //    {
+    //        //reset it
+    //        _jumpTimer = 0.5f;
+    //        //No more jumping
+    //        _jumping = false;
+    //    }
+    //}
 
     // Update is called once per frame
     private void Update()
@@ -58,9 +58,9 @@ public class PlayerMovementBehavior : MonoBehaviour
         //###PLAYER MOVEMENT###
         GetInput();
 
-        //Jump if jumping
-        if (_jumping)
-            Jump();
+        ////Jump if jumping
+        //if (_jumping)
+        //    Jump();
 
         //Normalize after deciding which movement to use
         _movement.Normalize();
@@ -116,11 +116,12 @@ public class PlayerMovementBehavior : MonoBehaviour
         _verticalGravity = new Vector3(0, 0, 0);
 
         //If the player is falling increase gravity for a more weighty feeling
-        if (!IsGrounded() && !_jumping && _gravity <= 30) { _gravity += 0.1f; }
+        if (!IsGrounded() && _gravity <= 30) { _gravity += 0.1f; }
         else if (IsGrounded()) { _gravity = gravityDefault; }
 
-        //Add gravity if not jumping
-        if (!_jumping) { _verticalGravity += new Vector3(0, -gravityDefault, 0); }
+        ////Add gravity if not jumping
+        //if (!_jumping) { _verticalGravity += new Vector3(0, -gravityDefault, 0); }
+        _verticalGravity += new Vector3(0, -gravityDefault, 0);
 
         //Normalize so it only goes one pixel at a time
         _verticalGravity.Normalize();
@@ -159,9 +160,9 @@ public class PlayerMovementBehavior : MonoBehaviour
         //Find the direction
         _movement = new Vector3(0, 0, 0);
 
-        //Jump if possible and space is pressed
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
-            _jumping = true;
+        ////Jump if possible and space is pressed
+        //if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        //    _jumping = true;
 
         //Teleport
         if (PlayerScriptBehavior.shards > 0 && Input.GetKeyDown(KeyCode.LeftShift))

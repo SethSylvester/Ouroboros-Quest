@@ -12,7 +12,7 @@ public class PlayerScriptBehavior : MonoBehaviour
     static public float slowedSpeed;
     static public float gravityDefault = 1.0f;
 
-    static public Weapon weapon = Weapon.Bow;
+    static public Weapon weapon = Weapon.Sword;
 
     public bool invul = false;
     public float iFramesDefault = 0.5f;

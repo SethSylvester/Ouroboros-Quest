@@ -20,6 +20,9 @@ public class PlayerMovementBehavior : MonoBehaviour
     //The character controller
     private CharacterController _controller;
 
+    [SerializeField]
+    private Animator animator;
+
     private void Start()
     {
         //Get the gravity
@@ -72,6 +75,9 @@ public class PlayerMovementBehavior : MonoBehaviour
 
         //Tell the player to face the mouse location
         FaceDirection();
+
+        animator.SetFloat("Speed", _movement.magnitude / PlayerScriptBehavior.speed);
+
     }
 
     //Move the character up

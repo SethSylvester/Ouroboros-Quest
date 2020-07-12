@@ -253,7 +253,7 @@ MonoBehaviour:
   isDropped: 0
   Enemy: {fileID: 0}
   death: 0
-  Health: 2
+  Health: 4
   enemyspawner: {fileID: 0}
   Target: {fileID: 0}
   NormalAttack: 0

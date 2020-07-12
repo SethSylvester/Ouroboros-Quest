@@ -50,7 +50,7 @@ MonoBehaviour:
   SlimeSpawnAmountLimit: 0
   GoblinSpawnAmountLimit: 0
   SalamanderSpawnAmountLimit: 1
-  SpawnTimer: 3
+  SpawnTimer: 2
   SpawnPoint:
   - {fileID: 5049698691646439529}
   - {fileID: 0}

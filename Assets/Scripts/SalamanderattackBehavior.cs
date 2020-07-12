@@ -67,7 +67,8 @@ public class SalamanderattackBehavior : MonoBehaviour
                             _fireTimer = FireTimer;
                             _fireRestTimer = FireRestTimer;
                             Salamander.RangedAttackPlayed = false;
-                            Salamander.EnemyAnimator.speed = .75f;
+                            //Salamander.EnemyAnimator.speed = .75f;
+                            Salamander.EnemyAnimator.SetFloat("Speed", 0);
                         }
                         //Salamander.EnemyAnimator.SetTrigger("AtkCancel");
                         //Salamander.EnemyAnimator.speed = 0f;

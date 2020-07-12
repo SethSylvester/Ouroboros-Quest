@@ -44,6 +44,7 @@ public class SlimeBehavior : EnemyBehavior
             {
                 //sets the enemies destination to the target
                 agent.destination = Target.position;
+                EnemyAnimator.SetFloat("Speed", 1);
             }
             //This is used to tell the slime what to do when jump attack is true
             if (jumpattack)
@@ -145,6 +146,7 @@ public class SlimeBehavior : EnemyBehavior
                         agent.speed = _oldspeed;
                         _stopJumpAttackTime = StopJumpAttacktime;
                         EnemyAnimator.SetTrigger("AtkCancel");
+                        EnemyAnimator.SetFloat("Speed", 0);
                     }
 
                 }

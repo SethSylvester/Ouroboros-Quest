@@ -99,7 +99,7 @@ public class SalamanderMovement : EnemyBehavior
                 //}
                 if (!RangedAttack && !_jumpBack && !NormalAttack && _restTimer <= 0)
                 {
-                    EnemyAnimator.speed = 1.0f;
+                    EnemyAnimator.SetFloat("Speed", 1);
                     agent.isStopped = false;
                     Timer -= Time.deltaTime;
                     //Debug.Log(Timer);

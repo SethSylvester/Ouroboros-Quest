@@ -1,7 +1,7 @@
 # Ouroboros Quest
 ## Summary:
 
-Created as part of an 72 hour gamejam hosted by Academy of Interaction Entertainment, Lafayette Louisiana campus. You play as a knife trying to reforge all of its pieces through various minigames.
+You play as a hero on a quest to collect shards and defeat an evil jester
 
 ## Controls:
 
